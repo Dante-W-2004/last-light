@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://lcgoacfo8lyi"]
+
+[ext_resource type="Texture2D" uid="uid://bigtpafk1d5kp" path="res://Global Editor Configs/foxy-jumpscare_sheet.png" id="1_7g2yq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47k0a"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(0, 0, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y5mu"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(1920, 0, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swl7a"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(3840, 0, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvso0"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(5760, 0, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieo6w"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(7680, 0, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p20fh"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(0, 1440, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqdtl"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(1920, 1440, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejisu"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(3840, 1440, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmnfn"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(5760, 1440, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwd5c"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(7680, 1440, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jk7l"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(0, 2880, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj84g"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(1920, 2880, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fe1w"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(3840, 2880, 1920, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn734"]
+atlas = ExtResource("1_7g2yq")
+region = Rect2(5760, 2880, 1920, 1440)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysemw"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Clear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47k0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y5mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swl7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvso0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieo6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p20fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqdtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejisu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmnfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwd5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jk7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj84g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fe1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn734")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 24.0
+}]
+
+[node name="Jumpscare" type="Control" unique_id=1943081889]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1919.0
+offset_bottom = -1079.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Foxy" type="AnimatedSprite2D" parent="." unique_id=1825738374]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_ysemw")
+animation = &"Jump"
+autoplay = "Jump"
