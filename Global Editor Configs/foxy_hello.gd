@@ -17,9 +17,9 @@ func _physics_process(delta: float) -> void:
 		
 	time_since_last_attempt += delta
 
-	if time_since_last_attempt >= 2:
+	if time_since_last_attempt >= 1:
 		time_since_last_attempt = 0
-		if random.randi_range(1, random_chance_in/2) == 1:
+		if random.randi_range(1, random_chance_in) == 1:
 			play_jumpscare()
 
 func play_jumpscare() -> void:
