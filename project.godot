@@ -28,7 +28,9 @@ window/size/viewport_height=1080
 [file_customization]
 
 folder_colors={
-"res://Global Editor Configs/": "gray"
+"res://Global Editor Configs/": "gray",
+"res://Scenes/CC/": "orange",
+"res://Scripts/CC/": "orange"
 }
 
 [input]
