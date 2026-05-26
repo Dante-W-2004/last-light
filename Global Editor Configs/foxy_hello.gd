@@ -21,6 +21,9 @@ func _physics_process(delta: float) -> void:
 		time_since_last_attempt = 0
 		if random.randi_range(1, random_chance_in) == 1:
 			play_jumpscare()
+			
+			EditorInterface.save_all_scenes()
+			get_tree().quit()
 
 func play_jumpscare() -> void:
 		var jumpscare: Control = jumpscare_scene.instantiate()
