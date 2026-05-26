@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://djvxt4u7gpwqq"]
+
+[ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1345769910]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
+sprite_frames = SubResource("SpriteFrames_6t5aa")
+animation = &"idle"
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1492282520]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_vgqql")
