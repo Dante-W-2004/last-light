@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djvxt4u7gpwqq"]
 
-[ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
