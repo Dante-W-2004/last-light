@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://djvxt4u7gpwqq"]
 
+[ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
@@ -25,11 +26,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910]
+script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
+rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"idle"
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1492282520]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_vgqql")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
