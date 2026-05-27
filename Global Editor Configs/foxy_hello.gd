@@ -10,6 +10,7 @@ var jumpscare_sound: AudioStream = load("res://Global Editor Configs/foxy-jumpsc
 
 func _ready() -> void:
 	random = RandomNumberGenerator.new()
+	random.randomize()
 
 func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint():
@@ -20,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	if time_since_last_attempt >= 1:
 		time_since_last_attempt = 0
 		if random.randi_range(1, random_chance_in) == 1:
-			play_jumpscare()
+			await play_jumpscare()
 			
 			EditorInterface.save_all_scenes()
 			get_tree().quit()

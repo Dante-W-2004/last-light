@@ -28,7 +28,10 @@ window/size/viewport_height=1080
 [file_customization]
 
 folder_colors={
+"res://Composites/Attributes/": "yellow",
+"res://Composites/Effects/": "red",
 "res://Global Editor Configs/": "gray",
+"res://Items/": "purple",
 "res://Scenes/CC/": "orange",
 "res://Scripts/CC/": "orange"
 }

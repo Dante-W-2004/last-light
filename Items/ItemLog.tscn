@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ccl2850dawfic"]
+
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Composites/base_item.gd" id="1_d4k3y"]
+[ext_resource type="Script" uid="uid://y55uhnuxlri1" path="res://Composites/Attributes/is_fuel.gd" id="2_ypt6c"]
+[ext_resource type="Script" uid="uid://wlbfaka5arqq" path="res://Composites/Effects/mod_timer.gd" id="3_3lsb8"]
+[ext_resource type="Script" uid="uid://lky3emfl66km" path="res://Composites/base_effect.gd" id="3_y2sq2"]
+
+[sub_resource type="Resource" id="Resource_7ppww"]
+script = ExtResource("3_3lsb8")
+metadata/_custom_type_script = "uid://wlbfaka5arqq"
+
+[node name="ItemLog" type="Node2D" unique_id=1230829490]
+script = ExtResource("1_d4k3y")
+metadata/_custom_type_script = "uid://cpqcushef3v2o"
+
+[node name="IsFuel" type="Node" parent="." unique_id=1856625121]
+script = ExtResource("2_ypt6c")
+effects = Dictionary[String, ExtResource("3_y2sq2")]({
+"timer": SubResource("Resource_7ppww")
+})
+metadata/_custom_type_script = "uid://y55uhnuxlri1"
