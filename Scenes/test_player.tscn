@@ -16,4 +16,3 @@ texture = ExtResource("2_qkid2")
 shape = SubResource("CircleShape2D_hiw3p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1490519287]
-zoom = Vector2(0.5, 0.5)

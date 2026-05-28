@@ -12,7 +12,7 @@ enum State {
 @export var detect_range: float = 250.0
 @export var lose_range: float = 350.0
 @export var attack_range: float = 35.0
-@export var attack_damage: int = 10
+@export var attack_damage: int = 5
 @export var attack_cooldown: float = 1.5
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -87,14 +87,15 @@ func attack_state():
 
 	velocity = Vector2.ZERO
 
-	if can_attack:
+	if can_attack and not player.is_dead:
 		attack_player()
 
 func attack_player():
 	can_attack = false
 
-	if player.has_method("take_damage"):
+	if player != null and not player.is_dead and player.has_method("take_damage"):
 		player.take_damage(attack_damage)
+		print("Stalker attacked")
 
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
