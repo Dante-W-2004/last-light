@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://klkiodnvsnw8"]
+
+[ext_resource type="Script" uid="uid://1twi3j6fkytc" path="res://Scripts/stalker.gd" id="1_dnoy0"]
+[ext_resource type="Texture2D" uid="uid://d1j48ghwmrd4f" path="res://Assets/wolf2d.png" id="2_umuvm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umuvm"]
+
+[node name="Stalker" type="CharacterBody2D" unique_id=1101845300]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_dnoy0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=558509185]
+texture = ExtResource("2_umuvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647297118]
+shape = SubResource("CircleShape2D_umuvm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=560629437]
