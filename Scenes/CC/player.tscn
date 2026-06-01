@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scenes/CC/health.gd" id="3_i4tma"]
+[ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -38,3 +40,39 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195165591]
+layer = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=251916560]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -177.0
+offset_right = 527.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="Thirst" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=937558855]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+value = 100.0
+
+[node name="Hunger" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=634551281]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+value = 100.0
+
+[node name="Health" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=174824219]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+value = 100.0
+script = ExtResource("3_i4tma")
+
+[node name="Health" type="Node" parent="." unique_id=144610415]
+script = ExtResource("3_vu5q1")
+metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
+
+[connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
+[connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
