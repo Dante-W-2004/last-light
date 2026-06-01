@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpa0skuivpl5e"]
 
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_f7kci"]
-[ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/player.tscn" id="2_oo253"]
+[ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="2_oo253"]
 
 [node name="Node2D" type="Node2D" unique_id=621896892]
 
