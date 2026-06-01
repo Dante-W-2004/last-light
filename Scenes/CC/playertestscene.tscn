@@ -17,5 +17,8 @@ texture = ExtResource("1_f7kci")
 position = Vector2(207, 821)
 texture = ExtResource("1_f7kci")
 
-[node name="Player" parent="." unique_id=1345769910 instance=ExtResource("2_oo253")]
+[node name="Player" parent="." unique_id=1345769910 node_paths=PackedStringArray("components") instance=ExtResource("2_oo253")]
 position = Vector2(934, 520)
+components = {
+"health": NodePath("Health")
+}

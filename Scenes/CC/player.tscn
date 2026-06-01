@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scenes/CC/health.gd" id="3_i4tma"]
+[ext_resource type="Script" uid="uid://c5qdicccyy12b" path="res://Scenes/CC/thirst.gd" id="3_45qwv"]
+[ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scripts/CC/health.gd" id="3_i4tma"]
 [ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
+[ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
+[ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
+[ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -27,8 +31,20 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1345769910]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3qfg"]
+bg_color = Color(0.5269177, 0.8820838, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfoq3"]
+bg_color = Color(0.46035558, 0.30856434, 0.17943233, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qwv"]
+bg_color = Color(1, 0.34222248, 0.28608096, 1)
+
+[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components")]
 script = ExtResource("1_cvnsp")
+components = {
+"health": NodePath("Health")
+}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
 rotation = -1.5707964
@@ -56,17 +72,22 @@ grow_vertical = 0
 
 [node name="Thirst" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=937558855]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_w3qfg")
 value = 100.0
+script = ExtResource("3_45qwv")
 
 [node name="Hunger" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=634551281]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-value = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_rfoq3")
+script = ExtResource("3_w3qfg")
 
 [node name="Health" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=174824219]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_45qwv")
 value = 100.0
 script = ExtResource("3_i4tma")
 
@@ -74,5 +95,17 @@ script = ExtResource("3_i4tma")
 script = ExtResource("3_vu5q1")
 metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
 
+[node name="Hunger" type="Node" parent="." unique_id=1526929030]
+script = ExtResource("5_24c5u")
+metadata/_custom_type_script = "uid://iobkyunu6vh0"
+
+[node name="Thirst" type="Node" parent="." unique_id=1834857322]
+script = ExtResource("8_c0qla")
+metadata/_custom_type_script = "uid://bc7skdm2n4op"
+
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
+[connection signal="broadcast_maxhunger" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_broadcast_maxhunger"]
+[connection signal="hunger_changed" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_hunger_changed"]
+[connection signal="broadcast_maxthirst" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_broadcast_maxthirst"]
+[connection signal="thirst_changed" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_thirst_changed"]

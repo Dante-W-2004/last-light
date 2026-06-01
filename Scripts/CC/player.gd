@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var speed: int = 400
+@export var components: Dictionary[String,BaseComponent]
+@export var speed: float = 400
 
 #Movement
 func get_input():
