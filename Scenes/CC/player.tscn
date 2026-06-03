@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
 [ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
 [ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
-[ext_resource type="Script" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
+[ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
 [ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
 [ext_resource type="AudioStream" uid="uid://cs2s32gch37w8" path="res://Audio/CC/Hunger/GrowlingStomach3.mp3" id="12_wvk4b"]
 
@@ -105,7 +105,6 @@ metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
 
 [node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode", "hunger_audio_player")]
 script = ExtResource("5_24c5u")
-drain_rate = 10.0
 healthnode = NodePath("../Health")
 hunger_audio_player = NodePath("../AudioStreamPlayer")
 metadata/_custom_type_script = "uid://iobkyunu6vh0"
@@ -123,7 +122,7 @@ hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4
 [node name="Light" type="Area2D" parent="." unique_id=1858431104]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light" unique_id=1233785360]
-scale = Vector2(40, 40)
+scale = Vector2(35, 35)
 shape = SubResource("CircleShape2D_45qwv")
 debug_color = Color(0.60267687, 0.5389425, 0.18063581, 0.41960785)
 
