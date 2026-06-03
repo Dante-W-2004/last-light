@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
 [ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
+[ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
+[ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
+[ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
+[ext_resource type="AudioStream" uid="uid://cs2s32gch37w8" path="res://Audio/CC/Hunger/GrowlingStomach3.mp3" id="12_wvk4b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -95,9 +99,11 @@ script = ExtResource("3_i4tma")
 script = ExtResource("3_vu5q1")
 metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
 
-[node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode")]
+[node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode", "hunger_audio_player")]
 script = ExtResource("5_24c5u")
+drain_rate = 10.0
 healthnode = NodePath("../Health")
+hunger_audio_player = NodePath("../AudioStreamPlayer")
 metadata/_custom_type_script = "uid://iobkyunu6vh0"
 
 [node name="Thirst" type="Node" parent="." unique_id=1834857322 node_paths=PackedStringArray("healthnode")]
@@ -105,6 +111,10 @@ script = ExtResource("8_c0qla")
 drain_rate = 0.45
 healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://bc7skdm2n4op"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
+script = ExtResource("9_d0gtu")
+hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
 
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
