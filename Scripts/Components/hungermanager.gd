@@ -54,5 +54,7 @@ func modify_hunger(_hunger_modifier):
 		print("honger")
 		hunger_audio_player.play_hunger_sound()
 		first_hunger_warning_played = true
-	if current_hunger == hunger_threshold and first_hunger_warning_played:
+	if current_hunger >= hunger_threshold and first_hunger_warning_played:
 		first_hunger_warning_played = false
+	if current_hunger >= 0 and last_hunger_warning_played:
+		last_hunger_warning_played = false
