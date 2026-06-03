@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
 [ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
 [ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
-[ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
+[ext_resource type="Script" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
 [ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
 [ext_resource type="AudioStream" uid="uid://cs2s32gch37w8" path="res://Audio/CC/Hunger/GrowlingStomach3.mp3" id="12_wvk4b"]
 
@@ -43,6 +43,10 @@ bg_color = Color(0.46035558, 0.30856434, 0.17943233, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qwv"]
 bg_color = Color(1, 0.34222248, 0.28608096, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45qwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qla"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components")]
 script = ExtResource("1_cvnsp")
@@ -115,6 +119,20 @@ metadata/_custom_type_script = "uid://bc7skdm2n4op"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
 script = ExtResource("9_d0gtu")
 hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
+
+[node name="Light" type="Area2D" parent="." unique_id=1858431104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light" unique_id=1233785360]
+scale = Vector2(40, 40)
+shape = SubResource("CircleShape2D_45qwv")
+debug_color = Color(0.60267687, 0.5389425, 0.18063581, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1811275730]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=753740012]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_c0qla")
+debug_color = Color(0.6623401, 0.11746546, 0.26079968, 0.41960785)
 
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
