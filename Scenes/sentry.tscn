@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cxub4opx5yetm"]
+
+[ext_resource type="Script" uid="uid://b02sc0gvuxpp4" path="res://Scripts/sentry.gd" id="1_o6ph4"]
+[ext_resource type="Texture2D" uid="uid://bs7ymhl3odu7g" path="res://Assets/sentry2d.png" id="2_cte0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwsy7"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf4fg"]
+radius = 120.0
+
+[node name="Sentry" type="Node2D" unique_id=687428681]
+script = ExtResource("1_o6ph4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571062137]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_cte0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630777642]
+shape = SubResource("CircleShape2D_gwsy7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=324608856]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1658644700]
+shape = SubResource("CircleShape2D_lf4fg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
