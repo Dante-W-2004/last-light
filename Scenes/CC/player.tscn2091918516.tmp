@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
 [ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
+[ext_resource type="Script" uid="uid://dn7jiid7vh223" path="res://Scripts/Components/damagemanager.gd" id="9_c0qla"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -95,20 +96,25 @@ script = ExtResource("3_i4tma")
 script = ExtResource("3_vu5q1")
 metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
 
-[node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode")]
+[node name="Hunger" type="Node" parent="." unique_id=1526929030]
 script = ExtResource("5_24c5u")
-healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://iobkyunu6vh0"
 
-[node name="Thirst" type="Node" parent="." unique_id=1834857322 node_paths=PackedStringArray("healthnode")]
+[node name="Thirst" type="Node" parent="." unique_id=1834857322]
 script = ExtResource("8_c0qla")
 drain_rate = 0.45
-healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://bc7skdm2n4op"
+
+[node name="Damage" type="Node" parent="." unique_id=2005489846]
+script = ExtResource("9_c0qla")
+metadata/_custom_type_script = "uid://dn7jiid7vh223"
 
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
+[connection signal="health_changed" from="Health" to="Damage" method="_on_health_health_changed"]
 [connection signal="broadcast_maxhunger" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_broadcast_maxhunger"]
 [connection signal="hunger_changed" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_hunger_changed"]
+[connection signal="on_starve" from="Hunger" to="Damage" method="_on_hunger_on_starve"]
 [connection signal="broadcast_maxthirst" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_broadcast_maxthirst"]
+[connection signal="on_dehydrate" from="Thirst" to="Damage" method="_on_thirst_on_dehydrate"]
 [connection signal="thirst_changed" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_thirst_changed"]
