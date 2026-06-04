@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cxub4opx5yetm" path="res://Scenes/sentry.tscn" id="3_kln2b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rxg2q"]
-vertices = PackedVector2Array(333.8828, 389.0625, -450.97656, 393.9297, -450.0078, -535.0781, 323.10938, -541.90625)
+vertices = PackedVector2Array(328.97656, -534.0078, 328.0078, 394, -450.9922, 394, -450.0078, -534.97656)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-460, -545, 333, -552, 344, 399, -461, 404)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-460, -545, 339, -544, 338, 404, -461, 404)])
 
 [node name="Node2D" type="Node2D" unique_id=717562141]
 
