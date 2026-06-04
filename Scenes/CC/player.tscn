@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
 [ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
 [ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
-[ext_resource type="Script" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
+[ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
 [ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
 [ext_resource type="AudioStream" uid="uid://cs2s32gch37w8" path="res://Audio/CC/Hunger/GrowlingStomach3.mp3" id="12_wvk4b"]
 
