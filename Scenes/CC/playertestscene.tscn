@@ -20,6 +20,8 @@ texture = ExtResource("1_f7kci")
 
 [node name="Player" parent="." unique_id=1345769910 node_paths=PackedStringArray("components") instance=ExtResource("2_oo253")]
 position = Vector2(934, 520)
+collision_layer = 1
+collision_mask = 1
 components = {
 "health": NodePath("Health")
 }
