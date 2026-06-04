@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var components: Dictionary[String,BaseComponent]
 @export var speed: float = 400
+@export var audio_manager: PAManager
 
 #Movement
 func get_input():
@@ -12,3 +13,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+	
+func _on_ambiance_timer_timeout() -> void: 
+	if audio_manager != null: 
+		audio_manager.play_ambiance_sound()
