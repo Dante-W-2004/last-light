@@ -105,7 +105,6 @@ metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
 
 [node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode", "hunger_audio_player")]
 script = ExtResource("5_24c5u")
-drain_rate = 10.0
 healthnode = NodePath("../Health")
 hunger_audio_player = NodePath("../AudioStreamPlayer")
 metadata/_custom_type_script = "uid://iobkyunu6vh0"
