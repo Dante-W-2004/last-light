@@ -49,6 +49,8 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qla"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components")]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_cvnsp")
 components = {
 "health": NodePath("Health")
@@ -119,7 +121,7 @@ metadata/_custom_type_script = "uid://bc7skdm2n4op"
 script = ExtResource("9_d0gtu")
 hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
 
-[node name="Light" type="Area2D" parent="." unique_id=1858431104]
+[node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light" unique_id=1233785360]
 scale = Vector2(35, 35)
