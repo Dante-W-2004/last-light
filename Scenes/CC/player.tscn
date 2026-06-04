@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://0uwdfx1bioh0" path="res://Audio/Ambiance/Wind1.mp3" id="13_vr6am"]
 [ext_resource type="AudioStream" uid="uid://boxwxf383wt1f" path="res://Audio/Ambiance/Crickets1.mp3" id="14_pt4y4"]
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
+[ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -51,7 +52,9 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qla"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fexen"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_cvnsp")
@@ -59,6 +62,7 @@ components = {
 "health": NodePath("Health")
 }
 audio_manager = NodePath("AudioStreamPlayer")
+torch_area = NodePath("TorchScare")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
 rotation = -1.5707964
@@ -144,6 +148,23 @@ debug_color = Color(0.6623401, 0.11746546, 0.26079968, 0.41960785)
 [node name="ambiance_timer" type="Timer" parent="." unique_id=648672945]
 wait_time = 0.33
 autostart = true
+
+[node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("16_pt4y4")]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=580616281]
+position = Vector2(125, 0)
+scale = Vector2(6, 12)
+shape = SubResource("RectangleShape2D_fexen")
+debug_color = Color(0.7985059, 0.42259586, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="TorchScare" unique_id=461153750]
+modulate = Color(0.86, 0.7453334, 0, 0.22352941)
+self_modulate = Color(0.92260206, 0.58315927, 0, 1)
+position = Vector2(125, 0)
+scale = Vector2(1, 2)
+texture = ExtResource("1_v0iea")
 
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
