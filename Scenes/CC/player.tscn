@@ -126,6 +126,7 @@ healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://bc7skdm2n4op"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
+bus = &"PlayerAudio"
 script = ExtResource("9_d0gtu")
 hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
 ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
