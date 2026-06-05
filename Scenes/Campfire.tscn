@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhxvbhjabiyuq"]
+
+[ext_resource type="Texture2D" uid="uid://dg00i20n0u1gs" path="res://Assets/TempCampfire.png" id="1_vbyay"]
+[ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_441wj"]
+size = Vector2(511, 594)
+
+[node name="Campfire" type="Node2D" unique_id=1064889945]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449556516]
+position = Vector2(0, 12)
+scale = Vector2(0.23999734, 0.24000013)
+texture = ExtResource("1_vbyay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507951456]
+position = Vector2(0, 11)
+scale = Vector2(0.23999734, 0.24000013)
+shape = SubResource("RectangleShape2D_441wj")
+
+[node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1217844817]
+stream = ExtResource("2_441wj")
+autoplay = true
+max_distance = 1200.0
