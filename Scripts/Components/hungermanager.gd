@@ -38,8 +38,8 @@ func set_hunger(_new_value):
 		starving = true
 	if current_hunger > 0:
 		starving = false
-	
-	
+
+
 
 func modify_hunger(_hunger_modifier):
 	current_hunger += _hunger_modifier

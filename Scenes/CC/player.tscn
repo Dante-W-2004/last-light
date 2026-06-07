@@ -52,7 +52,7 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qla"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fexen"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area")]
 collision_layer = 2
@@ -157,7 +157,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=580616281]
 position = Vector2(125, 0)
 scale = Vector2(6, 12)
-shape = SubResource("RectangleShape2D_fexen")
+shape = SubResource("RectangleShape2D_pt4y4")
 debug_color = Color(0.7985059, 0.42259586, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="TorchScare" unique_id=461153750]
