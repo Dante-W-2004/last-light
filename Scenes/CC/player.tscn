@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cs2s32gch37w8" path="res://Audio/CC/Hunger/GrowlingStomach3.mp3" id="12_wvk4b"]
 [ext_resource type="AudioStream" uid="uid://0uwdfx1bioh0" path="res://Audio/Ambiance/Wind1.mp3" id="13_vr6am"]
 [ext_resource type="AudioStream" uid="uid://boxwxf383wt1f" path="res://Audio/Ambiance/Crickets1.mp3" id="14_pt4y4"]
+[ext_resource type="AudioStream" uid="uid://chyd3j72t6o3g" path="res://Audio/Ambiance/Growl.mp3" id="15_35vgy"]
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
 
@@ -126,10 +127,11 @@ healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://bc7skdm2n4op"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
+bus = &"PlayerAudio"
 script = ExtResource("9_d0gtu")
 hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
 ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
-rare_ambiance_sound = ExtResource("15_fexen")
+rare_ambiance_sound = Array[AudioStream]([ExtResource("15_35vgy"), ExtResource("15_fexen")])
 
 [node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
 

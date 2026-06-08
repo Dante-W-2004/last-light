@@ -18,7 +18,7 @@ signal broadcast_maxhunger(max_hunger)
 
 func starve(delta: float):
 	if current_hunger <= 0 and not last_hunger_warning_played:
-		print("honger")
+		print("nogsteeds honger")
 		hunger_audio_player.play_hunger_sound()
 		last_hunger_warning_played = true
 	self.healthnode.modify_health(-self.hunger_damage * delta)

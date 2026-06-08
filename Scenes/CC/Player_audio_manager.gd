@@ -4,7 +4,7 @@ class_name PAManager
 @export var hunger_sounds: Array[AudioStream] = []
 @export var ambiance_sounds: Array[AudioStream] = []
 @export var rare_hunger_sound: AudioStream
-@export var rare_ambiance_sound: AudioStream
+@export var rare_ambiance_sound: Array[AudioStream] = []
 
 func play_hunger_sound() -> void:
 	var dice_roll = randi_range(1, 1000)
@@ -18,17 +18,15 @@ func play_hunger_sound() -> void:
 			play()
 
 func play_ambiance_sound() -> void: 
-	var dice_roll = randi_range(1, 100)
+	var dice_roll = randi_range(1, 200)
 	var chosen_sound: AudioStream = null
 	
-	if dice_roll <= 60: 
-		return 
-	elif dice_roll >= 61 and dice_roll <= 99:
+	if dice_roll >= 1 and dice_roll <= 199:
 		if ambiance_sounds.size() > 0:
 			chosen_sound = ambiance_sounds.pick_random()
-	elif dice_roll == 100: 
+	elif dice_roll == 200: 
 		if rare_ambiance_sound != null:
-			chosen_sound = rare_ambiance_sound
+			chosen_sound = rare_ambiance_sound.pick_random()
 
 	if chosen_sound != null:
 		spawn_temporary_ambiance(chosen_sound)
