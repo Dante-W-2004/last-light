@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://ctt5qi7desr6j" path="res://Sprites/Player-Sheet.png" id="2_35vgy"]
 [ext_resource type="Script" uid="uid://c5qdicccyy12b" path="res://Scenes/CC/thirst.gd" id="3_45qwv"]
 [ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scripts/CC/health.gd" id="3_i4tma"]
 [ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
@@ -18,15 +19,36 @@
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oqkw"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwu57"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75443"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtjj2"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvnsp")
+"texture": SubResource("AtlasTexture_7oqkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwu57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75443")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtjj2")
 }],
 "loop": true,
 "name": &"idle",
@@ -66,15 +88,15 @@ audio_manager = NodePath("AudioStreamPlayer")
 torch_area = NodePath("TorchScare")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
-rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1492282520]
-scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
+zoom = Vector2(3, 3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195165591]
 layer = 10
@@ -127,7 +149,6 @@ healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://bc7skdm2n4op"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
-bus = &"PlayerAudio"
 script = ExtResource("9_d0gtu")
 hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
 ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
@@ -136,14 +157,13 @@ rare_ambiance_sound = Array[AudioStream]([ExtResource("15_35vgy"), ExtResource("
 [node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light" unique_id=1233785360]
-scale = Vector2(35, 35)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_45qwv")
 debug_color = Color(0.60267687, 0.5389425, 0.18063581, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1811275730]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=753740012]
-scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_c0qla")
 debug_color = Color(0.6623401, 0.11746546, 0.26079968, 0.41960785)
 
@@ -156,16 +176,15 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=580616281]
-position = Vector2(125, 0)
-scale = Vector2(6, 12)
+position = Vector2(21, 0)
 shape = SubResource("RectangleShape2D_pt4y4")
 debug_color = Color(0.7985059, 0.42259586, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="TorchScare" unique_id=461153750]
 modulate = Color(0.86, 0.7453334, 0, 0.22352941)
 self_modulate = Color(0.92260206, 0.58315927, 0, 1)
-position = Vector2(125, 0)
-scale = Vector2(1, 2)
+position = Vector2(21.000008, -3.2186508e-06)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_v0iea")
 
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
