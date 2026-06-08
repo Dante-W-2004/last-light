@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://1twi3j6fkytc" path="res://Scripts/stalker.gd" id="1_dnoy0"]
 [ext_resource type="Texture2D" uid="uid://d1j48ghwmrd4f" path="res://Assets/wolf2d.png" id="2_umuvm"]
-[ext_resource type="AudioStream" uid="uid://ceubwp3suwbcu" path="res://Audio/Enemies/Stalker/WolfSpawn.mp3" id="3_7lcwv"]
+[ext_resource type="AudioStream" uid="uid://ceubwp3suwbcu" path="res://Audio/Enemies/Stalker/Howls/Howl6.mp3" id="3_7lcwv"]
 [ext_resource type="Script" uid="uid://dck0pn6t7dfit" path="res://Scenes/Stalker_Audio_Manager.gd" id="4_gx3k3"]
+[ext_resource type="AudioStream" uid="uid://bnkdvjjr5tyml" path="res://Audio/Enemies/Stalker/Howls/Howl2.mp3" id="5_nturs"]
+[ext_resource type="AudioStream" uid="uid://c5wvlnx6ocjej" path="res://Audio/Enemies/Stalker/Howls/Howl3.mp3" id="6_5mmam"]
+[ext_resource type="AudioStream" uid="uid://pr63btwyi5mc" path="res://Audio/Enemies/Stalker/Howls/Howl4.mp3" id="7_16nwl"]
+[ext_resource type="AudioStream" uid="uid://cre5gxw4v5c0e" path="res://Audio/Enemies/Stalker/Howls/Howl5.mp3" id="8_et8fq"]
+[ext_resource type="AudioStream" uid="uid://gvhbb6de43hn" path="res://Audio/Enemies/Stalker/Howls/Howl1.mp3" id="9_mp32v"]
+[ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="10_5mmam"]
+[ext_resource type="AudioStream" uid="uid://chyd3j72t6o3g" path="res://Audio/Ambiance/Growl.mp3" id="11_16nwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umuvm"]
 size = Vector2(500.00006, 500.00006)
@@ -25,5 +32,7 @@ shape = SubResource("RectangleShape2D_umuvm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=286063062]
 autoplay = true
+max_distance = 1500.0
 script = ExtResource("4_gx3k3")
-spawn_sounds = Array[AudioStream]([ExtResource("3_7lcwv")])
+spawn_sounds = Array[AudioStream]([ExtResource("3_7lcwv"), ExtResource("5_nturs"), ExtResource("6_5mmam"), ExtResource("7_16nwl"), ExtResource("8_et8fq"), ExtResource("9_mp32v")])
+chase_state_sounds = Array[AudioStream]([ExtResource("10_5mmam"), ExtResource("11_16nwl")])
