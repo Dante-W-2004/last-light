@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var components: Dictionary[String,BaseComponent]
-@export var speed: float = 400
+@export var speed: float = 200
 @export var audio_manager: PAManager
 @export var swing_cd: float = 2
 @export var torch_area: Area2D
@@ -31,11 +32,13 @@ func swing_cooldown():
 	can_swing = true
 
 func torch_swing():
+	animated_sprite.play("swiping")
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	torch_area.global_rotation = global_rotation
 	torch_area.monitoring = true
 	torch_area.visible = true
-	await get_tree().create_timer(.45).timeout
+	await get_tree().create_timer(.75).timeout
+	animated_sprite.play("idle")
 	torch_area.monitoring = false
 	torch_area.visible = false
 

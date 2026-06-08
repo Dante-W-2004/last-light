@@ -1,24 +1,72 @@
 [gd_scene format=3 uid="uid://bhxvbhjabiyuq"]
 
-[ext_resource type="Texture2D" uid="uid://dg00i20n0u1gs" path="res://Assets/TempCampfire.png" id="1_vbyay"]
+[ext_resource type="Texture2D" uid="uid://b3ydbxdgsxd1c" path="res://Sprites/Campfire-Sheet.png" id="2_0tsqt"]
 [ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
+[ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="3_0tsqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_441wj"]
 size = Vector2(511, 594)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rb6s"]
+atlas = ExtResource("2_0tsqt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glem2"]
+atlas = ExtResource("2_0tsqt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u7do"]
+atlas = ExtResource("2_0tsqt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h71cq"]
+atlas = ExtResource("2_0tsqt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4oil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rb6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glem2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u7do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h71cq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rb6s"]
+
 [node name="Campfire" type="Node2D" unique_id=1064889945]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449556516]
-position = Vector2(0, 12)
-scale = Vector2(0.23999734, 0.24000013)
-texture = ExtResource("1_vbyay")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=62097339]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507951456]
-position = Vector2(0, 11)
-scale = Vector2(0.23999734, 0.24000013)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=507951456]
+scale = Vector2(0.05, 0.05)
 shape = SubResource("RectangleShape2D_441wj")
 
-[node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1217844817]
+[node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="StaticBody2D" unique_id=1217844817]
 stream = ExtResource("2_441wj")
 autoplay = true
 max_distance = 1200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=135469856]
+sprite_frames = SubResource("SpriteFrames_g4oil")
+autoplay = "default"
+frame = 3
+frame_progress = 0.09031407
+
+[node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("3_0tsqt")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=763469361]
+scale = Vector2(7.5, 7.5)
+shape = SubResource("CircleShape2D_8rb6s")
+debug_color = Color(0.6717562, 0.50334567, 0.20911995, 0.41960785)
