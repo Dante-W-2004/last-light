@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://c5qdicccyy12b" path="res://Scenes/CC/thirst.gd" id="3_45qwv"]
+[ext_resource type="Script" uid="uid://c5qdicccyy12b" path="res://Scripts/CC/thirst.gd" id="3_45qwv"]
 [ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scripts/CC/health.gd" id="3_i4tma"]
 [ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
 [ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
