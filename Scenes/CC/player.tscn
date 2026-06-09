@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
 [ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
-[ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/thirstmanager.gd" id="8_c0qla"]
+[ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/CC/thirstmanager.gd" id="8_c0qla"]
 [ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
 [ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
 [ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://chyd3j72t6o3g" path="res://Audio/Ambiance/Growl.mp3" id="15_35vgy"]
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
+[ext_resource type="Script" uid="uid://ctaygo3fptu8g" path="res://Scripts/CC/scoremanager.gd" id="19_7oqkw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oqkw"]
 atlas = ExtResource("2_35vgy")
@@ -126,9 +127,9 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area")]
+[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area") groups=["player"]]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_cvnsp")
 components = {
 "health": NodePath("Health")
@@ -172,6 +173,7 @@ script = ExtResource("3_45qwv")
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/fill = SubResource("StyleBoxFlat_rfoq3")
+value = 100.0
 script = ExtResource("3_w3qfg")
 
 [node name="Health" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=174824219]
@@ -180,6 +182,30 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/fill = SubResource("StyleBoxFlat_45qwv")
 value = 100.0
 script = ExtResource("3_i4tma")
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1912595143]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 104.0
+offset_right = 20.0
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="ScoreButton" type="Button" parent="CanvasLayer" unique_id=1730697294]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Add Score"
 
 [node name="Health" type="Node" parent="." unique_id=144610415]
 script = ExtResource("3_vu5q1")
@@ -196,6 +222,10 @@ script = ExtResource("8_c0qla")
 drain_rate = 0.45
 healthnode = NodePath("../Health")
 metadata/_custom_type_script = "uid://bc7skdm2n4op"
+
+[node name="Score" type="Node" parent="." unique_id=38657602 node_paths=PackedStringArray("scoreLabel")]
+script = ExtResource("19_7oqkw")
+scoreLabel = NodePath("../CanvasLayer/Score")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
 script = ExtResource("9_d0gtu")
@@ -216,10 +246,6 @@ debug_color = Color(0.60267687, 0.5389425, 0.18063581, 0.41960785)
 shape = SubResource("RectangleShape2D_c0qla")
 debug_color = Color(0.6623401, 0.11746546, 0.26079968, 0.41960785)
 
-[node name="ambiance_timer" type="Timer" parent="." unique_id=648672945]
-wait_time = 0.33
-autostart = true
-
 [node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("16_pt4y4")]
 collision_layer = 8
 collision_mask = 4
@@ -230,6 +256,11 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_pt4y4")
 debug_color = Color(0.7985059, 0.42259586, 0, 0.41960785)
 
+[node name="ambiance_timer" type="Timer" parent="." unique_id=648672945]
+wait_time = 0.33
+autostart = true
+
+[connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
 [connection signal="broadcast_maxhunger" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_broadcast_maxhunger"]

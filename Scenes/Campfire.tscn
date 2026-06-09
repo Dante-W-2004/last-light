@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://b3ydbxdgsxd1c" path="res://Sprites/Campfire-Sheet.png" id="2_0tsqt"]
 [ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="3_0tsqt"]
+[ext_resource type="Script" uid="uid://tne83i2ygq2w" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
+[ext_resource type="PackedScene" uid="uid://ledagudwml00" path="res://Scenes/ExtractMenu.tscn" id="5_glem2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_441wj"]
-size = Vector2(511, 594)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0tsqt"]
+radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rb6s"]
 atlas = ExtResource("2_0tsqt")
@@ -44,29 +46,37 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rb6s"]
+radius = 75.0
 
-[node name="Campfire" type="Node2D" unique_id=1064889945]
+[node name="Campfire" type="StaticBody2D" unique_id=62097339]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=62097339]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507951456]
+shape = SubResource("CircleShape2D_0tsqt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=507951456]
-scale = Vector2(0.05, 0.05)
-shape = SubResource("RectangleShape2D_441wj")
-
-[node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="StaticBody2D" unique_id=1217844817]
+[node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1217844817]
 stream = ExtResource("2_441wj")
 autoplay = true
 max_distance = 1200.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=135469856]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=135469856]
 sprite_frames = SubResource("SpriteFrames_g4oil")
 autoplay = "default"
 frame = 3
 frame_progress = 0.09031407
 
 [node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("3_0tsqt")]
+collision_layer = 4
+collision_mask = 2
+is_monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=763469361]
-scale = Vector2(7.5, 7.5)
 shape = SubResource("CircleShape2D_8rb6s")
 debug_color = Color(0.6717562, 0.50334567, 0.20911995, 0.41960785)
+
+[node name="Extract" type="Node" parent="." unique_id=1537851893 node_paths=PackedStringArray("extract_zone")]
+script = ExtResource("4_8rb6s")
+extract_zone = NodePath("../TorchScare")
+extract_menu = ExtResource("5_glem2")
+metadata/_custom_type_script = "uid://tne83i2ygq2w"
+
+[connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]

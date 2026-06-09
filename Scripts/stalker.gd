@@ -24,7 +24,7 @@ enum State {
 # Runtime variables
 var health: int
 var state: State = State.IDLE
-var player: Node2D = null
+var player: Player = null
 var can_attack: bool = true
 
 # Sets health and finds the player when the enemy spawns

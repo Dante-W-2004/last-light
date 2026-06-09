@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var components: Dictionary[String,BaseComponent]
@@ -20,8 +21,8 @@ func get_input():
 	look_at(get_global_mouse_position())
 	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
-
-	if Input.is_action_just_pressed("swing") and can_swing == true:
+	
+	if Input.is_action_just_pressed("swing") and can_swing:
 		swing.emit()
 		can_swing = false
 		swing_cooldown()
