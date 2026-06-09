@@ -33,11 +33,12 @@ func swing_cooldown():
 
 func torch_swing():
 	animated_sprite.play("swiping")
+	await get_tree().create_timer(.2).timeout
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	torch_area.global_rotation = global_rotation
 	torch_area.monitoring = true
 	torch_area.visible = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(.8).timeout
 	animated_sprite.play("idle")
 	torch_area.monitoring = false
 	torch_area.visible = false
