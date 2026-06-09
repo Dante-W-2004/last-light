@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b53kg7lcu0ohu"]
+
+[ext_resource type="Script" uid="uid://cempvyoaxpd4p" path="res://Scripts/Systems n Data/inventory_manager.gd" id="1_uugkl"]
+
+[node name="Inventory" type="Control" unique_id=644164475]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uugkl")
+max_weight = 10.0

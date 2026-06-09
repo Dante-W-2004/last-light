@@ -18,19 +18,22 @@ config/icon="res://icon.svg"
 [autoload]
 
 Funny="uid://bdayxi5hvluy6"
-GlobalPhysics="*uid://bssqf4l8j37ug"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [file_customization]
 
 folder_colors={
+"res://Composites/Attributes/": "yellow",
 "res://Global Editor Configs/": "gray",
+"res://Items/": "purple",
 "res://Scenes/CC/": "orange",
-"res://Scripts/CC/": "orange"
+"res://Scenes/Systems n Data/": "green",
+"res://Scripts/CC/": "orange",
+"res://Scripts/Systems n Data/": "green"
 }
 
 [input]
