@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_f7kci"]
 [ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="2_oo253"]
-[ext_resource type="PackedScene" path="res://Scenes/Campfire.tscn" id="3_xmbm0"]
+[ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="3_xmbm0"]
 [ext_resource type="PackedScene" uid="uid://klkiodnvsnw8" path="res://Scenes/stalker.tscn" id="4_0jdtf"]
 
 [node name="Node2D" type="Node2D" unique_id=621896892]
@@ -31,16 +31,16 @@ components = {
 position = Vector2(1589, -38)
 
 [node name="Stalker" parent="." unique_id=1101845300 instance=ExtResource("4_0jdtf")]
-position = Vector2(1886, 467)
+position = Vector2(774.0001, 571)
 collision_layer = 4
 collision_mask = 8
 
 [node name="Stalker2" parent="." unique_id=766252805 instance=ExtResource("4_0jdtf")]
-position = Vector2(1187, 810)
+position = Vector2(999, 640)
 collision_layer = 4
 collision_mask = 8
 
 [node name="Stalker3" parent="." unique_id=661509002 instance=ExtResource("4_0jdtf")]
-position = Vector2(1263, 218.00002)
+position = Vector2(1104, 450)
 collision_layer = 4
 collision_mask = 8

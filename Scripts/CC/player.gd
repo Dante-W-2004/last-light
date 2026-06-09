@@ -35,7 +35,7 @@ func torch_swing():
 	torch_area.global_rotation = global_rotation
 	torch_area.monitoring = true
 	torch_area.visible = true
-	await get_tree().create_timer(.25).timeout
+	await get_tree().create_timer(.45).timeout
 	torch_area.monitoring = false
 	torch_area.visible = false
 
