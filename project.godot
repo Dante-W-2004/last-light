@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Last Light"
-run/main_scene="uid://bmmro783k16pe"
+run/main_scene="uid://dd1qtx6wlc3ey"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0.4872275, 0.3283672, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-Funny="uid://bdayxi5hvluy6"
+Funny="*uid://bdayxi5hvluy6"
 GlobalPhysics="*uid://bssqf4l8j37ug"
 
 [display]
@@ -29,6 +30,7 @@ window/size/viewport_height=1080
 
 folder_colors={
 "res://Global Editor Configs/": "gray",
+"res://Procedural Generation/": "purple",
 "res://Scenes/CC/": "orange",
 "res://Scripts/CC/": "orange"
 }
@@ -69,3 +71,4 @@ right={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.21649924, 0.27717808, 0.21899748, 1)

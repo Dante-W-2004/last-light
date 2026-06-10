@@ -38,3 +38,4 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
+zoom = Vector2(2, 2)
