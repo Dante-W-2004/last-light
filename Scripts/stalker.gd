@@ -16,6 +16,7 @@ enum State {
 @export var attack_range: float = 35.0
 @export var attack_damage: int = 5
 @export var attack_cooldown: float = 1.5
+@export var audio_manager: SAManager
 
 # NavigationAgent2D is used for pathfinding toward the player
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -23,11 +24,12 @@ enum State {
 # Runtime variables
 var health: int
 var state: State = State.IDLE
-var player: Node2D = null
+var player: Player = null
 var can_attack: bool = true
 
 # Sets health and finds the player when the enemy spawns
 func _ready():
+	audio_manager.play_spawn_sound()
 	health = max_health
 	find_player()
 
