@@ -20,7 +20,6 @@ var height : int = 200
 var noise_val_arr = []
 
 var source_id = 1
-var source_id_scenes = 0
 
 var water_layer = 0
 var grass_layer = 1
@@ -92,12 +91,6 @@ func generate_world():
 					
 				elif final_value >= 0.7:
 					tall_tiles_arr.append(Vector2i(x,y))
-				else:
-					print("Failed placement: ", final_value)
-			else:
-				print("Oh no (No swearing please): ", noise_value)
-					
-				
 					
 				# Separate logic, does not interact with actual tilemap	
 				if final_value > 0.2 and final_value < 0.5 and treesnstuff_value > 0.5 and treesnstuff_value < 0.7:
@@ -114,8 +107,8 @@ func generate_world():
 						TreeArray.erase(RandomTree)
 			
 	
-	tile_map.set_cells_terrain_connect(grass_layer, grass_tiles_arr, 0, terrain_grass_int)
-	tile_map.set_cells_terrain_connect(tall_layer, tall_tiles_arr, 0, terrain_tall_int)
-	tile_map.set_cells_terrain_connect(water_layer, water_tiles_arr, 0, terrain_water_int)
-	tile_map.set_cells_terrain_connect(sand_layer, sand_tiles_arr, 0, terrain_sand_int)
+	tile_map.set_cells_terrain_connect(grass_layer, grass_tiles_arr, 0, terrain_grass_int, false)
+	tile_map.set_cells_terrain_connect(tall_layer, tall_tiles_arr, 0, terrain_tall_int, false)
+	tile_map.set_cells_terrain_connect(water_layer, water_tiles_arr, 0, terrain_water_int, false)
+	tile_map.set_cells_terrain_connect(sand_layer, sand_tiles_arr, 0, terrain_sand_int, false)
 		
