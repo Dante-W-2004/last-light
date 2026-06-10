@@ -9,7 +9,7 @@ class_name Player
 @export var torch_area: Area2D
 var can_swing: bool = true
 signal swing
-
+#update
 func _ready():
 	swing.connect(torch_swing)
 	
