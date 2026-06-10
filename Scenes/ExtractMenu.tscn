@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ledagudwml00"]
+
+[ext_resource type="Script" uid="uid://c1yv6rkdk7ae7" path="res://Scripts/extract_menu.gd" id="1_60r3h"]
+
+[node name="Control" type="Control" unique_id=1770719316 node_paths=PackedStringArray("score_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60r3h")
+score_label = NodePath("VBoxContainer/Score")
+level_scene = "res://Scenes/CC/playertestscene.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1762369861]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.5
+offset_top = -97.5
+offset_right = 143.5
+offset_bottom = 311.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreText" type="Label" parent="VBoxContainer" unique_id=1146262987]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="VBoxContainer" unique_id=1187179012]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer" unique_id=581759550]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "PLAY AGAIN"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=735554376]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

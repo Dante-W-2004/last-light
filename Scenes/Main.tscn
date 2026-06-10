@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c8ri1x4n55hp6"]
+[gd_scene format=3 uid="uid://bmmro783k16pe"]
 
 [ext_resource type="PackedScene" uid="uid://klkiodnvsnw8" path="res://Scenes/stalker.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://cxub4opx5yetm" path="res://Scenes/sentry.tscn" id="3_kln2b"]

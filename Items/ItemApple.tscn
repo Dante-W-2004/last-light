@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://brswsxjjws1w2"]
+
+[ext_resource type="Script" uid="uid://dj4oaggf2ktrl" path="res://Composites/Attributes/is_food.gd" id="1_2m562"]
+[ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_dq4my"]
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Composites/base_item.gd" id="1_y8ldx"]
+
+[node name="ItemApple" type="Node2D" unique_id=141034067]
+script = ExtResource("1_y8ldx")
+item_name = "Apple"
+item_description = "It's a fucking apple, what did you think it was?"
+metadata/_custom_type_script = "uid://cpqcushef3v2o"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=368069550]
+modulate = Color(3.2392077, 0, 0, 1)
+texture = ExtResource("1_dq4my")
+
+[node name="IsFood" type="Node" parent="." unique_id=191486796]
+script = ExtResource("1_2m562")
+food_amount = 10.0
+heal_amount = 10.0
+metadata/_custom_type_script = "uid://dj4oaggf2ktrl"

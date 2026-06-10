@@ -1,40 +1,148 @@
 [gd_scene format=3 uid="uid://djvxt4u7gpwqq"]
 
 [ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://ctt5qi7desr6j" path="res://Sprites/Player-Sheet.png" id="2_35vgy"]
+[ext_resource type="Texture2D" uid="uid://duiikpivqjnk8" path="res://Sprites/PlayerSwing-Sheet.png" id="3_35vgy"]
+[ext_resource type="Script" uid="uid://c5qdicccyy12b" path="res://Scenes/CC/thirst.gd" id="3_45qwv"]
+[ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scripts/CC/health.gd" id="3_i4tma"]
+[ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
+[ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
+[ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
+[ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/CC/thirstmanager.gd" id="8_c0qla"]
+[ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
+[ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
+[ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
+[ext_resource type="AudioStream" uid="uid://cs2s32gch37w8" path="res://Audio/CC/Hunger/GrowlingStomach3.mp3" id="12_wvk4b"]
+[ext_resource type="AudioStream" uid="uid://0uwdfx1bioh0" path="res://Audio/Ambiance/Wind1.mp3" id="13_vr6am"]
+[ext_resource type="AudioStream" uid="uid://boxwxf383wt1f" path="res://Audio/Ambiance/Crickets1.mp3" id="14_pt4y4"]
+[ext_resource type="AudioStream" uid="uid://chyd3j72t6o3g" path="res://Audio/Ambiance/Growl.mp3" id="15_35vgy"]
+[ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
+[ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
+[ext_resource type="Script" uid="uid://ctaygo3fptu8g" path="res://Scripts/CC/scoremanager.gd" id="19_7oqkw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oqkw"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwu57"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75443"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtjj2"]
+atlas = ExtResource("2_35vgy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji33o"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiaso"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le4wb"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2ra6"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ishl"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x25dk"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aw0g"]
+atlas = ExtResource("3_35vgy")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvnsp")
+"texture": SubResource("AtlasTexture_7oqkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwu57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75443")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtjj2")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji33o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiaso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le4wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2ra6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ishl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x25dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aw0g")
+}],
 "loop": true,
-"name": &"walking",
-"speed": 5.0
+"name": &"swiping",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1345769910]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3qfg"]
+bg_color = Color(0.5269177, 0.8820838, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfoq3"]
+bg_color = Color(0.46035558, 0.30856434, 0.17943233, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qwv"]
+bg_color = Color(1, 0.34222248, 0.28608096, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45qwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area") groups=["player"]]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_cvnsp")
+components = {
+"health": NodePath("Health")
+}
+audio_manager = NodePath("AudioStreamPlayer")
+torch_area = NodePath("TorchScare")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
-rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"idle"
+animation = &"swiping"
+autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1492282520]
-scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
