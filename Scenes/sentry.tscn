@@ -1,28 +1,96 @@
 [gd_scene format=3 uid="uid://cxub4opx5yetm"]
 
-[ext_resource type="Script" uid="uid://b02sc0gvuxpp4" path="res://Scripts/sentry.gd" id="1_o6ph4"]
-[ext_resource type="Texture2D" uid="uid://bs7ymhl3odu7g" path="res://Assets/sentry2d.png" id="2_cte0o"]
+[ext_resource type="Texture2D" uid="uid://bit54hdtp3pv0" path="res://Sprites/Scarecrow-Sheet.png" id="1_o6ph4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gwsy7"]
-radius = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_cte0o"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h72c"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07yxn"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkwct"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lir7"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4ae"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcdt3"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcd6i"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylqfv"]
+atlas = ExtResource("1_o6ph4")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwx43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cte0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h72c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07yxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkwct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lir7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcdt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcd6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylqfv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dkji"]
+radius = 12.0
+height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf4fg"]
 radius = 120.0
 
-[node name="Sentry" type="Node2D" unique_id=687428681]
-script = ExtResource("1_o6ph4")
+[node name="Scarecrow" type="StaticBody2D" unique_id=1387577397]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571062137]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_cte0o")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=745109141]
+sprite_frames = SubResource("SpriteFrames_pwx43")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630777642]
-shape = SubResource("CircleShape2D_gwsy7")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0dkji")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=324608856]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1658644700]
 shape = SubResource("CircleShape2D_lf4fg")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

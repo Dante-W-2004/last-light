@@ -44,11 +44,11 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	if player.is_dead:
-		velocity = Vector2.ZERO
-		state = State.IDLE
-		move_and_slide()
-		return
+	#if player.is_dead:
+		#velocity = Vector2.ZERO
+		#state = State.IDLE
+		#move_and_slide()
+		#return
 
 	match state:
 		State.IDLE:
@@ -107,36 +107,37 @@ func attack_state():
 
 	velocity = Vector2.ZERO
 
-	if can_attack and not player.is_dead:
+	if can_attack: #and not player.is_dead:
 		attack_player()
 
 # Deals damage, then waits before attacking again
 func attack_player():
 	can_attack = false
 
-	if player != null and not player.is_dead and player.has_method("take_damage"):
-		player.take_damage(attack_damage)
-		print("Stalker attacked")
+	#if player != null and not player.is_dead and player.has_method("take_damage"):
+		#player.take_damage(attack_damage)
+		#print("Stalker attacked")
 
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
 # Reduces enemy health when hit
-func take_damage(amount: int):
-	if state == State.DEAD:
-		return
+#func take_damage(amount: int):
+	#if state == State.DEAD:
+		#return
 
-	health -= amount
-	print("Stalker HP: ", health)
+	#health -= amount
+	#print("Stalker HP: ", health)
 
-	if health <= 0:
-		die()
-	else:
-		state = State.CHASE
+	#if health <= 0:
+		#pass
+		#die()
+	#else:
+		#state = State.CHASE
 
 # Removes the enemy when health reaches zero
-func die():
-	state = State.DEAD
-	velocity = Vector2.ZERO
-	print("Stalker died")
-	queue_free()
+#func die():
+	#state = State.DEAD
+	#velocity = Vector2.ZERO
+	#print("Stalker died")
+	#queue_free()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://klkiodnvsnw8"]
 
 [ext_resource type="Script" uid="uid://1twi3j6fkytc" path="res://Scripts/stalker.gd" id="1_dnoy0"]
-[ext_resource type="Texture2D" uid="uid://d1j48ghwmrd4f" path="res://Assets/wolf2d.png" id="2_umuvm"]
+[ext_resource type="Texture2D" uid="uid://cxsum4sifotjo" path="res://Sprites/Wolf-Sheet.png" id="2_16nwl"]
 [ext_resource type="AudioStream" uid="uid://ceubwp3suwbcu" path="res://Audio/Enemies/Stalker/Howls/Howl6.mp3" id="3_7lcwv"]
 [ext_resource type="Script" uid="uid://dck0pn6t7dfit" path="res://Scenes/Stalker_Audio_Manager.gd" id="4_gx3k3"]
 [ext_resource type="AudioStream" uid="uid://bnkdvjjr5tyml" path="res://Audio/Enemies/Stalker/Howls/Howl2.mp3" id="5_nturs"]
@@ -12,16 +12,54 @@
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="10_5mmam"]
 [ext_resource type="AudioStream" uid="uid://chyd3j72t6o3g" path="res://Audio/Ambiance/Growl.mp3" id="11_16nwl"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_et8fq"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp32v"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmr3k"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1275i"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgbl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et8fq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp32v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmr3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1275i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umuvm"]
-size = Vector2(500.00006, 500.00006)
+size = Vector2(32, 10)
 
 [node name="Stalker" type="CharacterBody2D" unique_id=1101845300 node_paths=PackedStringArray("audio_manager") groups=["enemy"]]
-scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_dnoy0")
 audio_manager = NodePath("AudioStreamPlayer2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=558509185]
-texture = ExtResource("2_umuvm")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1585706497]
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_fgbl6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647297118]
 position = Vector2(-2.8610224e-05, 2.8610224e-05)
