@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bhxvbhjabiyuq"]
 
+[ext_resource type="Script" uid="uid://bg83veidyxgsv" path="res://Scripts/campfire.gd" id="1_3u7do"]
 [ext_resource type="Texture2D" uid="uid://b3ydbxdgsxd1c" path="res://Sprites/Campfire-Sheet.png" id="2_0tsqt"]
 [ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="3_0tsqt"]
@@ -49,6 +50,7 @@ animations = [{
 radius = 75.0
 
 [node name="Campfire" type="StaticBody2D" unique_id=62097339]
+script = ExtResource("1_3u7do")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507951456]
 shape = SubResource("CircleShape2D_0tsqt")
@@ -79,4 +81,5 @@ extract_zone = NodePath("../TorchScare")
 extract_menu = ExtResource("5_glem2")
 metadata/_custom_type_script = "uid://tne83i2ygq2w"
 
+[connection signal="canextract" from="." to="Extract" method="_on_campfire_canextract"]
 [connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]
