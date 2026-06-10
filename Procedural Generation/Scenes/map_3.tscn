@@ -1,0 +1,570 @@
+[gd_scene format=3 uid="uid://dd1qtx6wlc3ey"]
+
+[ext_resource type="Script" uid="uid://cn8p0r6q7wqmw" path="res://Procedural Generation/Scripts/map_3.gd" id="1_ilaih"]
+[ext_resource type="TileSet" uid="uid://cili4vutq8qfp" path="res://Procedural Generation/Scripts/Map.tres" id="2_hyata"]
+[ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="3_am5t7"]
+[ext_resource type="PackedScene" uid="uid://tbqueqnedgxx" path="res://Procedural Generation/Scenes/dead_tree.tscn" id="4_f76ke"]
+[ext_resource type="PackedScene" uid="uid://bt8hkxhoo4jcu" path="res://Procedural Generation/Scenes/not_dead_tree.tscn" id="5_bdluc"]
+
+[sub_resource type="Gradient" id="Gradient_hyata"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.31384614, 0.53846157, 0.75384617, 1)
+colors = PackedColorArray(0, 0, 0.5764706, 1, 0.10490634, 0.3136963, 0.6930661, 1, 0.18431373, 0.47843137, 0.06666667, 1, 0.22745098, 0.27058825, 0.06666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_am5t7"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yf3xl"]
+noise = SubResource("FastNoiseLite_am5t7")
+color_ramp = SubResource("Gradient_hyata")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f76ke"]
+noise_type = 0
+frequency = 0.15
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_am5t7"]
+noise = SubResource("FastNoiseLite_f76ke")
+
+[sub_resource type="Gradient" id="Gradient_yf3xl"]
+offsets = PackedFloat32Array(0, 0.25625, 0.7875, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.034852546, 0.034852546, 0.034852546, 1, 0.6639219, 0.6639219, 0.6639219, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d52bh"]
+gradient = SubResource("Gradient_yf3xl")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="TileSet" id="TileSet_bdluc"]
+
+[node name="Map3" type="Node2D" unique_id=1155159092]
+script = ExtResource("1_ilaih")
+noise_height_text = SubResource("NoiseTexture2D_yf3xl")
+noise_treesnstuff_text = SubResource("NoiseTexture2D_am5t7")
+gradient = SubResource("GradientTexture2D_d52bh")
+
+[node name="Player" parent="." unique_id=1345769910 instance=ExtResource("3_am5t7")]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+speed = 200
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1749240410]
+tile_set = ExtResource("2_hyata")
+format = 2
+layer_0/name = "water"
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(130972, 65537, 2, 65436, 65537, 2, -100, 65537, 2, -65636, 65537, 2, -131172, 65537, 2, -196708, 65537, 2, -262244, 65537, 2, 196508, 65537, 2, 262044, 65537, 2, 327580, 65537, 2, 393116, 65537, 2, 458652, 65537, 2, 524188, 65537, 2, 589724, 65537, 2, 655260, 65537, 2, 720796, 65537, 2, 786332, 65537, 2, 851868, 65537, 2, 917404, 65537, 2, 982940, 65537, 2, 1048476, 65537, 2, 1114012, 65537, 2, 1179548, 65537, 2, 1245084, 65537, 2, 1310620, 65537, 2, 1376156, 65537, 2, 1441692, 65537, 2, 1507228, 65537, 2, 1572764, 65537, 2, 1638300, 65537, 2, 1703836, 65537, 2, 1769372, 65537, 2, 1834908, 65537, 2, 1900444, 65537, 2, 1965980, 65537, 2, 2031516, 65537, 2, 2097052, 65537, 2, 2162588, 65537, 2, 2228124, 65537, 2, 2293660, 65537, 2, 2359196, 65537, 2, 2424732, 65537, 2, 2490268, 65537, 2, 2555804, 65537, 2, 2621340, 65537, 2, 2686876, 65537, 2, 2752412, 65537, 2, 2817948, 65537, 2, 2883484, 65537, 2, 2949020, 65537, 2, 3014556, 65537, 2, 3080092, 65537, 2, 3145628, 65537, 2, 3211164, 65537, 2, 3276700, 65537, 2, 3342236, 65537, 2, 3407772, 65537, 2, 3473308, 65537, 2, 3538844, 65537, 2, 3604380, 65537, 2, 3669916, 65537, 2, 3735452, 65537, 2, 3800988, 65537, 2, 3866524, 65537, 2, 3932060, 65537, 2, 3997596, 65537, 2, 4063132, 65537, 2, 4128668, 65537, 2, 4194204, 65537, 2, 4259740, 65537, 2, 4325276, 65537, 2, 4390812, 65537, 2, 4456348, 65537, 2, 4521884, 65537, 2, 4587420, 65537, 2, 4652956, 65537, 2, 4718492, 65537, 2, 4784028, 65537, 2, 4849564, 65537, 2, 4915100, 65537, 2, 4980636, 65537, 2, 5046172, 65537, 2, 5111708, 65537, 2, 5177244, 65537, 2, 5242780, 65537, 2, 5308316, 65537, 2, 5373852, 65537, 2, 5439388, 65537, 2, 5504924, 65537, 2, 5570460, 65537, 2, 5635996, 65537, 2, 5701532, 65537, 2, 5767068, 65537, 2, 5832604, 65537, 2, 5898140, 65537, 2, 5963676, 65537, 2, 6029212, 65537, 2, 6094748, 65537, 2, 6160284, 65537, 2, 6225820, 65537, 2, 6291356, 65537, 2, 6356892, 65537, 2, 6422428, 65537, 2, 6487964, 65537, 2, 6553500, 65537, 2, 6619036, 65537, 2, 6684572, 65537, 2, 6684573, 65537, 2, 6684574, 65537, 2, 6684575, 65537, 2, 6684576, 65537, 2, 6684577, 65537, 2, 6684578, 65537, 2, 6684579, 65537, 2, 6684580, 65537, 2, 6684581, 65537, 2, 6684582, 65537, 2, 6684583, 65537, 2, 6684584, 65537, 2, 6684585, 65537, 2, 6684586, 65537, 2, 6684587, 65537, 2, 6684588, 65537, 2, 6684589, 65537, 2, 6684590, 65537, 2, 6684591, 65537, 2, 6684592, 65537, 2, 6684593, 65537, 2, 6684594, 65537, 2, 6684595, 65537, 2, 6684596, 65537, 2, 6684597, 65537, 2, 6684598, 65537, 2, 6684599, 65537, 2, 6684600, 65537, 2, 6684601, 65537, 2, 6684602, 65537, 2, 6684603, 65537, 2, 6684604, 65537, 2, 6684605, 65537, 2, 6684606, 65537, 2, 6684607, 65537, 2, 6684608, 65537, 2, 6684609, 65537, 2, 6684610, 65537, 2, 6684611, 65537, 2, 6684612, 65537, 2, 6684613, 65537, 2, 6684614, 65537, 2, 6684615, 65537, 2, 6684616, 65537, 2, 6684617, 65537, 2, 6684618, 65537, 2, 6684619, 65537, 2, 6684620, 65537, 2, 6684621, 65537, 2, 6684622, 65537, 2, 6684623, 65537, 2, 6684624, 65537, 2, 6684625, 65537, 2, 6684626, 65537, 2, 6684627, 65537, 2, 6684628, 65537, 2, 6684629, 65537, 2, 6684630, 65537, 2, 6684631, 65537, 2, 6684632, 65537, 2, 6684633, 65537, 2, 6684634, 65537, 2, 6684635, 65537, 2, 6684636, 65537, 2, 6684637, 65537, 2, 6684638, 65537, 2, 6684639, 65537, 2, 6684640, 65537, 2, 6684641, 65537, 2, 6684642, 65537, 2, 6684643, 65537, 2, 6684644, 65537, 2, 6684645, 65537, 2, 6684646, 65537, 2, 6684647, 65537, 2, 6684648, 65537, 2, 6684649, 65537, 2, 6684650, 65537, 2, 6684651, 65537, 2, 6684652, 65537, 2, 6684653, 65537, 2, 6684654, 65537, 2, 6684655, 65537, 2, 6684656, 65537, 2, 6684657, 65537, 2, 6684658, 65537, 2, 6684659, 65537, 2, 6684660, 65537, 2, 6684661, 65537, 2, 6684662, 65537, 2, 6684663, 65537, 2, 6684664, 65537, 2, 6684665, 65537, 2, 6684666, 65537, 2, 6684667, 65537, 2, 6684668, 65537, 2, 6684669, 65537, 2, 6684670, 65537, 2, 6684671, 65537, 2, 6619136, 65537, 2, 6619137, 65537, 2, 6619138, 65537, 2, 6619139, 65537, 2, 6619140, 65537, 2, 6619141, 65537, 2, 6619142, 65537, 2, 6619143, 65537, 2, 6619144, 65537, 2, 6619145, 65537, 2, 6619146, 65537, 2, 6619147, 65537, 2, 6619148, 65537, 2, 6619149, 65537, 2, 6619150, 65537, 2, 6619151, 65537, 2, 6619152, 65537, 2, 6619153, 65537, 2, 6619154, 65537, 2, 6619155, 65537, 2, 6619156, 65537, 2, 6619157, 65537, 2, 6619158, 65537, 2, 6619159, 65537, 2, 6619160, 65537, 2, 6619161, 65537, 2, 6619162, 65537, 2, 6619163, 65537, 2, 6619164, 65537, 2, 6619165, 65537, 2, 6619166, 65537, 2, 6619167, 65537, 2, 6619168, 65537, 2, 6619169, 65537, 2, 6619170, 65537, 2, 6619171, 65537, 2, 6619172, 65537, 2, 6619173, 65537, 2, 6619174, 65537, 2, 6619175, 65537, 2, 6619176, 65537, 2, 6619177, 65537, 2, 6619178, 65537, 2, 6619179, 65537, 2, 6619180, 65537, 2, 6619181, 65537, 2, 6619182, 65537, 2, 6619183, 65537, 2, 6619184, 65537, 2, 6619185, 65537, 2, 6619186, 65537, 2, 6619187, 65537, 2, 6619188, 65537, 2, 6619189, 65537, 2, 6619190, 65537, 2, 6619191, 65537, 2, 6619192, 65537, 2, 6619193, 65537, 2, 6619194, 65537, 2, 6619195, 65537, 2, 6619196, 65537, 2, 6619197, 65537, 2, 6619198, 65537, 2, 6619199, 65537, 2, 6619200, 65537, 2, 6619201, 65537, 2, 6619202, 65537, 2, 6619203, 65537, 2, 6619204, 65537, 2, 6619205, 65537, 2, 6619206, 65537, 2, 6619207, 65537, 2, 6619208, 65537, 2, 6619209, 65537, 2, 6619210, 65537, 2, 6619211, 65537, 2, 6619212, 65537, 2, 6619213, 65537, 2, 6619214, 65537, 2, 6619215, 65537, 2, 6619216, 65537, 2, 6619217, 65537, 2, 6619218, 65537, 2, 6619219, 65537, 2, 6619220, 65537, 2, 6619221, 65537, 2, 6619222, 65537, 2, 6619223, 65537, 2, 6619224, 65537, 2, 6619225, 65537, 2, 6619226, 65537, 2, 6619227, 65537, 2, 6619228, 65537, 2, 6619229, 65537, 2, 6619230, 65537, 2, 6619231, 65537, 2, 6619232, 65537, 2, 6619233, 65537, 2, 6619234, 65537, 2, 6619235, 65537, 2, 6619236, 65537, 2, 3014756, 65537, 2, 3080292, 65537, 2, 3145828, 65537, 2, 3211364, 65537, 2, 3276900, 65537, 2, 3342436, 65537, 2, 3407972, 65537, 2, 3473508, 65537, 2, 3539044, 65537, 2, 3604580, 65537, 2, 3670116, 65537, 2, 3735652, 65537, 2, 3801188, 65537, 2, 3866724, 65537, 2, 3932260, 65537, 2, 3997796, 65537, 2, 4063332, 65537, 2, 4128868, 65537, 2, 4194404, 65537, 2, 4259940, 65537, 2, 4325476, 65537, 2, 4391012, 65537, 2, 4456548, 65537, 2, 4522084, 65537, 2, 4587620, 65537, 2, 4653156, 65537, 2, 4718692, 65537, 2, 4784228, 65537, 2, 4849764, 65537, 2, 4915300, 65537, 2, 4980836, 65537, 2, 5046372, 65537, 2, 5111908, 65537, 2, 5177444, 65537, 2, 5242980, 65537, 2, 5308516, 65537, 2, 5374052, 65537, 2, 5439588, 65537, 2, 5505124, 65537, 2, 5570660, 65537, 2, 5636196, 65537, 2, 5701732, 65537, 2, 5767268, 65537, 2, 5832804, 65537, 2, 5898340, 65537, 2, 5963876, 65537, 2, 6029412, 65537, 2, 6094948, 65537, 2, 6160484, 65537, 2, 6226020, 65537, 2, 6291556, 65537, 2, 6357092, 65537, 2, 6422628, 65537, 2, 6488164, 65537, 2, 6553700, 65537, 2, -262044, 65537, 2, -196508, 65537, 2, -130972, 65537, 2, -65436, 65537, 2, 100, 65537, 2, 65636, 65537, 2, 131172, 65537, 2, 196708, 65537, 2, 262244, 65537, 2, 327780, 65537, 2, 393316, 65537, 2, 458852, 65537, 2, 524388, 65537, 2, 589924, 65537, 2, 655460, 65537, 2, 720996, 65537, 2, 786532, 65537, 2, 852068, 65537, 2, 917604, 65537, 2, 983140, 65537, 2, 1048676, 65537, 2, 1114212, 65537, 2, 1179748, 65537, 2, 1245284, 65537, 2, 1310820, 65537, 2, 1376356, 65537, 2, 1441892, 65537, 2, 1507428, 65537, 2, 1572964, 65537, 2, 1638500, 65537, 2, 1704036, 65537, 2, 1769572, 65537, 2, 1835108, 65537, 2, 1900644, 65537, 2, 1966180, 65537, 2, 2031716, 65537, 2, 2097252, 65537, 2, 2162788, 65537, 2, 2228324, 65537, 2, 2293860, 65537, 2, 2359396, 65537, 2, 2424932, 65537, 2, 2490468, 65537, 2, 2556004, 65537, 2, 2621540, 65537, 2, 2687076, 65537, 2, 2752612, 65537, 2, 2818148, 65537, 2, 2883684, 65537, 2, 2949220, 65537, 2, -3276700, 65537, 2, -3211164, 65537, 2, -3145628, 65537, 2, -3080092, 65537, 2, -3014556, 65537, 2, -2949020, 65537, 2, -2883484, 65537, 2, -2817948, 65537, 2, -2752412, 65537, 2, -2686876, 65537, 2, -2621340, 65537, 2, -2555804, 65537, 2, -2490268, 65537, 2, -2424732, 65537, 2, -2359196, 65537, 2, -2293660, 65537, 2, -2228124, 65537, 2, -2162588, 65537, 2, -2097052, 65537, 2, -2031516, 65537, 2, -1965980, 65537, 2, -1900444, 65537, 2, -1834908, 65537, 2, -1769372, 65537, 2, -1703836, 65537, 2, -1638300, 65537, 2, -1572764, 65537, 2, -1507228, 65537, 2, -1441692, 65537, 2, -1376156, 65537, 2, -1310620, 65537, 2, -1245084, 65537, 2, -1179548, 65537, 2, -1114012, 65537, 2, -1048476, 65537, 2, -982940, 65537, 2, -917404, 65537, 2, -851868, 65537, 2, -786332, 65537, 2, -720796, 65537, 2, -655260, 65537, 2, -589724, 65537, 2, -524188, 65537, 2, -458652, 65537, 2, -393116, 65537, 2, -327580, 65537, 2, -6356892, 65537, 2, -6291356, 65537, 2, -6225820, 65537, 2, -6160284, 65537, 2, -6094748, 65537, 2, -6029212, 65537, 2, -5963676, 65537, 2, -5898140, 65537, 2, -5832604, 65537, 2, -5767068, 65537, 2, -5701532, 65537, 2, -5635996, 65537, 2, -5570460, 65537, 2, -5504924, 65537, 2, -5439388, 65537, 2, -5373852, 65537, 2, -5308316, 65537, 2, -5242780, 65537, 2, -5177244, 65537, 2, -5111708, 65537, 2, -5046172, 65537, 2, -4980636, 65537, 2, -4915100, 65537, 2, -4849564, 65537, 2, -4784028, 65537, 2, -4718492, 65537, 2, -4652956, 65537, 2, -4587420, 65537, 2, -4521884, 65537, 2, -4456348, 65537, 2, -4390812, 65537, 2, -4325276, 65537, 2, -4259740, 65537, 2, -4194204, 65537, 2, -4128668, 65537, 2, -4063132, 65537, 2, -3997596, 65537, 2, -3932060, 65537, 2, -3866524, 65537, 2, -3800988, 65537, 2, -3735452, 65537, 2, -3669916, 65537, 2, -3604380, 65537, 2, -3538844, 65537, 2, -3473308, 65537, 2, -3407772, 65537, 2, -3342236, 65537, 2, -6553500, 65537, 2, -6487964, 65537, 2, -6422428, 65537, 2, -6488107, 65537, 2, -6488106, 65537, 2, -6488105, 65537, 2, -6488104, 65537, 2, -6488103, 65537, 2, -6488102, 65537, 2, -6488101, 65537, 2, -6488100, 65537, 2, -6488099, 65537, 2, -6488098, 65537, 2, -6488097, 65537, 2, -6488096, 65537, 2, -6488095, 65537, 2, -6488094, 65537, 2, -6488093, 65537, 2, -6488092, 65537, 2, -6488091, 65537, 2, -6488090, 65537, 2, -6488089, 65537, 2, -6488088, 65537, 2, -6488087, 65537, 2, -6488086, 65537, 2, -6488085, 65537, 2, -6488084, 65537, 2, -6488083, 65537, 2, -6488082, 65537, 2, -6488081, 65537, 2, -6488080, 65537, 2, -6488079, 65537, 2, -6488078, 65537, 2, -6488077, 65537, 2, -6488076, 65537, 2, -6488075, 65537, 2, -6488074, 65537, 2, -6488073, 65537, 2, -6488072, 65537, 2, -6488071, 65537, 2, -6488070, 65537, 2, -6488069, 65537, 2, -6488068, 65537, 2, -6488067, 65537, 2, -6488066, 65537, 2, -6488065, 65537, 2, -6553600, 65537, 2, -6553599, 65537, 2, -6553598, 65537, 2, -6553597, 65537, 2, -6553596, 65537, 2, -6553595, 65537, 2, -6553594, 65537, 2, -6553593, 65537, 2, -6553592, 65537, 2, -6553591, 65537, 2, -6553590, 65537, 2, -6553589, 65537, 2, -6553588, 65537, 2, -6553587, 65537, 2, -6553586, 65537, 2, -6553585, 65537, 2, -6553584, 65537, 2, -6553583, 65537, 2, -6553582, 65537, 2, -6553581, 65537, 2, -6553580, 65537, 2, -6553579, 65537, 2, -6553578, 65537, 2, -6553577, 65537, 2, -6553576, 65537, 2, -6553575, 65537, 2, -6553574, 65537, 2, -6553573, 65537, 2, -6553572, 65537, 2, -6553571, 65537, 2, -6553570, 65537, 2, -6553569, 65537, 2, -6553568, 65537, 2, -6553567, 65537, 2, -6553566, 65537, 2, -6553565, 65537, 2, -6553564, 65537, 2, -6553563, 65537, 2, -6553562, 65537, 2, -6553561, 65537, 2, -6553560, 65537, 2, -6553559, 65537, 2, -6553558, 65537, 2, -6553557, 65537, 2, -6553556, 65537, 2, -6553555, 65537, 2, -6553554, 65537, 2, -6553553, 65537, 2, -6553552, 65537, 2, -6553551, 65537, 2, -6553550, 65537, 2, -6553549, 65537, 2, -6553548, 65537, 2, -6553547, 65537, 2, -6553546, 65537, 2, -6553545, 65537, 2, -6553544, 65537, 2, -6553543, 65537, 2, -6553542, 65537, 2, -6553541, 65537, 2, -6553540, 65537, 2, -6553539, 65537, 2, -6553538, 65537, 2, -6553537, 65537, 2, -6553536, 65537, 2, -6553535, 65537, 2, -6553534, 65537, 2, -6553533, 65537, 2, -6553532, 65537, 2, -6553531, 65537, 2, -6553530, 65537, 2, -6553529, 65537, 2, -6553528, 65537, 2, -6553527, 65537, 2, -6553526, 65537, 2, -6553525, 65537, 2, -6553524, 65537, 2, -6553523, 65537, 2, -6553522, 65537, 2, -6553521, 65537, 2, -6553520, 65537, 2, -6553519, 65537, 2, -6553518, 65537, 2, -6553517, 65537, 2, -6553516, 65537, 2, -6553515, 65537, 2, -6553514, 65537, 2, -6553513, 65537, 2, -6553512, 65537, 2, -6553511, 65537, 2, -6553510, 65537, 2, -6553509, 65537, 2, -6553508, 65537, 2, -6553507, 65537, 2, -6553506, 65537, 2, -6553505, 65537, 2, -6553504, 65537, 2, -6553503, 65537, 2, -6553502, 65537, 2, -6553501, 65537, 2, -6488164, 65537, 2, -6488163, 65537, 2, -6488162, 65537, 2, -6488161, 65537, 2, -6488160, 65537, 2, -6488159, 65537, 2, -6488158, 65537, 2, -6488157, 65537, 2, -6488156, 65537, 2, -6488155, 65537, 2, -6488154, 65537, 2, -6488153, 65537, 2, -6488152, 65537, 2, -6488151, 65537, 2, -6488150, 65537, 2, -6488149, 65537, 2, -6488148, 65537, 2, -6488147, 65537, 2, -6488146, 65537, 2, -6488145, 65537, 2, -6488144, 65537, 2, -6488143, 65537, 2, -6488142, 65537, 2, -6488141, 65537, 2, -6488140, 65537, 2, -6488139, 65537, 2, -6488138, 65537, 2, -6488137, 65537, 2, -6488136, 65537, 2, -6488135, 65537, 2, -6488134, 65537, 2, -6488133, 65537, 2, -6488132, 65537, 2, -6488131, 65537, 2, -6488130, 65537, 2, -6488129, 65537, 2, -6488128, 65537, 2, -6488127, 65537, 2, -6488126, 65537, 2, -6488125, 65537, 2, -6488124, 65537, 2, -6488123, 65537, 2, -6488122, 65537, 2, -6488121, 65537, 2, -6488120, 65537, 2, -6488119, 65537, 2, -6488118, 65537, 2, -6488117, 65537, 2, -6488116, 65537, 2, -6488115, 65537, 2, -6488114, 65537, 2, -6488113, 65537, 2, -6488112, 65537, 2, -6488111, 65537, 2, -6488110, 65537, 2, -6488109, 65537, 2, -6488108, 65537, 2, -4259940, 65537, 2, -4194404, 65537, 2, -4128868, 65537, 2, -4063332, 65537, 2, -3997796, 65537, 2, -3932260, 65537, 2, -3866724, 65537, 2, -3801188, 65537, 2, -3735652, 65537, 2, -3670116, 65537, 2, -3604580, 65537, 2, -3539044, 65537, 2, -3473508, 65537, 2, -3407972, 65537, 2, -3342436, 65537, 2, -3276900, 65537, 2, -3211364, 65537, 2, -3145828, 65537, 2, -3080292, 65537, 2, -3014756, 65537, 2, -2949220, 65537, 2, -2883684, 65537, 2, -2818148, 65537, 2, -2752612, 65537, 2, -2687076, 65537, 2, -2621540, 65537, 2, -2556004, 65537, 2, -2490468, 65537, 2, -2424932, 65537, 2, -2359396, 65537, 2, -2293860, 65537, 2, -2228324, 65537, 2, -2162788, 65537, 2, -2097252, 65537, 2, -2031716, 65537, 2, -1966180, 65537, 2, -1900644, 65537, 2, -1835108, 65537, 2, -1769572, 65537, 2, -1704036, 65537, 2, -1638500, 65537, 2, -1572964, 65537, 2, -1507428, 65537, 2, -1441892, 65537, 2, -1376356, 65537, 2, -1310820, 65537, 2, -1245284, 65537, 2, -1179748, 65537, 2, -1114212, 65537, 2, -1048676, 65537, 2, -983140, 65537, 2, -917604, 65537, 2, -852068, 65537, 2, -786532, 65537, 2, -720996, 65537, 2, -655460, 65537, 2, -589924, 65537, 2, -524388, 65537, 2, -458852, 65537, 2, -393316, 65537, 2, -327780, 65537, 2, -6422628, 65537, 2, -6357092, 65537, 2, -6291556, 65537, 2, -6226020, 65537, 2, -6160484, 65537, 2, -6094948, 65537, 2, -6029412, 65537, 2, -5963876, 65537, 2, -5898340, 65537, 2, -5832804, 65537, 2, -5767268, 65537, 2, -5701732, 65537, 2, -5636196, 65537, 2, -5570660, 65537, 2, -5505124, 65537, 2, -5439588, 65537, 2, -5374052, 65537, 2, -5308516, 65537, 2, -5242980, 65537, 2, -5177444, 65537, 2, -5111908, 65537, 2, -5046372, 65537, 2, -4980836, 65537, 2, -4915300, 65537, 2, -4849764, 65537, 2, -4784228, 65537, 2, -4718692, 65537, 2, -4653156, 65537, 2, -4587620, 65537, 2, -4522084, 65537, 2, -4456548, 65537, 2, -4391012, 65537, 2, -4325476, 65537, 2)
+layer_1/name = "grass"
+layer_1/z_index = -1
+layer_2/name = "sand"
+layer_2/z_index = -1
+layer_3/name = "tall"
+layer_3/z_index = 2
+layer_4/name = "Trees_n_stuff"
+layer_4/z_index = -1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=318975218]
+tile_set = SubResource("TileSet_bdluc")
+
+[node name="DeadTrees" type="Node2D" parent="." unique_id=1569480679]
+position = Vector2(-60288, 3200)
+
+[node name="DeadTree" parent="DeadTrees" unique_id=415591646 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree101" parent="DeadTrees" unique_id=187056370 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree102" parent="DeadTrees" unique_id=1125749376 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree103" parent="DeadTrees" unique_id=1179977240 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree104" parent="DeadTrees" unique_id=1241623346 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree105" parent="DeadTrees" unique_id=1210886315 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree106" parent="DeadTrees" unique_id=718052057 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree107" parent="DeadTrees" unique_id=124387632 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree108" parent="DeadTrees" unique_id=1393861699 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree109" parent="DeadTrees" unique_id=2098075072 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree110" parent="DeadTrees" unique_id=1073734534 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree111" parent="DeadTrees" unique_id=615145339 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree112" parent="DeadTrees" unique_id=1912421518 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree113" parent="DeadTrees" unique_id=715953542 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree114" parent="DeadTrees" unique_id=417436439 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree115" parent="DeadTrees" unique_id=502095154 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree116" parent="DeadTrees" unique_id=1226239818 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree117" parent="DeadTrees" unique_id=1052469911 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree118" parent="DeadTrees" unique_id=2026946574 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree119" parent="DeadTrees" unique_id=1087001247 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree120" parent="DeadTrees" unique_id=1992165525 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree121" parent="DeadTrees" unique_id=2055913352 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree122" parent="DeadTrees" unique_id=2017806392 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree123" parent="DeadTrees" unique_id=1698763993 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree124" parent="DeadTrees" unique_id=999066601 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree125" parent="DeadTrees" unique_id=1365092449 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree126" parent="DeadTrees" unique_id=205956171 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree127" parent="DeadTrees" unique_id=571598385 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree128" parent="DeadTrees" unique_id=603792023 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree129" parent="DeadTrees" unique_id=2039486657 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree130" parent="DeadTrees" unique_id=1515272879 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree131" parent="DeadTrees" unique_id=1499828269 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree132" parent="DeadTrees" unique_id=338412412 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree133" parent="DeadTrees" unique_id=1381392951 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree134" parent="DeadTrees" unique_id=823970597 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree135" parent="DeadTrees" unique_id=297073560 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree136" parent="DeadTrees" unique_id=251211055 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree137" parent="DeadTrees" unique_id=86465926 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree138" parent="DeadTrees" unique_id=920206621 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree139" parent="DeadTrees" unique_id=1660529017 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree140" parent="DeadTrees" unique_id=1734723673 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree141" parent="DeadTrees" unique_id=275536306 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree142" parent="DeadTrees" unique_id=529772937 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree143" parent="DeadTrees" unique_id=2070386164 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree144" parent="DeadTrees" unique_id=1665814624 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree145" parent="DeadTrees" unique_id=743942163 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree146" parent="DeadTrees" unique_id=1462279304 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree147" parent="DeadTrees" unique_id=980703082 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree148" parent="DeadTrees" unique_id=1319388865 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree149" parent="DeadTrees" unique_id=1999860957 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreef" parent="DeadTrees" unique_id=1686966269 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreee" parent="DeadTrees" unique_id=1325220690 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreew" parent="DeadTrees" unique_id=2085774760 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreec" parent="DeadTrees" unique_id=313029495 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreeb" parent="DeadTrees" unique_id=616302798 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreea" parent="DeadTrees" unique_id=1954778625 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree70" parent="DeadTrees" unique_id=23049548 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree71" parent="DeadTrees" unique_id=125367379 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree72" parent="DeadTrees" unique_id=1887898330 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree73" parent="DeadTrees" unique_id=1370299956 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree74" parent="DeadTrees" unique_id=1834609082 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree75" parent="DeadTrees" unique_id=129984948 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree76" parent="DeadTrees" unique_id=810288027 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree77" parent="DeadTrees" unique_id=1262332218 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree78" parent="DeadTrees" unique_id=561571819 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree79" parent="DeadTrees" unique_id=57800191 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree80" parent="DeadTrees" unique_id=1494805160 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree81" parent="DeadTrees" unique_id=991227503 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree82" parent="DeadTrees" unique_id=133858626 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree83" parent="DeadTrees" unique_id=1136022406 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree84" parent="DeadTrees" unique_id=683161462 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree85" parent="DeadTrees" unique_id=1632981578 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree86" parent="DeadTrees" unique_id=502479654 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree87" parent="DeadTrees" unique_id=1042416269 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree88" parent="DeadTrees" unique_id=1979248359 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree89" parent="DeadTrees" unique_id=210700886 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree90" parent="DeadTrees" unique_id=1080880668 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree91" parent="DeadTrees" unique_id=1621460395 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree92" parent="DeadTrees" unique_id=1774579439 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree93" parent="DeadTrees" unique_id=1674615627 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree94" parent="DeadTrees" unique_id=1500502570 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree95" parent="DeadTrees" unique_id=2107747445 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree96" parent="DeadTrees" unique_id=1562433033 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree97" parent="DeadTrees" unique_id=387083787 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree98" parent="DeadTrees" unique_id=910381093 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree99" parent="DeadTrees" unique_id=1529237618 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree100" parent="DeadTrees" unique_id=962508155 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree2" parent="DeadTrees" unique_id=2000741511 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree3" parent="DeadTrees" unique_id=284690662 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree4" parent="DeadTrees" unique_id=954693192 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree5" parent="DeadTrees" unique_id=554453404 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree6" parent="DeadTrees" unique_id=353214657 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree7" parent="DeadTrees" unique_id=3903945 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree8" parent="DeadTrees" unique_id=554017488 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree9" parent="DeadTrees" unique_id=1696276420 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree10" parent="DeadTrees" unique_id=1255105051 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree11" parent="DeadTrees" unique_id=433908081 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree12" parent="DeadTrees" unique_id=1487972880 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree13" parent="DeadTrees" unique_id=1890446211 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree14" parent="DeadTrees" unique_id=591382921 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree15" parent="DeadTrees" unique_id=1671091739 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree16" parent="DeadTrees" unique_id=2076313132 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree17" parent="DeadTrees" unique_id=720868332 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree18" parent="DeadTrees" unique_id=194089500 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree19" parent="DeadTrees" unique_id=907739135 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree20" parent="DeadTrees" unique_id=2146137466 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree21" parent="DeadTrees" unique_id=1975276194 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree22" parent="DeadTrees" unique_id=1817481999 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree23" parent="DeadTrees" unique_id=1169730448 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree24" parent="DeadTrees" unique_id=1692381365 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree25" parent="DeadTrees" unique_id=115465279 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree26" parent="DeadTrees" unique_id=1322751394 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree27" parent="DeadTrees" unique_id=1021907762 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree28" parent="DeadTrees" unique_id=137341218 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree29" parent="DeadTrees" unique_id=1678633822 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree30" parent="DeadTrees" unique_id=242141736 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree31" parent="DeadTrees" unique_id=116793263 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree32" parent="DeadTrees" unique_id=297305167 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree33" parent="DeadTrees" unique_id=833270082 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree34" parent="DeadTrees" unique_id=10473381 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree35" parent="DeadTrees" unique_id=860702250 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree36" parent="DeadTrees" unique_id=823250614 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree37" parent="DeadTrees" unique_id=1134199528 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree38" parent="DeadTrees" unique_id=799556379 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree39" parent="DeadTrees" unique_id=1776482869 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree40" parent="DeadTrees" unique_id=1986667826 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree41" parent="DeadTrees" unique_id=1782140591 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree42" parent="DeadTrees" unique_id=1416208258 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree43" parent="DeadTrees" unique_id=799724695 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree44" parent="DeadTrees" unique_id=1425872233 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree45" parent="DeadTrees" unique_id=2062170297 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree46" parent="DeadTrees" unique_id=2004343314 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree47" parent="DeadTrees" unique_id=1198051651 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree48" parent="DeadTrees" unique_id=893921359 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree49" parent="DeadTrees" unique_id=1080044702 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree50" parent="DeadTrees" unique_id=1455684417 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree51" parent="DeadTrees" unique_id=1650928773 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree52" parent="DeadTrees" unique_id=1603422038 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree53" parent="DeadTrees" unique_id=1153864923 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree54" parent="DeadTrees" unique_id=1478020805 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree55" parent="DeadTrees" unique_id=1714136918 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree56" parent="DeadTrees" unique_id=212378083 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree57" parent="DeadTrees" unique_id=574383713 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTree58" parent="DeadTrees" unique_id=1906624073 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreey" parent="DeadTrees" unique_id=893350257 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreej" parent="DeadTrees" unique_id=1103915843 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreei" parent="DeadTrees" unique_id=1651245861 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreeh" parent="DeadTrees" unique_id=1114205723 instance=ExtResource("4_f76ke")]
+
+[node name="DeadTreeg" parent="DeadTrees" unique_id=1376525371 instance=ExtResource("4_f76ke")]
+
+[node name="NotDeadTrees" type="Node2D" parent="." unique_id=1018777537]
+position = Vector2(-60416, -5120)
+
+[node name="NotDeadTree" parent="NotDeadTrees" unique_id=2030283247 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree2" parent="NotDeadTrees" unique_id=1273542222 instance=ExtResource("5_bdluc")]
+position = Vector2(10, 0)
+
+[node name="NotDeadTree3" parent="NotDeadTrees" unique_id=1923918278 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree4" parent="NotDeadTrees" unique_id=1697265891 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree5" parent="NotDeadTrees" unique_id=394069141 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree6" parent="NotDeadTrees" unique_id=1383638422 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree7" parent="NotDeadTrees" unique_id=2077330776 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree8" parent="NotDeadTrees" unique_id=20145566 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree9" parent="NotDeadTrees" unique_id=1345746786 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree10" parent="NotDeadTrees" unique_id=2012438005 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree11" parent="NotDeadTrees" unique_id=1206724091 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree12" parent="NotDeadTrees" unique_id=890963961 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree13" parent="NotDeadTrees" unique_id=234240646 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree14" parent="NotDeadTrees" unique_id=1762941100 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree15" parent="NotDeadTrees" unique_id=123358481 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree16" parent="NotDeadTrees" unique_id=1722094229 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree17" parent="NotDeadTrees" unique_id=1943200575 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree18" parent="NotDeadTrees" unique_id=315541100 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree19" parent="NotDeadTrees" unique_id=1049205700 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree20" parent="NotDeadTrees" unique_id=656069842 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree21" parent="NotDeadTrees" unique_id=69395859 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree22" parent="NotDeadTrees" unique_id=2068907162 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree23" parent="NotDeadTrees" unique_id=1334416693 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree24" parent="NotDeadTrees" unique_id=1588887442 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree25" parent="NotDeadTrees" unique_id=1643416582 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree26" parent="NotDeadTrees" unique_id=132841274 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree27" parent="NotDeadTrees" unique_id=1061054952 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree28" parent="NotDeadTrees" unique_id=1740145025 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree29" parent="NotDeadTrees" unique_id=1131955451 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree30" parent="NotDeadTrees" unique_id=1804789412 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree31" parent="NotDeadTrees" unique_id=1538098186 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree32" parent="NotDeadTrees" unique_id=341295274 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree33" parent="NotDeadTrees" unique_id=1536530337 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree34" parent="NotDeadTrees" unique_id=184085813 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree35" parent="NotDeadTrees" unique_id=976988038 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree36" parent="NotDeadTrees" unique_id=1167207356 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree37" parent="NotDeadTrees" unique_id=1574301665 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree38" parent="NotDeadTrees" unique_id=1546895731 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree39" parent="NotDeadTrees" unique_id=2049138608 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree40" parent="NotDeadTrees" unique_id=53239175 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree41" parent="NotDeadTrees" unique_id=1040552120 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree42" parent="NotDeadTrees" unique_id=2050118789 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree43" parent="NotDeadTrees" unique_id=1074175227 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree44" parent="NotDeadTrees" unique_id=330780632 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree45" parent="NotDeadTrees" unique_id=1568343382 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree46" parent="NotDeadTrees" unique_id=641538918 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree47" parent="NotDeadTrees" unique_id=20986200 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree48" parent="NotDeadTrees" unique_id=1170123402 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree49" parent="NotDeadTrees" unique_id=764284906 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree50" parent="NotDeadTrees" unique_id=2002131692 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree51" parent="NotDeadTrees" unique_id=1796606949 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree52" parent="NotDeadTrees" unique_id=1059629517 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree53" parent="NotDeadTrees" unique_id=1305439277 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree54" parent="NotDeadTrees" unique_id=706857989 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree55" parent="NotDeadTrees" unique_id=731202888 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree56" parent="NotDeadTrees" unique_id=1898719426 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree57" parent="NotDeadTrees" unique_id=498343874 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree58" parent="NotDeadTrees" unique_id=670972902 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree59" parent="NotDeadTrees" unique_id=1611724487 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree60" parent="NotDeadTrees" unique_id=1586362128 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree61" parent="NotDeadTrees" unique_id=343788872 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreea" parent="NotDeadTrees" unique_id=886783404 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreeb" parent="NotDeadTrees" unique_id=244683901 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreee" parent="NotDeadTrees" unique_id=1052971615 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreef" parent="NotDeadTrees" unique_id=732840026 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreeg" parent="NotDeadTrees" unique_id=2003361439 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreeh" parent="NotDeadTrees" unique_id=2079884048 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreei" parent="NotDeadTrees" unique_id=356642130 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreej" parent="NotDeadTrees" unique_id=522137096 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTreew" parent="NotDeadTrees" unique_id=1443048930 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree71" parent="NotDeadTrees" unique_id=362805209 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree72" parent="NotDeadTrees" unique_id=659271760 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree73" parent="NotDeadTrees" unique_id=1288747603 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree74" parent="NotDeadTrees" unique_id=1520948898 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree75" parent="NotDeadTrees" unique_id=166322305 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree76" parent="NotDeadTrees" unique_id=95504038 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree77" parent="NotDeadTrees" unique_id=77366539 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree78" parent="NotDeadTrees" unique_id=1740980884 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree79" parent="NotDeadTrees" unique_id=107825486 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree80" parent="NotDeadTrees" unique_id=733511565 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree81" parent="NotDeadTrees" unique_id=1115148359 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree82" parent="NotDeadTrees" unique_id=161996516 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree83" parent="NotDeadTrees" unique_id=1650761902 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree84" parent="NotDeadTrees" unique_id=101310048 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree85" parent="NotDeadTrees" unique_id=1964448912 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree86" parent="NotDeadTrees" unique_id=313109095 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree87" parent="NotDeadTrees" unique_id=470564739 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree88" parent="NotDeadTrees" unique_id=1482494601 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree89" parent="NotDeadTrees" unique_id=1383374678 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree90" parent="NotDeadTrees" unique_id=1636857976 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree91" parent="NotDeadTrees" unique_id=21516189 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree92" parent="NotDeadTrees" unique_id=645283524 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree93" parent="NotDeadTrees" unique_id=1557726521 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree94" parent="NotDeadTrees" unique_id=1795734015 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree95" parent="NotDeadTrees" unique_id=1463380951 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree96" parent="NotDeadTrees" unique_id=1595343337 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree97" parent="NotDeadTrees" unique_id=1597312789 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree98" parent="NotDeadTrees" unique_id=1131224304 instance=ExtResource("5_bdluc")]
+
+[node name="NotDeadTree99" parent="NotDeadTrees" unique_id=567868749 instance=ExtResource("5_bdluc")]
