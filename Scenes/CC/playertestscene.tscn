@@ -13,10 +13,10 @@ components = {
 
 [node name="Campfire" parent="." unique_id=1064889945 instance=ExtResource("3_xmbm0")]
 position = Vector2(927, 344)
-is_extractfire = true
 
 [node name="Campfire2" parent="." unique_id=62097339 instance=ExtResource("3_xmbm0")]
 position = Vector2(648, 479)
+is_extractfire = true
 
 [node name="Campfire3" parent="." unique_id=454317211 instance=ExtResource("3_xmbm0")]
 position = Vector2(1197, 677)
