@@ -260,6 +260,8 @@ debug_color = Color(0.7985059, 0.42259586, 0, 0.41960785)
 wait_time = 0.33
 autostart = true
 
+[node name="TempNode" type="Node" parent="." unique_id=784464600]
+
 [connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
