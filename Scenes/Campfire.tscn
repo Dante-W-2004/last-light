@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://tne83i2ygq2w" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
 [ext_resource type="Texture2D" uid="uid://cshysg8rqucva" path="res://Sprites/Extraction Camfire-Sheet.png" id="4_h71cq"]
 [ext_resource type="PackedScene" uid="uid://ledagudwml00" path="res://Scenes/ExtractMenu.tscn" id="5_glem2"]
+[ext_resource type="AudioStream" uid="uid://cxw2a3at242f3" path="res://Audio/Campfire/Last_Light_FirePlace (1).mp3" id="8_g4oil"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tsqt"]
 radius = 15.0
@@ -118,6 +119,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rb6s"]
 radius = 75.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4oil"]
+radius = 202.35612
+
 [node name="Campfire" type="StaticBody2D" unique_id=62097339 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_3u7do")
 animated_sprite = NodePath("AnimatedSprite2D")
@@ -126,6 +130,7 @@ animated_sprite = NodePath("AnimatedSprite2D")
 shape = SubResource("CircleShape2D_0tsqt")
 
 [node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1217844817]
+scale = Vector2(3.1176226, -48.551636)
 stream = ExtResource("2_441wj")
 autoplay = true
 max_distance = 1200.0
@@ -149,5 +154,16 @@ extract_zone = NodePath("../TorchScare")
 extract_menu = ExtResource("5_glem2")
 metadata/_custom_type_script = "uid://tne83i2ygq2w"
 
+[node name="CampfireSongPlayer" type="AudioStreamPlayer" parent="." unique_id=425216433]
+stream = ExtResource("8_g4oil")
+bus = &"CampfireSong"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1590541794]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=748521672]
+shape = SubResource("CircleShape2D_g4oil")
+
 [connection signal="canextract" from="." to="Extract" method="_on_campfire_canextract"]
 [connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
