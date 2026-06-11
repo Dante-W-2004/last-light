@@ -12,8 +12,7 @@ func play_hunger_sound() -> void:
 	if dice_roll == 1 and rare_hunger_sound != null:
 		stream = rare_hunger_sound
 		play()
-	else:
-		if hunger_sounds.size() > 0:
+	elif hunger_sounds.size() > 0:
 			stream = hunger_sounds.pick_random()
 			play()
 
