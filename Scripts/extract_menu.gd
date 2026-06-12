@@ -1,9 +1,12 @@
 extends Control
 @export var score_label: Label
+@export var high_score_label: Label
 @export var level_scene: String
 
 func _ready() -> void:
 	score_label.text = str(GlobalScore.score)
+	high_score_label.text = str(GlobalScore.high_score)
+	
 
 func _on_play_again_button_pressed() -> void:
 	GlobalScore.score=0

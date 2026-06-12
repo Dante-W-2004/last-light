@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://16717ye0eli0"]
+
+[ext_resource type="Script" uid="uid://cyl8n8sw5xhkp" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://ce8d4kyhljr5r" path="res://Assets/Titlescreen Last Light.jpg" id="1_28flt"]
+
+[node name="Menu" type="Control" unique_id=1829230831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ehe0")
+playScene = "res://Scenes/CC/playertestscene.tscn"
+
+[node name="TitlescreenLastLight" type="Sprite2D" parent="." unique_id=626886334]
+position = Vector2(641, 374)
+scale = Vector2(1.0746666, 1.0746666)
+texture = ExtResource("1_28flt")
+
+[node name="Title" type="Label" parent="." unique_id=690842881]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -656.0
+offset_bottom = 110.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.8900917, 0.48161948, 0.10969923, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "LAST LIGHT"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1210368504]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -449.0
+offset_top = -81.5
+offset_right = -66.0
+offset_bottom = 205.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1888257804]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "PLAY"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

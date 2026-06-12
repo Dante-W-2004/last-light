@@ -136,6 +136,7 @@ components = {
 }
 audio_manager = NodePath("AudioStreamPlayer")
 torch_area = NodePath("TorchScare")
+extract_scene = "res://Scenes/ExtractMenu.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
 sprite_frames = SubResource("SpriteFrames_6t5aa")
@@ -265,6 +266,7 @@ autostart = true
 [connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
+[connection signal="on_death" from="Health" to="." method="_on_health_on_death"]
 [connection signal="broadcast_maxhunger" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_broadcast_maxhunger"]
 [connection signal="hunger_changed" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_hunger_changed"]
 [connection signal="broadcast_maxthirst" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_broadcast_maxthirst"]
