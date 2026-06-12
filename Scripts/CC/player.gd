@@ -7,6 +7,8 @@ class_name Player
 @export var audio_manager: PAManager
 @export var swing_cd: float = 2
 @export var torch_area: Area2D
+@export var extract_scene: String
+
 var can_swing: bool = true
 signal swing
 #update
@@ -48,3 +50,7 @@ func torch_swing():
 func _on_ambiance_timer_timeout() -> void: 
 	if audio_manager != null: 
 		audio_manager.play_ambiance_sound()
+
+func _on_health_on_death() -> void:
+	GlobalScore.score = 0
+	get_tree().change_scene_to_file(extract_scene)
