@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dbbg1hc4c5085"]
+
+[ext_resource type="Texture2D" uid="uid://se37moru7kos" path="res://Procedural Generation/Sprites/Placeholder.png" id="1_qaop5"]
+[ext_resource type="Texture2D" uid="uid://bcvtkjc7lnyh" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="3_pkxo0"]
+[ext_resource type="Script" uid="uid://cldd5hr8jh5j6" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="4_0t3t8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qaop5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t53h1"]
+radius = 68.0294
+
+[node name="CampFirePlaceHolderNode" type="StaticBody2D" unique_id=698646951]
+
+[node name="Placeholder" type="Sprite2D" parent="." unique_id=277364954]
+position = Vector2(2, -1)
+texture = ExtResource("1_qaop5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622762899]
+shape = SubResource("RectangleShape2D_qaop5")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=608658574]
+position = Vector2(2, 4)
+scale = Vector2(1.1315937, 1.0242188)
+color = Color(1, 0.6039216, 0.20784314, 1)
+texture = ExtResource("3_pkxo0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1882869311]
+unique_name_in_owner = true
+position = Vector2(3, 3)
+script = ExtResource("4_0t3t8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2101960347]
+shape = SubResource("CircleShape2D_t53h1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

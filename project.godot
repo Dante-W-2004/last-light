@@ -36,6 +36,10 @@ folder_colors={
 "res://Scripts/CC/": "orange"
 }
 
+[global_group]
+
+Trees="Trees"
+
 [input]
 
 up={
