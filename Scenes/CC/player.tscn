@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
 [ext_resource type="Script" uid="uid://ctaygo3fptu8g" path="res://Scripts/CC/scoremanager.gd" id="19_7oqkw"]
+[ext_resource type="AudioStream" uid="uid://b6hj8b0x2p3ae" path="res://Audio/CC/Footsteps/FootstepSounds.mp3" id="19_hwu57"]
+[ext_resource type="AudioStream" uid="uid://bt3q7r5glq886" path="res://Audio/CC/Fire/Swoosh1.mp3" id="20_75443"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oqkw"]
 atlas = ExtResource("2_35vgy")
@@ -229,10 +231,13 @@ script = ExtResource("19_7oqkw")
 scoreLabel = NodePath("../CanvasLayer/Score")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
+volume_db = -10.0
 script = ExtResource("9_d0gtu")
 hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
 ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
 rare_ambiance_sound = Array[AudioStream]([ExtResource("15_35vgy"), ExtResource("15_fexen")])
+footstep_sound = ExtResource("19_hwu57")
+swoosh_sounds = Array[AudioStream]([ExtResource("20_75443")])
 
 [node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
 

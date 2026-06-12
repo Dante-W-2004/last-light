@@ -5,6 +5,8 @@ class_name PAManager
 @export var ambiance_sounds: Array[AudioStream] = []
 @export var rare_hunger_sound: AudioStream
 @export var rare_ambiance_sound: Array[AudioStream] = []
+@export var footstep_sound: AudioStream
+@export var swoosh_sounds: Array[AudioStream] = []
 
 func play_hunger_sound() -> void:
 	var dice_roll = randi_range(1, 1000)
@@ -47,3 +49,21 @@ func spawn_temporary_ambiance(sound: AudioStream) -> void:
 		temp_player.play()
 
 		temp_player.finished.connect(func(): temp_player.queue_free())
+		
+func player_is_moving() -> void: 
+	if stream_paused: 
+		stream_paused = false
+	else: 
+		if stream != footstep_sound:
+			stream = footstep_sound
+			play()
+
+func player_isnot_moving() -> void: 
+	stream_paused = true
+	
+func player_swoosh() -> void: 
+	volume_db = -20
+	stream = swoosh_sounds.pick_random()
+	play()
+	await finished
+	volume_db = -10

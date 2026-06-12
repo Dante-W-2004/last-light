@@ -8,6 +8,7 @@ class_name Player
 @export var swing_cd: float = 2
 @export var torch_area: Area2D
 @export var extract_scene: String
+@onready var footsteps_play: bool = false
 
 var can_swing: bool = true
 signal swing
@@ -18,6 +19,15 @@ func _ready():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+	
+	if velocity != Vector2.ZERO: 
+		if footsteps_play == false: 
+			audio_manager.player_is_moving()
+			footsteps_play = true
+	else:
+		if footsteps_play == true:
+			audio_manager.player_isnot_moving()
+			footsteps_play = false
 
 func get_input():
 	look_at(get_global_mouse_position())
@@ -36,6 +46,7 @@ func swing_cooldown():
 
 func torch_swing():
 	animated_sprite.play("swiping")
+	audio_manager.player_swoosh()
 	await get_tree().create_timer(.2).timeout
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	torch_area.global_rotation = global_rotation
