@@ -72,7 +72,7 @@ func attack_state():
 
 	velocity = Vector2.ZERO
 
-	if can_attack:
+	if can_attack and not GlobalScore.is_dead:
 		attack_player()
 
 
@@ -80,12 +80,13 @@ func attack_state():
 func attack_player():
 	can_attack = false
 
-	if player != null and player.has_method("take_damage"):
+	if player != null and !GlobalScore.is_dead and player.has_method("take_damage"):
 		player.take_damage(attack_damage)
 		print("Stalker attacked")
-
-	await get_tree().create_timer(attack_cooldown).timeout
-	can_attack = true
+		if !is_inside_tree():
+			return
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
 
 
 # Removes the Stalker from the game when dead.
