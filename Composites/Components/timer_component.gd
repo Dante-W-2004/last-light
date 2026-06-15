@@ -1,5 +1,5 @@
-extends BaseAttribute
-class_name IsTimer
+extends BaseComponent
+class_name TimerComponent
 
 @export var start_time: float = 0
 var current_time: float = 0
