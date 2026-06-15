@@ -4,7 +4,7 @@ extends Node2D
 
 @export var max_enemies: int = 10
 
-var enemy_locations: Dictionary [BaseEnemy, Vector2] = {}
+var enemy_locations: Array[BaseEnemy] = []
 
 
 

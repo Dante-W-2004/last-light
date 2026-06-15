@@ -7,7 +7,7 @@ class_name Stalker
 # Main behavior loop for movement and state changes
 func _physics_process(delta):
 	if state == State.DEAD:
-		return
+		dead_state()
 
 	if player == null:
 		find_player()
