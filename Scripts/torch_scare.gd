@@ -2,7 +2,6 @@ extends Area2D
 
 @export var is_monitoring: bool = false
 
-
 func _ready() -> void:
 	monitoring = is_monitoring
 	visible = false

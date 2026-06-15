@@ -4,6 +4,8 @@ extends Node
 
 func _process(delta: float) -> void:
 	scoreLabel.text = str(GlobalScore.score)
+	if GlobalScore.score > GlobalScore.high_score:
+		GlobalScore.high_score = GlobalScore.score
 
 func _on_button_pressed() -> void:
 	GlobalScore.score += 10

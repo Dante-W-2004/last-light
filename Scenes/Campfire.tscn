@@ -5,7 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="3_0tsqt"]
 [ext_resource type="Script" uid="uid://tne83i2ygq2w" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
+[ext_resource type="Texture2D" uid="uid://cshysg8rqucva" path="res://Sprites/Extraction Camfire-Sheet.png" id="4_h71cq"]
 [ext_resource type="PackedScene" uid="uid://ledagudwml00" path="res://Scenes/ExtractMenu.tscn" id="5_glem2"]
+[ext_resource type="AudioStream" uid="uid://cxw2a3at242f3" path="res://Audio/Campfire/Last_Light_FirePlace (1).mp3" id="8_g4oil"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tsqt"]
 radius = 15.0
@@ -26,6 +28,42 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_0tsqt")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4oil"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yop4o"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hthi"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i53e"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6wh1"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a63sx"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phibj"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj0um"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3xt2"]
+atlas = ExtResource("4_h71cq")
+region = Rect2(256, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4oil"]
 animations = [{
 "frames": [{
@@ -44,27 +82,63 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4oil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yop4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hthi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i53e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6wh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a63sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phibj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj0um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3xt2")
+}],
+"loop": true,
+"name": &"extraction",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rb6s"]
 radius = 75.0
 
-[node name="Campfire" type="StaticBody2D" unique_id=62097339]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4oil"]
+radius = 202.35612
+
+[node name="Campfire" type="StaticBody2D" unique_id=62097339 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_3u7do")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507951456]
 shape = SubResource("CircleShape2D_0tsqt")
 
 [node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1217844817]
+scale = Vector2(3.1176226, -48.551636)
 stream = ExtResource("2_441wj")
+volume_db = -8.748
 autoplay = true
 max_distance = 1200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=135469856]
 sprite_frames = SubResource("SpriteFrames_g4oil")
 autoplay = "default"
-frame = 3
-frame_progress = 0.09031407
 
 [node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("3_0tsqt")]
 collision_layer = 4
@@ -81,5 +155,19 @@ extract_zone = NodePath("../TorchScare")
 extract_menu = ExtResource("5_glem2")
 metadata/_custom_type_script = "uid://tne83i2ygq2w"
 
+[node name="CampfireSongPlayer" type="AudioStreamPlayer" parent="." unique_id=425216433]
+stream = ExtResource("8_g4oil")
+volume_db = 1.825
+bus = &"CampfireSong"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1590541794]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=748521672]
+shape = SubResource("CircleShape2D_g4oil")
+
 [connection signal="canextract" from="." to="Extract" method="_on_campfire_canextract"]
 [connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
