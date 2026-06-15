@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b3ydbxdgsxd1c" path="res://Sprites/Campfire-Sheet.png" id="2_0tsqt"]
 [ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="3_0tsqt"]
-[ext_resource type="Script" uid="uid://tne83i2ygq2w" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
+[ext_resource type="Script" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
 [ext_resource type="Texture2D" uid="uid://cshysg8rqucva" path="res://Sprites/Extraction Camfire-Sheet.png" id="4_h71cq"]
 [ext_resource type="PackedScene" uid="uid://ledagudwml00" path="res://Scenes/ExtractMenu.tscn" id="5_glem2"]
 [ext_resource type="AudioStream" uid="uid://cxw2a3at242f3" path="res://Audio/Campfire/Last_Light_FirePlace (1).mp3" id="8_g4oil"]
+[ext_resource type="Script" uid="uid://cldd5hr8jh5j6" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="9_yop4o"]
+[ext_resource type="Texture2D" uid="uid://bcvtkjc7lnyh" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="10_8hthi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tsqt"]
 radius = 15.0
@@ -122,6 +124,71 @@ radius = 75.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4oil"]
 radius = 202.35612
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8hthi"]
+radius = 68.0294
+
+[sub_resource type="Animation" id="Animation_8hthi"]
+resource_name = "FireLight"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%PointLight2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.25, 2.5, 3.75, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.3, 1.177), Vector2(1.5, 1.358), Vector2(1.7, 1.539), Vector2(1.5, 1.358)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.25, 2.5, 3.75, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.25, 1.5, 1.25]
+}
+
+[sub_resource type="Animation" id="Animation_0i53e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%PointLight2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.357)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6wh1"]
+_data = {
+&"FireLight": SubResource("Animation_8hthi"),
+&"RESET": SubResource("Animation_0i53e")
+}
+
 [node name="Campfire" type="StaticBody2D" unique_id=62097339 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_3u7do")
 animated_sprite = NodePath("AnimatedSprite2D")
@@ -153,12 +220,10 @@ debug_color = Color(0.6717562, 0.50334567, 0.20911995, 0.41960785)
 script = ExtResource("4_8rb6s")
 extract_zone = NodePath("../TorchScare")
 extract_menu = ExtResource("5_glem2")
-metadata/_custom_type_script = "uid://tne83i2ygq2w"
 
 [node name="CampfireSongPlayer" type="AudioStreamPlayer" parent="." unique_id=425216433]
 stream = ExtResource("8_g4oil")
 volume_db = 1.825
-bus = &"CampfireSong"
 
 [node name="SongArea" type="Area2D" parent="." unique_id=1590541794]
 collision_layer = 0
@@ -166,6 +231,26 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SongArea" unique_id=748521672]
 shape = SubResource("CircleShape2D_g4oil")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2006230208]
+unique_name_in_owner = true
+script = ExtResource("9_yop4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=957817016]
+shape = SubResource("CircleShape2D_8hthi")
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D" unique_id=1110198652]
+unique_name_in_owner = true
+position = Vector2(5, 4)
+scale = Vector2(1.5, 1.357)
+color = Color(1, 0.6039216, 0.20784314, 1)
+texture = ExtResource("10_8hthi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/PointLight2D" unique_id=2096544049]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_n6wh1")
+autoplay = &"FireLight"
+speed_scale = 2.0
 
 [connection signal="canextract" from="." to="Extract" method="_on_campfire_canextract"]
 [connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]

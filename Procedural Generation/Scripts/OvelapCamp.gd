@@ -1,7 +1,9 @@
 extends Area2D
 
-# Called when the node enters the scene tree for the first time.
+@onready var point_light_2d: PointLight2D = %PointLight2D
+
 func _process(delta: float) -> void:
+	
 	var overlap = get_overlapping_bodies()
 	for body in overlap:
 		if body.is_in_group("Trees"):

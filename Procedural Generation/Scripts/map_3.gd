@@ -93,11 +93,11 @@ func generate_world():
 						AddTrees.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
 						trees.add_child(AddTrees)
-					for i in range(25):
+					for i in range(15):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
 						var RandomCoord: Vector2i = TreesPlease.pick_random()
 						var CoordPosition: Vector2 = tile_map.map_to_local(RandomCoord)
-						var placeholderCampfire = [$Campfires/PlaceHolder, $Campfires/PlaceHolder16, $Campfires/PlaceHolder17, $Campfires/PlaceHolder18, $Campfires/PlaceHolder19, $Campfires/PlaceHolder20, $Campfires/PlaceHolder21, $Campfires/PlaceHolder22, $Campfires/PlaceHolder23, $Campfires/PlaceHolder24, $Campfires/PlaceHolder25, $Campfires/PlaceHolder15, $Campfires/PlaceHolder2, $Campfires/PlaceHolder3, $Campfires/PlaceHolder4, $Campfires/PlaceHolder5, $Campfires/PlaceHolder6, $Campfires/PlaceHolder7, $Campfires/PlaceHolder8, $Campfires/PlaceHolder9, $Campfires/PlaceHolder10, $Campfires/PlaceHolder11, $Campfires/PlaceHolder12, $Campfires/PlaceHolder13, $Campfires/PlaceHolder14]
+						var placeholderCampfire = [$Campfires/Campfire, $Campfires/Campfire2, $Campfires/Campfire3, $Campfires/Campfire4, $Campfires/Campfire5, $Campfires/Campfire6, $Campfires/Campfire7, $Campfires/Campfire8, $Campfires/Campfire9, $Campfires/Campfire10, $Campfires/Campfire11, $Campfires/Campfire12, $Campfires/Campfire13, $Campfires/Campfire14, $Campfires/Campfire15]
 						var AddCampfire: Node2D = placeholderCampfire.pick_random()
 						AddCampfire.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)

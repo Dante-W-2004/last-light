@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="3_am5t7"]
 [ext_resource type="PackedScene" uid="uid://bt8hkxhoo4jcu" path="res://Procedural Generation/Scenes/not_dead_tree.tscn" id="5_bdluc"]
 [ext_resource type="Texture2D" uid="uid://bcvtkjc7lnyh" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="5_yf3xl"]
-[ext_resource type="PackedScene" uid="uid://dbbg1hc4c5085" path="res://Procedural Generation/Scenes/PlaceHolderCampFire.tscn" id="6_yf3xl"]
+[ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="6_yf3xl"]
 
 [sub_resource type="Gradient" id="Gradient_hyata"]
 interpolation_mode = 1
@@ -41,6 +41,68 @@ fill = 2
 fill_from = Vector2(0.52890176, 0.50289017)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Animation" id="Animation_yf3xl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.303)]
+}
+
+[sub_resource type="Animation" id="Animation_d52bh"]
+resource_name = "TorchLight"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.1, 1.2, 1.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.303), Vector2(0.35, 0.354), Vector2(0.4, 0.404), Vector2(0.35, 0.354)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjr2r"]
+_data = {
+&"RESET": SubResource("Animation_yf3xl"),
+&"TorchLight": SubResource("Animation_d52bh")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d52bh"]
 radius = 61.0
 
@@ -73,10 +135,15 @@ components = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1618706737]
-position = Vector2(7.000006, 7.000001)
-scale = Vector2(0.31054693, 0.31445313)
+position = Vector2(5.000006, 4.000001)
+scale = Vector2(0.3, 0.303)
 color = Color(1, 0.6039216, 0.20784314, 1)
+energy = 1.2
 texture = ExtResource("5_yf3xl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PointLight2D" unique_id=932571200]
+libraries/ = SubResource("AnimationLibrary_hjr2r")
+autoplay = &"TorchLight"
 
 [node name="Area2D" type="Area2D" parent="Player" unique_id=313069455]
 
@@ -93,79 +160,35 @@ color = Color(0.67481464, 0.67481464, 0.6748146, 1)
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 position = Vector2(-10371, -305)
 
-[node name="PlaceHolder" parent="Campfires" unique_id=943107536 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire" parent="Campfires" unique_id=62097339 instance=ExtResource("6_yf3xl")]
+is_extractfire = true
 
-[node name="PlaceHolder16" parent="Campfires" unique_id=466881927 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire2" parent="Campfires" unique_id=1813160817 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder17" parent="Campfires" unique_id=288277568 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire3" parent="Campfires" unique_id=1197393007 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder18" parent="Campfires" unique_id=2092339595 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire4" parent="Campfires" unique_id=1629289165 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder19" parent="Campfires" unique_id=2098339671 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire5" parent="Campfires" unique_id=2102617678 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder20" parent="Campfires" unique_id=277091894 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire6" parent="Campfires" unique_id=518813786 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder21" parent="Campfires" unique_id=1898605496 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire7" parent="Campfires" unique_id=140418770 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder22" parent="Campfires" unique_id=923491863 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire8" parent="Campfires" unique_id=542201410 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder23" parent="Campfires" unique_id=1761462853 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire9" parent="Campfires" unique_id=1942649072 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder24" parent="Campfires" unique_id=1579291789 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire10" parent="Campfires" unique_id=170512973 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder25" parent="Campfires" unique_id=1664127493 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire11" parent="Campfires" unique_id=2081625413 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder15" parent="Campfires" unique_id=217125560 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire12" parent="Campfires" unique_id=457497390 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder2" parent="Campfires" unique_id=423199217 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire13" parent="Campfires" unique_id=794882789 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder3" parent="Campfires" unique_id=456334525 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire14" parent="Campfires" unique_id=1556431984 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder4" parent="Campfires" unique_id=2020645462 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder5" parent="Campfires" unique_id=692226049 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder6" parent="Campfires" unique_id=1050208038 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder7" parent="Campfires" unique_id=1577986188 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder8" parent="Campfires" unique_id=299128660 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder9" parent="Campfires" unique_id=924515298 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder10" parent="Campfires" unique_id=192164325 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder11" parent="Campfires" unique_id=1540225417 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder12" parent="Campfires" unique_id=1635253142 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder13" parent="Campfires" unique_id=575579010 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
-
-[node name="PlaceHolder14" parent="Campfires" unique_id=1523981836 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire15" parent="Campfires" unique_id=187648843 instance=ExtResource("6_yf3xl")]
 
 [connection signal="body_entered" from="Player/Area2D" to="Player/Area2D" method="_on_body_entered"]
