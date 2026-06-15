@@ -13,9 +13,11 @@ func _ready() -> void:
 		canextract.emit()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.is_in_group("player"):
+		print("Iets is de area binnengekomen ", body.name)
 		song_player.play()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.is_in_group("player"):
+		print("bro is weg ", body.name)
 		song_player.stop()

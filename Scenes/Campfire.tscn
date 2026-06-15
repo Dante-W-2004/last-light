@@ -132,6 +132,7 @@ shape = SubResource("CircleShape2D_0tsqt")
 [node name="CampfireAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1217844817]
 scale = Vector2(3.1176226, -48.551636)
 stream = ExtResource("2_441wj")
+volume_db = -8.748
 autoplay = true
 max_distance = 1200.0
 
@@ -156,9 +157,12 @@ metadata/_custom_type_script = "uid://tne83i2ygq2w"
 
 [node name="CampfireSongPlayer" type="AudioStreamPlayer" parent="." unique_id=425216433]
 stream = ExtResource("8_g4oil")
+volume_db = 1.825
 bus = &"CampfireSong"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1590541794]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=748521672]
 shape = SubResource("CircleShape2D_g4oil")

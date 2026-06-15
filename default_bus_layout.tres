@@ -1,7 +1,6 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://c1esesmvrihp5"]
 
 [resource]
-bus/0/send = &"New Bus"
 bus/1/name = &"PlayerAudio"
 bus/1/solo = false
 bus/1/mute = false
@@ -18,5 +17,5 @@ bus/3/name = &"WolfSounds"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.0
+bus/3/volume_db = -37.078857
 bus/3/send = &"Master"
