@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg00i20n0u1gs"
-path="res://.godot/imported/TempCampfire.png-15bd8c34386be2097bf1c6c71dc64d7f.ctex"
+uid="uid://cshysg8rqucva"
+path="res://.godot/imported/Extraction Camfire-Sheet.png-de434f0db30723e724aaef195af3154d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TempCampfire.png"
-dest_files=["res://.godot/imported/TempCampfire.png-15bd8c34386be2097bf1c6c71dc64d7f.ctex"]
+source_file="res://Sprites/Extraction Camfire-Sheet.png"
+dest_files=["res://.godot/imported/Extraction Camfire-Sheet.png-de434f0db30723e724aaef195af3154d.ctex"]
 
 [params]
 

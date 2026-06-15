@@ -7,15 +7,27 @@ class_name Player
 @export var audio_manager: PAManager
 @export var swing_cd: float = 2
 @export var torch_area: Area2D
+@export var extract_scene: String
+@onready var footsteps_play: bool = false
+
 var can_swing: bool = true
 signal swing
-
+#update
 func _ready():
 	swing.connect(torch_swing)
 	
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+	
+	if velocity != Vector2.ZERO: 
+		if footsteps_play == false: 
+			audio_manager.player_is_moving()
+			footsteps_play = true
+	else:
+		if footsteps_play == true:
+			audio_manager.player_isnot_moving()
+			footsteps_play = false
 
 func get_input():
 	look_at(get_global_mouse_position())
@@ -34,6 +46,7 @@ func swing_cooldown():
 
 func torch_swing():
 	animated_sprite.play("swiping")
+	audio_manager.player_swoosh()
 	await get_tree().create_timer(.2).timeout
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	torch_area.global_rotation = global_rotation
@@ -48,3 +61,7 @@ func torch_swing():
 func _on_ambiance_timer_timeout() -> void: 
 	if audio_manager != null: 
 		audio_manager.play_ambiance_sound()
+
+func _on_health_on_death() -> void:
+	GlobalScore.score = 0
+	get_tree().change_scene_to_file(extract_scene)

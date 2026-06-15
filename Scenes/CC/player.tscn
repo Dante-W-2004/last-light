@@ -113,4 +113,131 @@ autoplay = "idle"
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195165591]
+layer = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=251916560]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -177.0
+offset_right = 527.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="Thirst" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=937558855]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9490196, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_w3qfg")
+value = 100.0
+script = ExtResource("3_45qwv")
+
+[node name="Hunger" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=634551281]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_rfoq3")
+value = 100.0
+script = ExtResource("3_w3qfg")
+
+[node name="Health" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=174824219]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/fill = SubResource("StyleBoxFlat_45qwv")
+value = 100.0
+script = ExtResource("3_i4tma")
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1912595143]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 104.0
+offset_right = 20.0
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="ScoreButton" type="Button" parent="CanvasLayer" unique_id=1730697294]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Add Score"
+
+[node name="Health" type="Node" parent="." unique_id=144610415]
+script = ExtResource("3_vu5q1")
+metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
+
+[node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode", "hunger_audio_player")]
+script = ExtResource("5_24c5u")
+healthnode = NodePath("../Health")
+hunger_audio_player = NodePath("../AudioStreamPlayer")
+metadata/_custom_type_script = "uid://iobkyunu6vh0"
+
+[node name="Thirst" type="Node" parent="." unique_id=1834857322 node_paths=PackedStringArray("healthnode")]
+script = ExtResource("8_c0qla")
+drain_rate = 0.45
+healthnode = NodePath("../Health")
+metadata/_custom_type_script = "uid://bc7skdm2n4op"
+
+[node name="Score" type="Node" parent="." unique_id=38657602 node_paths=PackedStringArray("scoreLabel")]
+script = ExtResource("19_7oqkw")
+scoreLabel = NodePath("../CanvasLayer/Score")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
+volume_db = -10.0
+script = ExtResource("9_d0gtu")
+hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
+ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
+rare_ambiance_sound = Array[AudioStream]([ExtResource("15_35vgy"), ExtResource("15_fexen")])
+footstep_sound = ExtResource("19_hwu57")
+swoosh_sounds = Array[AudioStream]([ExtResource("20_75443")])
+
+[node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light" unique_id=1233785360]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_45qwv")
+debug_color = Color(0.60267687, 0.5389425, 0.18063581, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1811275730]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=753740012]
+shape = SubResource("RectangleShape2D_c0qla")
+debug_color = Color(0.6623401, 0.11746546, 0.26079968, 0.41960785)
+
+[node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("16_pt4y4")]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=580616281]
+position = Vector2(15, 0)
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_pt4y4")
+debug_color = Color(0.7985059, 0.42259586, 0, 0.41960785)
+
+[node name="ambiance_timer" type="Timer" parent="." unique_id=648672945]
+wait_time = 0.33
+autostart = true
+
+[node name="TempNode" type="Node" parent="." unique_id=784464600]
+
+[connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
+[connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
+[connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
+[connection signal="on_death" from="Health" to="." method="_on_health_on_death"]
+[connection signal="broadcast_maxhunger" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_broadcast_maxhunger"]
+[connection signal="hunger_changed" from="Hunger" to="CanvasLayer/VBoxContainer/Hunger" method="_on_hunger_hunger_changed"]
+[connection signal="broadcast_maxthirst" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_broadcast_maxthirst"]
+[connection signal="thirst_changed" from="Thirst" to="CanvasLayer/VBoxContainer/Thirst" method="_on_thirst_thirst_changed"]
+[connection signal="timeout" from="ambiance_timer" to="." method="_on_ambiance_timer_timeout"]
