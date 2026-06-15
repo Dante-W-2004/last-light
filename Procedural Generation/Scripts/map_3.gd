@@ -6,8 +6,6 @@ extends Node2D
 @export var noise_height_text : NoiseTexture2D
 @export var noise_treesnstuff_text : NoiseTexture2D
 @export var gradient : GradientTexture2D
-var gradientImage : Image
-var falloffgrad : Gradient
 
 var RandomWorld = RandomNumberGenerator
 var noise : Noise
@@ -50,7 +48,6 @@ var treesnstuff_tiles_arr = []
 var terrain_treesnstuff_int = 4
 
 func _ready():
-	gradientImage = gradient.get_image()
 	RandomWorld = RandomNumberGenerator.new
 	var WorldNumber = randi_range(-1000000, 1000000)
 	
@@ -71,29 +68,22 @@ func generate_world():
 
 			var mapSize = Vector2(x, y)
 			var mapCenter = Vector2(mapSize) / 2
-			var distFromCent = mapSize - mapCenter
-			var maxDist = mapCenter.length()
 			var noise_value_2 = (noise_value + 1.0) / 2
-			var normDist = clamp(distFromCent.length() / maxDist, 0.0, 1.0)
 
-			var falloff = gradient.gradient.sample(normDist).r
-
-			var final_value: float = noise_value_2 * falloff
-
-			if final_value >= 0.0:
-				if final_value <= 0.25:
+			if noise_value_2 >= 0.0:
+				if noise_value_2 <= 0.25:
 					water_tiles_arr.append(Vector2i(x,y))
 				
-				elif final_value > 0.25 && final_value < 0.3:
+				elif noise_value_2 > 0.25 && noise_value_2 < 0.3:
 					sand_tiles_arr.append(Vector2i(x,y))
 
-				elif final_value >= 0.3 && final_value < 0.7:
+				elif noise_value_2 >= 0.3 && noise_value_2 < 0.7:
 					grass_tiles_arr.append(Vector2i(x,y))
 					
-				elif final_value >= 0.7:
+				elif noise_value_2 >= 0.7:
 					tall_tiles_arr.append(Vector2i(x,y))
 					
-				if final_value > 0.3 and final_value < 0.7 and treesnstuff_value > 0.55 and treesnstuff_value < 0.7:
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.55 and treesnstuff_value < 0.7:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
 					for i in range(2):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
