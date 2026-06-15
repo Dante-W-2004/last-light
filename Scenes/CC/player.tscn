@@ -268,6 +268,8 @@ autostart = true
 
 [node name="TempNode" type="Node" parent="." unique_id=784464600]
 
+[node name="Node" type="Node" parent="." unique_id=1128019045]
+
 [connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
