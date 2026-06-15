@@ -1,15 +1,25 @@
 extends Node2D
 
-@export var stalker_scene: PackedScene
-@export var sentry_scene: PackedScene
+@export var enemy_list: Array[PackedScene] = [] 
+
+@export var max_enemies: int = 10
+
+var enemy_locations: Dictionary [BaseEnemy, Vector2] = {}
+
+
+
+
+
+
+
+
+
+
 @export var tilemap: TileMap
 
 const WALKABLE_LAYER := 1
 const WATER_LAYER := 2
 const TREE_LAYER := 3
-
-func _ready():
-	spawn_enemy(stalker_scene)
 
 func spawn_enemy(enemy_scene: PackedScene):
 	var spawn_position = get_random_walkable_position()

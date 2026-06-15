@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1yv6rkdk7ae7" path="res://Scripts/extract_menu.gd" id="1_60r3h"]
 
-[node name="Control" type="Control" unique_id=1770719316 node_paths=PackedStringArray("score_label")]
+[node name="Control" type="Control" unique_id=1770719316 node_paths=PackedStringArray("score_label", "high_score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_60r3h")
 score_label = NodePath("VBoxContainer/Score")
+high_score_label = NodePath("VBoxContainer2/HighScore")
 level_scene = "res://Scenes/CC/playertestscene.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1762369861]
@@ -47,6 +48,24 @@ text = "PLAY AGAIN"
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "QUIT"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=627320594]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 27.0
+offset_right = 267.0
+offset_bottom = 82.0
+
+[node name="HighScoreText" type="Label" parent="VBoxContainer2" unique_id=1398396989]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "HIGH SCORE:"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="VBoxContainer2" unique_id=1957043881]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
