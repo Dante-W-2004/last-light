@@ -22,7 +22,6 @@
 [ext_resource type="AudioStream" uid="uid://b6hj8b0x2p3ae" path="res://Audio/CC/Footsteps/FootstepSounds.mp3" id="19_hwu57"]
 [ext_resource type="AudioStream" uid="uid://bt3q7r5glq886" path="res://Audio/CC/Fire/Swoosh1.mp3" id="20_75443"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oqkw"]
 atlas = ExtResource("2_35vgy")
 region = Rect2(0, 0, 32, 32)
@@ -131,15 +130,13 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area") groups=["player"]]
-
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_cvnsp")
 components = {
 "health": NodePath("Health")
 }
-
-audio_manager = NodePath("AudioStreamPlayer")
+audio_manager = NodePath("HungerPlayer")
 torch_area = NodePath("TorchScare")
 extract_scene = "res://Scenes/ExtractMenu.tscn"
 
@@ -220,7 +217,7 @@ metadata/_custom_type_script = "uid://c5l0ffq0ttgco"
 [node name="Hunger" type="Node" parent="." unique_id=1526929030 node_paths=PackedStringArray("healthnode", "hunger_audio_player")]
 script = ExtResource("5_24c5u")
 healthnode = NodePath("../Health")
-hunger_audio_player = NodePath("../AudioStreamPlayer")
+hunger_audio_player = NodePath("../HungerPlayer")
 metadata/_custom_type_script = "uid://iobkyunu6vh0"
 
 [node name="Thirst" type="Node" parent="." unique_id=1834857322 node_paths=PackedStringArray("healthnode")]
@@ -232,15 +229,6 @@ metadata/_custom_type_script = "uid://bc7skdm2n4op"
 [node name="Score" type="Node" parent="." unique_id=38657602 node_paths=PackedStringArray("scoreLabel")]
 script = ExtResource("19_7oqkw")
 scoreLabel = NodePath("../CanvasLayer/Score")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017]
-volume_db = -10.0
-script = ExtResource("9_d0gtu")
-hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
-ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
-rare_ambiance_sound = Array[AudioStream]([ExtResource("15_35vgy"), ExtResource("15_fexen")])
-footstep_sound = ExtResource("19_hwu57")
-swoosh_sounds = Array[AudioStream]([ExtResource("20_75443")])
 
 [node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
 
@@ -271,7 +259,35 @@ autostart = true
 
 [node name="TempNode" type="Node" parent="." unique_id=784464600]
 
-[node name="Node" type="Node" parent="." unique_id=1128019045]
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="." unique_id=586093026]
+volume_db = -14.282
+
+[node name="SwooshPlayer" type="AudioStreamPlayer" parent="." unique_id=1904021990]
+volume_db = -20.943
+
+[node name="SpatialAmbiancePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1343084141]
+
+[node name="CricketAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=775988847]
+stream = ExtResource("14_pt4y4")
+volume_db = -17.849
+autoplay = true
+
+[node name="AmbiancePlayer" type="AudioStreamPlayer" parent="." unique_id=308148761]
+stream = ExtResource("13_vr6am")
+autoplay = true
+
+[node name="HungerPlayer" type="AudioStreamPlayer" parent="." unique_id=2026892017 node_paths=PackedStringArray("spatial_player", "swoosh_player", "footstep_player", "ambiance_player")]
+volume_db = -10.0
+script = ExtResource("9_d0gtu")
+hunger_sounds = Array[AudioStream]([ExtResource("9_c0qla"), ExtResource("11_wvk4b"), ExtResource("12_wvk4b")])
+ambiance_sounds = Array[AudioStream]([null, ExtResource("13_vr6am"), ExtResource("14_pt4y4")])
+rare_ambiance_sound = Array[AudioStream]([ExtResource("15_35vgy"), ExtResource("15_fexen")])
+footstep_sound = ExtResource("19_hwu57")
+swoosh_sounds = Array[AudioStream]([ExtResource("20_75443")])
+spatial_player = NodePath("../SpatialAmbiancePlayer")
+swoosh_player = NodePath("../SwooshPlayer")
+footstep_player = NodePath("../FootstepPlayer")
+ambiance_player = NodePath("../AmbiancePlayer")
 
 [connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
