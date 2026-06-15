@@ -1,37 +1,8 @@
-extends CharacterBody2D
-
-# Possible behavior states for the Stalker enemy
-enum State {
-	IDLE,
-	CHASE,
-	ATTACK,
-	DEAD
-}
-
-# Enemy stats and behavior ranges
-@export var max_health: int = 30
-@export var speed: float = 100.0
-@export var detect_range: float = 250.0
-@export var lose_range: float = 350.0
-@export var attack_range: float = 35.0
-@export var attack_damage: int = 5
-@export var attack_cooldown: float = 1.5
-@export var audio_manager: SAManager
+extends BaseEnemy
+class_name Stalker
 
 # NavigationAgent2D is used for pathfinding toward the player
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-
-# Runtime variables
-var health: int
-var state: State = State.IDLE
-var player: Player = null
-var can_attack: bool = true
-
-# Sets health and finds the player when the enemy spawns
-func _ready():
-	audio_manager.play_spawn_sound()
-	health = max_health
-	find_player()
 
 # Main behavior loop for movement and state changes
 func _physics_process(delta):
@@ -59,13 +30,6 @@ func _physics_process(delta):
 			attack_state()
 
 	move_and_slide()
-
-# Finds the first node in the "player" group
-func find_player():
-	var players = get_tree().get_nodes_in_group("player")
-
-	if players.size() > 0:
-		player = players[0]
 
 # Enemy waits until the player comes close enough
 func idle_state():
