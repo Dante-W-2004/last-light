@@ -19,6 +19,9 @@
 [ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="15_fexen"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="16_pt4y4"]
 [ext_resource type="Script" uid="uid://ctaygo3fptu8g" path="res://Scripts/CC/scoremanager.gd" id="19_7oqkw"]
+[ext_resource type="AudioStream" uid="uid://b6hj8b0x2p3ae" path="res://Audio/CC/Footsteps/FootstepSounds.mp3" id="19_hwu57"]
+[ext_resource type="AudioStream" uid="uid://bt3q7r5glq886" path="res://Audio/CC/Fire/Swoosh1.mp3" id="20_75443"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oqkw"]
 atlas = ExtResource("2_35vgy")
@@ -128,14 +131,17 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area") groups=["player"]]
+
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_cvnsp")
 components = {
 "health": NodePath("Health")
 }
+
 audio_manager = NodePath("AudioStreamPlayer")
 torch_area = NodePath("TorchScare")
+extract_scene = "res://Scenes/ExtractMenu.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
 sprite_frames = SubResource("SpriteFrames_6t5aa")
@@ -264,8 +270,6 @@ wait_time = 0.33
 autostart = true
 
 [node name="TempNode" type="Node" parent="." unique_id=784464600]
-
-[node name="Node" type="Node" parent="." unique_id=1128019045]
 
 [connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
