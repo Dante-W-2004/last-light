@@ -129,7 +129,7 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("components", "audio_manager", "torch_area", "healthnode") groups=["player"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_cvnsp")
@@ -139,6 +139,7 @@ components = {
 audio_manager = NodePath("HungerPlayer")
 torch_area = NodePath("TorchScare")
 extract_scene = "res://Scenes/ExtractMenu.tscn"
+healthnode = NodePath("Health")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
 sprite_frames = SubResource("SpriteFrames_6t5aa")
