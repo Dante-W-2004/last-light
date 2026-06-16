@@ -4,7 +4,6 @@
 extends CharacterBody2D
 class_name BaseEnemyNew
 
-
 # Shared enemy behavior states.
 # Child enemies can use these states in their FSM.
 enum State {
@@ -13,7 +12,6 @@ enum State {
 	ATTACK,
 	DEAD
 }
-
 
 # Basic enemy stats.
 # These can be adjusted per enemy in the Inspector.
@@ -26,13 +24,11 @@ enum State {
 @export var attack_cooldown: float = 1.5
 @export var audio_manager: SAManager
 
-
 # Runtime variables used while the game is running.
 var health: int
 var state: State = State.IDLE
 var player: Player = null
 var can_attack: bool = true
-
 
 # Runs when the enemy spawns.
 # Sets health, plays a spawn sound and finds the player.
@@ -43,7 +39,6 @@ func _ready():
 	health = max_health
 	find_player()
 
-
 # Finds the first node inside the "player" group
 # and stores a reference to it.
 func find_player():
@@ -52,36 +47,30 @@ func find_player():
 	if players.size() > 0:
 		player = players[0]
 
-
 # Empty state function.
 # Child enemies should override this.
 func idle_state():
 	pass
-
 
 # Empty state function.
 # Child enemies should override this.
 func chase_state():
 	pass
 
-
 # Empty state function.
 # Child enemies should override this.
 func attack_state():
 	pass
-
 
 # Empty attack function.
 # Child enemies should override this.
 func attack_player():
 	pass
 
-
 # Empty cooldown function.
 # Child enemies should override this.
 func cooldown():
 	pass
-
 
 # Empty death function.
 # Child enemies should override this.
