@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0.4872275, 0.3283672, 1)
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bsxnyt8qbh7bc"
+
 [autoload]
 
 Funny="*uid://bdayxi5hvluy6"

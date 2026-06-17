@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bdw47h26shf05"]
 
 [ext_resource type="Script" uid="uid://bx83skec0pgm1" path="res://Scripts/spawn_manager.gd" id="1_gq3vo"]
-[ext_resource type="PackedScene" uid="uid://klkiodnvsnw8" path="res://Scenes/stalker.tscn" id="2_tnfph"]
-[ext_resource type="PackedScene" uid="uid://cxub4opx5yetm" path="res://Scenes/sentry.tscn" id="3_muc81"]
 
 [sub_resource type="GDScript" id="GDScript_mmape"]
 script/source = "extends Timer
@@ -20,7 +18,8 @@ func _process(delta: float) -> void:
 
 [node name="spawnmanager" type="Node2D" unique_id=931316099]
 script = ExtResource("1_gq3vo")
-enemy_list = Array[PackedScene]([ExtResource("3_muc81"), ExtResource("2_tnfph")])
 
-[node name="Timer" type="Timer" parent="." unique_id=1586958691]
+[node name="spawn_timer" type="Timer" parent="." unique_id=1586958691]
 script = SubResource("GDScript_mmape")
+
+[node name="anchor" type="Node2D" parent="." unique_id=1264883189]

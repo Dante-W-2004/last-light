@@ -30,4 +30,6 @@ position = Vector2(747, 361)
 position = Vector2(716, 589)
 
 [node name="Scarecrow" parent="." unique_id=1387577397 instance=ExtResource("4_0jdtf")]
-position = Vector2(1907, -94)
+position = Vector2(1569, 156)
+map_size = null
+spawn_interval = null

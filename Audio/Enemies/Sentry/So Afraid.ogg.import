@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://feuyn8ym8hs8"
+path="res://.godot/imported/So Afraid.ogg-db2105e84d8790c41f1bf6ea48441438.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Enemies/Sentry/So Afraid.ogg"
+dest_files=["res://.godot/imported/So Afraid.ogg-db2105e84d8790c41f1bf6ea48441438.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
