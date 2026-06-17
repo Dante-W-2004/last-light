@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ppv2n8nbm4wc" path="res://sentry_new.gd" id="1_cte0o"]
 [ext_resource type="Texture2D" uid="uid://bit54hdtp3pv0" path="res://Sprites/Scarecrow-Sheet.png" id="1_o6ph4"]
+[ext_resource type="Script" uid="uid://b7o5a8k1o67pi" path="res://Scenes/sentry_audio_manager.gd" id="3_1h72c"]
+[ext_resource type="AudioStream" uid="uid://dnr6o7cbp0w62" path="res://Audio/Enemies/Sentry/Don't Leave Me.ogg" id="4_mcdt3"]
+[ext_resource type="AudioStream" uid="uid://bes338quvl4xw" path="res://Audio/Enemies/Sentry/Help Me.ogg" id="5_kcd6i"]
+[ext_resource type="AudioStream" uid="uid://do2l0yux4x0vo" path="res://Audio/Enemies/Sentry/I'm Lost.ogg" id="6_ylqfv"]
+[ext_resource type="AudioStream" uid="uid://0fl1lwowo775" path="res://Audio/Enemies/Sentry/Save Me.ogg" id="7_pwx43"]
+[ext_resource type="AudioStream" uid="uid://feuyn8ym8hs8" path="res://Audio/Enemies/Sentry/So Afraid.ogg" id="8_0dkji"]
+[ext_resource type="AudioStream" uid="uid://ba3505akynq72" path="res://Audio/Enemies/Sentry/Chuckle.mp3" id="9_pwx43"]
+[ext_resource type="AudioStream" uid="uid://cbuiwggav414a" path="res://Audio/Enemies/Sentry/Help Me(muffled).mp3" id="10_0dkji"]
+[ext_resource type="AudioStream" uid="uid://cwvvhlfomj54f" path="res://Audio/Enemies/Sentry/Laugh.mp3" id="11_4mbve"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf4fg"]
+radius = 792.6424
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cte0o"]
 atlas = ExtResource("1_o6ph4")
@@ -78,11 +90,16 @@ animations = [{
 radius = 12.0
 height = 34.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lf4fg"]
-radius = 120.0
-
 [node name="Scarecrow" type="StaticBody2D" unique_id=1387577397]
 script = ExtResource("1_cte0o")
+
+[node name="AudioArea" type="Area2D" parent="." unique_id=51933426]
+collision_layer = 2
+collision_mask = 7
+
+[node name="AudioCollision" type="CollisionShape2D" parent="AudioArea" unique_id=742262752]
+shape = SubResource("CircleShape2D_lf4fg")
+debug_color = Color(0.21936387, 0.63937914, 3.85046e-07, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=745109141]
 sprite_frames = SubResource("SpriteFrames_pwx43")
@@ -96,3 +113,12 @@ shape = SubResource("CapsuleShape2D_0dkji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1658644700]
 shape = SubResource("CircleShape2D_lf4fg")
+
+[node name="SentryAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1614418950]
+max_distance = 1220.0
+bus = &"ScareCrow"
+script = ExtResource("3_1h72c")
+area_sounds = Array[AudioStream]([ExtResource("4_mcdt3"), ExtResource("5_kcd6i"), ExtResource("6_ylqfv"), ExtResource("7_pwx43"), ExtResource("8_0dkji"), ExtResource("9_pwx43"), ExtResource("10_0dkji"), ExtResource("11_4mbve")])
+
+[connection signal="body_entered" from="AudioArea" to="SentryAudioPlayer" method="_on_audio_area_body_entered"]
+[connection signal="body_exited" from="AudioArea" to="SentryAudioPlayer" method="_on_audio_area_body_exited"]

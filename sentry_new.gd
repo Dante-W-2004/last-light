@@ -5,12 +5,12 @@ extends Node2D
 @export var map_size: int = 200
 @export var spawn_interval: float = 3.0
 
-@onready var spawn_timer: Timer = $SpawnTimer
+#@onready var spawn_timer: Timer = $SpawnTimer
 
-func _ready():
-	spawn_timer.wait_time = spawn_interval
-	spawn_timer.timeout.connect(spawn_enemy)
-	spawn_timer.start()
+#func _ready():
+	#spawn_timer.wait_time = spawn_interval
+	#spawn_timer.timeout.connect(spawn_enemy)
+	#spawn_timer.start()
 
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate()
