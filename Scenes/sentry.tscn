@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cxub4opx5yetm"]
 
+[ext_resource type="Script" uid="uid://ppv2n8nbm4wc" path="res://sentry_new.gd" id="1_cte0o"]
 [ext_resource type="Texture2D" uid="uid://bit54hdtp3pv0" path="res://Sprites/Scarecrow-Sheet.png" id="1_o6ph4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cte0o"]
@@ -81,6 +82,7 @@ height = 34.0
 radius = 120.0
 
 [node name="Scarecrow" type="StaticBody2D" unique_id=1387577397]
+script = ExtResource("1_cte0o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=745109141]
 sprite_frames = SubResource("SpriteFrames_pwx43")

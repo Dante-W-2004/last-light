@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://klkiodnvsnw8"]
 
-[ext_resource type="Script" uid="uid://1twi3j6fkytc" path="res://Scripts/stalker.gd" id="1_dnoy0"]
+[ext_resource type="Script" uid="uid://cjacu1bu25n81" path="res://stalker_new.gd" id="1_16nwl"]
 [ext_resource type="Texture2D" uid="uid://cxsum4sifotjo" path="res://Sprites/Wolf-Sheet.png" id="2_16nwl"]
 [ext_resource type="AudioStream" uid="uid://ceubwp3suwbcu" path="res://Audio/Enemies/Stalker/Howls/Howl6.mp3" id="3_7lcwv"]
 [ext_resource type="Script" uid="uid://dck0pn6t7dfit" path="res://Scenes/Stalker_Audio_Manager.gd" id="4_gx3k3"]
@@ -51,10 +51,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umuvm"]
 size = Vector2(32, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_16nwl"]
+radius = 150.0
+
 [node name="Stalker" type="CharacterBody2D" unique_id=1101845300 node_paths=PackedStringArray("audio_manager") groups=["enemy"]]
 collision_layer = 4
-collision_mask = 8
-script = ExtResource("1_dnoy0")
+collision_mask = 11
+script = ExtResource("1_16nwl")
 audio_manager = NodePath("AudioStreamPlayer2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1585706497]
@@ -75,3 +78,9 @@ bus = &"WolfSounds"
 script = ExtResource("4_gx3k3")
 spawn_sounds = Array[AudioStream]([ExtResource("3_7lcwv"), ExtResource("5_nturs"), ExtResource("6_5mmam"), ExtResource("7_16nwl"), ExtResource("8_et8fq"), ExtResource("9_mp32v")])
 chase_state_sounds = Array[AudioStream]([ExtResource("10_5mmam"), ExtResource("11_16nwl")])
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1640916503]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1297843822]
+shape = SubResource("CircleShape2D_16nwl")
+debug_color = Color(0.3016068, 0.60406345, 0.4935825, 0.41960785)

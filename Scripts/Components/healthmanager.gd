@@ -17,6 +17,7 @@ func set_health(_new_value):
 	health_changed.emit(current_health)
 	if current_health <= 0:
 		on_death.emit()
+		GlobalScore.is_dead = true
 
 func modify_health(_health_modifier):
 	current_health += _health_modifier
@@ -24,3 +25,4 @@ func modify_health(_health_modifier):
 	health_changed.emit(current_health)
 	if current_health <= 0:
 		on_death.emit()
+		GlobalScore.is_dead = true
