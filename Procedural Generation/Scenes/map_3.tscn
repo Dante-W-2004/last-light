@@ -4,8 +4,9 @@
 [ext_resource type="TileSet" uid="uid://cili4vutq8qfp" path="res://Procedural Generation/Scripts/Map.tres" id="2_hyata"]
 [ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="3_am5t7"]
 [ext_resource type="PackedScene" uid="uid://bt8hkxhoo4jcu" path="res://Procedural Generation/Scenes/not_dead_tree.tscn" id="5_bdluc"]
-[ext_resource type="Texture2D" uid="uid://bcvtkjc7lnyh" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="5_yf3xl"]
-[ext_resource type="PackedScene" uid="uid://dbbg1hc4c5085" path="res://Procedural Generation/Scenes/PlaceHolderCampFire.tscn" id="6_yf3xl"]
+[ext_resource type="Texture2D" uid="uid://b8a686br2gw8t" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="5_yf3xl"]
+[ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="6_yf3xl"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="7_d52bh"]
 
 [sub_resource type="Gradient" id="Gradient_hyata"]
 interpolation_mode = 1
@@ -32,17 +33,79 @@ seamless = true
 seamless_blend_skirt = 0.2
 
 [sub_resource type="Gradient" id="Gradient_yf3xl"]
-offsets = PackedFloat32Array(0, 0.25625, 0.7875, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.034852546, 0.034852546, 0.034852546, 1, 0.6639219, 0.6639219, 0.6639219, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.276, 0.772, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6639219, 0.6639219, 0.6639219, 1, 0.034852546, 0.034852546, 0.034852546, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d52bh"]
 gradient = SubResource("Gradient_yf3xl")
 fill = 2
-fill_from = Vector2(0.52890176, 0.50289017)
+fill_from = Vector2(0.5, 0.50289017)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Animation" id="Animation_yf3xl"]
+resource_name = "BURNTORCH"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.45, 0.45), Vector2(0.5, 0.5), Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.5, 0.7, 0.8, 0.7]
+}
+
+[sub_resource type="Animation" id="Animation_d52bh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjr2r"]
+_data = {
+&"BURNTORCH": SubResource("Animation_yf3xl"),
+&"RESET": SubResource("Animation_d52bh")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d52bh"]
-radius = 61.0
+radius = 83.00603
 
 [node name="Map3" type="Node2D" unique_id=1155159092]
 script = ExtResource("1_ilaih")
@@ -66,106 +129,147 @@ layer_3/z_index = 2
 layer_4/name = "Trees_n_stuff"
 layer_4/z_index = -1
 
-[node name="Player" parent="." unique_id=1345769910 node_paths=PackedStringArray("components") instance=ExtResource("3_am5t7")]
+[node name="Player" parent="." unique_id=1345769910 instance=ExtResource("3_am5t7")]
 position = Vector2(-171, -159)
-components = {
-"health": null
-}
 
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1618706737]
-position = Vector2(7.000006, 7.000001)
-scale = Vector2(0.31054693, 0.31445313)
-color = Color(1, 0.6039216, 0.20784314, 1)
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1236785526]
+position = Vector2(7.9999995, 6.9999995)
+scale = Vector2(0.3, 0.3)
+color = Color(1, 0.60784316, 0.19607843, 1)
+energy = 0.7
 texture = ExtResource("5_yf3xl")
 
-[node name="Area2D" type="Area2D" parent="Player" unique_id=313069455]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D" unique_id=562979261]
-shape = SubResource("CircleShape2D_d52bh")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PointLight2D" unique_id=1263096456]
+libraries/ = SubResource("AnimationLibrary_hjr2r")
+autoplay = &"BURNTORCH"
 
 [node name="TREES" type="Node2D" parent="." unique_id=821554785]
 unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=950966530]
 self_modulate = Color(0.5132329, 0.5132329, 0.5132329, 0.8862745)
-color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+color = Color(0.585062, 0.585062, 0.5850621, 1)
 
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 position = Vector2(-10371, -305)
 
-[node name="PlaceHolder" parent="Campfires" unique_id=943107536 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire" parent="Campfires" unique_id=62097339 instance=ExtResource("6_yf3xl")]
+is_extractfire = true
 
-[node name="PlaceHolder16" parent="Campfires" unique_id=466881927 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire" unique_id=614744150]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder17" parent="Campfires" unique_id=288277568 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire/Area2D2" unique_id=286624299]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder18" parent="Campfires" unique_id=2092339595 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire2" parent="Campfires" unique_id=1813160817 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder19" parent="Campfires" unique_id=2098339671 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire2" unique_id=1671404810]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder20" parent="Campfires" unique_id=277091894 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire2/Area2D2" unique_id=234999087]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder21" parent="Campfires" unique_id=1898605496 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire3" parent="Campfires" unique_id=1197393007 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder22" parent="Campfires" unique_id=923491863 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire3" unique_id=2040423656]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder23" parent="Campfires" unique_id=1761462853 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire3/Area2D2" unique_id=1139782285]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder24" parent="Campfires" unique_id=1579291789 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire4" parent="Campfires" unique_id=1629289165 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder25" parent="Campfires" unique_id=1664127493 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire4" unique_id=1695993222]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder15" parent="Campfires" unique_id=217125560 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire4/Area2D2" unique_id=757709929]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder2" parent="Campfires" unique_id=423199217 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire5" parent="Campfires" unique_id=2102617678 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder3" parent="Campfires" unique_id=456334525 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire5" unique_id=2116225078]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder4" parent="Campfires" unique_id=2020645462 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire5/Area2D2" unique_id=760522592]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder5" parent="Campfires" unique_id=692226049 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire6" parent="Campfires" unique_id=518813786 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder6" parent="Campfires" unique_id=1050208038 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire6" unique_id=1405392371]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder7" parent="Campfires" unique_id=1577986188 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire6/Area2D2" unique_id=1429519209]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder8" parent="Campfires" unique_id=299128660 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire7" parent="Campfires" unique_id=140418770 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder9" parent="Campfires" unique_id=924515298 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire7" unique_id=1536621521]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder10" parent="Campfires" unique_id=192164325 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire7/Area2D2" unique_id=1291168694]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder11" parent="Campfires" unique_id=1540225417 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire8" parent="Campfires" unique_id=542201410 instance=ExtResource("6_yf3xl")]
 
-[node name="PlaceHolder12" parent="Campfires" unique_id=1635253142 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire8" unique_id=1290822547]
+script = ExtResource("7_d52bh")
 
-[node name="PlaceHolder13" parent="Campfires" unique_id=575579010 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire8/Area2D2" unique_id=1428008061]
+shape = SubResource("CircleShape2D_d52bh")
 
-[node name="PlaceHolder14" parent="Campfires" unique_id=1523981836 instance=ExtResource("6_yf3xl")]
-position = Vector2(6067, 42)
+[node name="Campfire9" parent="Campfires" unique_id=1942649072 instance=ExtResource("6_yf3xl")]
 
-[connection signal="body_entered" from="Player/Area2D" to="Player/Area2D" method="_on_body_entered"]
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire9" unique_id=1237859246]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire9/Area2D2" unique_id=1035462774]
+shape = SubResource("CircleShape2D_d52bh")
+
+[node name="Campfire10" parent="Campfires" unique_id=170512973 instance=ExtResource("6_yf3xl")]
+
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire10" unique_id=1916881533]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire10/Area2D2" unique_id=1732850002]
+shape = SubResource("CircleShape2D_d52bh")
+
+[node name="Campfire11" parent="Campfires" unique_id=2081625413 instance=ExtResource("6_yf3xl")]
+
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire11" unique_id=1909458186]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire11/Area2D2" unique_id=757144427]
+shape = SubResource("CircleShape2D_d52bh")
+
+[node name="Campfire12" parent="Campfires" unique_id=457497390 instance=ExtResource("6_yf3xl")]
+
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire12" unique_id=709922589]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire12/Area2D2" unique_id=1618205272]
+shape = SubResource("CircleShape2D_d52bh")
+
+[node name="Campfire13" parent="Campfires" unique_id=794882789 instance=ExtResource("6_yf3xl")]
+
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire13" unique_id=1971432043]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire13/Area2D2" unique_id=475787440]
+shape = SubResource("CircleShape2D_d52bh")
+
+[node name="Campfire14" parent="Campfires" unique_id=1556431984 instance=ExtResource("6_yf3xl")]
+
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire14" unique_id=1364051463]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire14/Area2D2" unique_id=1674687703]
+shape = SubResource("CircleShape2D_d52bh")
+
+[node name="Campfire15" parent="Campfires" unique_id=187648843 instance=ExtResource("6_yf3xl")]
+
+[node name="Area2D2" type="Area2D" parent="Campfires/Campfire15" unique_id=658369942]
+script = ExtResource("7_d52bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire15/Area2D2" unique_id=1281822819]
+shape = SubResource("CircleShape2D_d52bh")
