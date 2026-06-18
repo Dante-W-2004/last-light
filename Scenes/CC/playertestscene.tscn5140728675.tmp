@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpa0skuivpl5e"]
 
 [ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="2_oo253"]
-[ext_resource type="PackedScene" uid="uid://bdw47h26shf05" path="res://Scenes/spawnmanager.tscn" id="3_0jdtf"]
+[ext_resource type="PackedScene" uid="uid://klkiodnvsnw8" path="res://Scenes/stalker.tscn" id="3_0jdtf"]
 [ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="3_xmbm0"]
 [ext_resource type="PackedScene" uid="uid://cxub4opx5yetm" path="res://Scenes/sentry.tscn" id="4_0jdtf"]
 
@@ -23,6 +23,11 @@ is_extractfire = true
 [node name="Campfire3" parent="." unique_id=454317211 instance=ExtResource("3_xmbm0")]
 position = Vector2(1197, 677)
 
-[node name="spawner" parent="." unique_id=931316099 instance=ExtResource("3_0jdtf")]
-unique_name_in_owner = true
-position = Vector2(654, 395)
+[node name="Stalker" parent="." unique_id=1101845300 instance=ExtResource("3_0jdtf")]
+position = Vector2(747, 361)
+
+[node name="Stalker2" parent="." unique_id=708548000 instance=ExtResource("3_0jdtf")]
+position = Vector2(716, 589)
+
+[node name="Scarecrow" parent="." unique_id=1387577397 instance=ExtResource("4_0jdtf")]
+position = Vector2(1569, 156)

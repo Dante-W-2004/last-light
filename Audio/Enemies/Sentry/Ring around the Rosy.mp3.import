@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcsp8viyinnow"
+path="res://.godot/imported/Ring around the Rosy.mp3-ae1296651cb9b01ee5631216b1503feb.mp3str"
+
+[deps]
+
+source_file="res://Audio/Enemies/Sentry/Ring around the Rosy.mp3"
+dest_files=["res://.godot/imported/Ring around the Rosy.mp3-ae1296651cb9b01ee5631216b1503feb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

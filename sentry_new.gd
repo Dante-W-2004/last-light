@@ -8,6 +8,7 @@ class_name SentryNew
 @export var isColliding: bool = false
 
 #@onready var spawn_timer: Timer = $SpawnTimer
+
 	#spawn_timer.wait_time = spawn_interval
 	#spawn_timer.timeout.connect(spawn_enemy)
 	#spawn_timer.start()
@@ -28,6 +29,7 @@ func _ready():
 		State.IDLE:
 			idle_state()
 			
+
 
 func attack_state(): 
 	can_attack = false

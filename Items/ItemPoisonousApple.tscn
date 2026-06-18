@@ -1,22 +1,33 @@
 [gd_scene format=3 uid="uid://i3xal36icyci"]
 
-[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Composites/base_item.gd" id="1_3p4hv"]
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/base_item.gd" id="1_3p4hv"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="2_cehjg"]
-[ext_resource type="Script" uid="uid://dj4oaggf2ktrl" path="res://Composites/Attributes/is_food.gd" id="3_tb8cr"]
+[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/base_item_data.gd" id="2_tb8cr"]
+[ext_resource type="Script" uid="uid://bg0gpqmv5qaps" path="res://Composites/Attributes/health_attribute.gd" id="4_tb8cr"]
+[ext_resource type="Script" uid="uid://d0anl33qcib4i" path="res://Composites/Attributes/hunger_attribute.gd" id="5_b7123"]
+
+[sub_resource type="Resource" id="Resource_b7123"]
+script = ExtResource("2_tb8cr")
+item_name = "Evil Apple"
+item_description = "It played a big role in the famous 1937 film."
+item_weight = 0.5
+metadata/_custom_type_script = "uid://dp2v1pn33u218"
 
 [node name="ItemEvilApple" type="Node2D" unique_id=141034067]
 script = ExtResource("1_3p4hv")
-item_name = "Evil Apple"
-item_description = "Just eat it bro. 
-What is the worst that can happen :>"
+item_data = SubResource("Resource_b7123")
 metadata/_custom_type_script = "uid://cpqcushef3v2o"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=368069550]
 modulate = Color(2.7909343, 5.622986e-05, 1.3317599e-05, 1)
 texture = ExtResource("2_cehjg")
 
-[node name="IsFood" type="Node" parent="." unique_id=191486796]
-script = ExtResource("3_tb8cr")
-food_amount = 5.0
-heal_amount = -20.0
-metadata/_custom_type_script = "uid://dj4oaggf2ktrl"
+[node name="HealthAttribute" type="Node" parent="." unique_id=983179765]
+script = ExtResource("4_tb8cr")
+health_value = -20.0
+metadata/_custom_type_script = "uid://bg0gpqmv5qaps"
+
+[node name="HungerAttribute" type="Node" parent="." unique_id=101711046]
+script = ExtResource("5_b7123")
+hunger_value = 5.0
+metadata/_custom_type_script = "uid://d0anl33qcib4i"

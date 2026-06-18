@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var components: Dictionary[String,BaseComponent]
 @export var speed: float = 200
 @export var audio_manager: PAManager
 @export var swing_cd: float = 2
