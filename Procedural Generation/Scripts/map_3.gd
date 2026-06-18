@@ -83,7 +83,7 @@ func generate_world():
 				elif noise_value_2 >= 0.7:
 					tall_tiles_arr.append(Vector2i(x,y))
 					
-				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.55 and treesnstuff_value < 0.7:
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.5 and treesnstuff_value < 0.85:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
 					for i in range(2):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)

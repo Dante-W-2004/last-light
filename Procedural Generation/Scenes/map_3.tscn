@@ -32,13 +32,13 @@ seamless = true
 seamless_blend_skirt = 0.2
 
 [sub_resource type="Gradient" id="Gradient_yf3xl"]
-offsets = PackedFloat32Array(0, 0.25625, 0.7875, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.034852546, 0.034852546, 0.034852546, 1, 0.6639219, 0.6639219, 0.6639219, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.276, 0.772, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6639219, 0.6639219, 0.6639219, 1, 0.034852546, 0.034852546, 0.034852546, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d52bh"]
 gradient = SubResource("Gradient_yf3xl")
 fill = 2
-fill_from = Vector2(0.52890176, 0.50289017)
+fill_from = Vector2(0.5, 0.50289017)
 fill_to = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_yf3xl"]
@@ -144,6 +144,7 @@ texture = ExtResource("5_yf3xl")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PointLight2D" unique_id=932571200]
 libraries/ = SubResource("AnimationLibrary_hjr2r")
 autoplay = &"TorchLight"
+speed_scale = 0.5
 
 [node name="Area2D" type="Area2D" parent="Player" unique_id=313069455]
 
@@ -155,7 +156,7 @@ unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=950966530]
 self_modulate = Color(0.5132329, 0.5132329, 0.5132329, 0.8862745)
-color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+color = Color(0.5958281, 0.5958282, 0.595828, 1)
 
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 position = Vector2(-10371, -305)

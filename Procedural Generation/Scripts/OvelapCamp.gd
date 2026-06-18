@@ -9,3 +9,4 @@ func _process(delta: float) -> void:
 		if body.is_in_group("Trees"):
 			get_tree().get_nodes_in_group("Trees")
 			body.queue_free()
+			

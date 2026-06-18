@@ -250,7 +250,6 @@ texture = ExtResource("10_8hthi")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_n6wh1")
 autoplay = &"FireLight"
-speed_scale = 2.0
 
 [connection signal="canextract" from="." to="Extract" method="_on_campfire_canextract"]
 [connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]
