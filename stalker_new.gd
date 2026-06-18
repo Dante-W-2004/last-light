@@ -1,10 +1,11 @@
 extends BaseEnemy
 class_name StalkerNew
 
+# To change speed, detection_range look at @base_enemy.gd
+
 
 # NavigationAgent2D handles pathfinding toward the player.
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-
 
 # Runs every physics frame.
 # The Stalker can wait, chase, attack, or die.
@@ -48,6 +49,7 @@ func chase_state():
 		state = State.IDLE
 		velocity = Vector2.ZERO
 		return
+		
 
 	if distance <= attack_range:
 		state = State.ATTACK
@@ -56,12 +58,14 @@ func chase_state():
 
 	nav_agent.target_position = player.global_position
 
-	var next_position = nav_agent.get_next_path_position()
-	var direction = global_position.direction_to(next_position)
+	# Direction was changed to target the global position of the van_agent's target position
+	var direction = global_position.direction_to(nav_agent.target_position)
+	# Added a rotation relative to player position
+	look_at(player.global_position)
 
-	velocity = direction * speed
-
-
+	# Velocity was changed to use the new direction enhanced by the speed Vector (to not cause type conflicts)
+	velocity = direction * Vector2(speed, speed)
+	
 # Stops moving and attacks while inside attack range.
 func attack_state():
 	var distance = global_position.distance_to(player.global_position)
