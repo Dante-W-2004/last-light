@@ -83,7 +83,7 @@ func generate_world():
 				elif noise_value_2 >= 0.7:
 					tall_tiles_arr.append(Vector2i(x,y))
 					
-				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.55 and treesnstuff_value < 0.7:
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.5 and treesnstuff_value < 0.85:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
 					for i in range(2):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
@@ -93,11 +93,11 @@ func generate_world():
 						AddTrees.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
 						trees.add_child(AddTrees)
-					for i in range(25):
+					for i in range(15):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
 						var RandomCoord: Vector2i = TreesPlease.pick_random()
 						var CoordPosition: Vector2 = tile_map.map_to_local(RandomCoord)
-						var placeholderCampfire = [$Campfires/PlaceHolder, $Campfires/PlaceHolder16, $Campfires/PlaceHolder17, $Campfires/PlaceHolder18, $Campfires/PlaceHolder19, $Campfires/PlaceHolder20, $Campfires/PlaceHolder21, $Campfires/PlaceHolder22, $Campfires/PlaceHolder23, $Campfires/PlaceHolder24, $Campfires/PlaceHolder25, $Campfires/PlaceHolder15, $Campfires/PlaceHolder2, $Campfires/PlaceHolder3, $Campfires/PlaceHolder4, $Campfires/PlaceHolder5, $Campfires/PlaceHolder6, $Campfires/PlaceHolder7, $Campfires/PlaceHolder8, $Campfires/PlaceHolder9, $Campfires/PlaceHolder10, $Campfires/PlaceHolder11, $Campfires/PlaceHolder12, $Campfires/PlaceHolder13, $Campfires/PlaceHolder14]
+						var placeholderCampfire = [$Campfires/Campfire, $Campfires/Campfire2, $Campfires/Campfire3, $Campfires/Campfire4, $Campfires/Campfire5, $Campfires/Campfire6, $Campfires/Campfire7, $Campfires/Campfire8, $Campfires/Campfire9, $Campfires/Campfire10, $Campfires/Campfire11, $Campfires/Campfire12, $Campfires/Campfire13, $Campfires/Campfire14, $Campfires/Campfire15]
 						var AddCampfire: Node2D = placeholderCampfire.pick_random()
 						AddCampfire.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
