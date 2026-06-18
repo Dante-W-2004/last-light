@@ -1,26 +1,10 @@
-extends Node2D
-
-# Possible behavior states for the Sentry enemy
-enum State {
-	IDLE,
-	ATTACK,
-	DEAD
-}
-
-# Enemy stats
-@export var health: int = 20
-@export var attack_damage: int = 10
-@export var attack_cooldown: float = 1.5
-
-# Runtime variables
-var state: State = State.IDLE
-var player: Node2D = null
-var can_attack: bool = true
+extends BaseEnemy
+class_name Sentry
 
 # Main behavior loop
 func _process(delta):
 	if state == State.DEAD:
-		return
+		dead_state()
 
 	# Checks if a living player exists
 	if player != null and not player.is_dead:
@@ -45,21 +29,6 @@ func attack_player():
 	# Waits before attacking again
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
-
-# Reduces health when the Sentry gets hit
-func take_damage(amount: int):
-	if state == State.DEAD:
-		return
-
-	health -= amount
-
-	if health <= 0:
-		die()
-
-# Removes the Sentry when health reaches zero
-func die():
-	state = State.DEAD
-	queue_free()
 
 # Detects the player entering the Area2D
 func _on_area_2d_body_entered(body):

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dnr6o7cbp0w62"
+path="res://.godot/imported/Don't Leave Me.ogg-5a4d7960f199eea663d216feef877576.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Enemies/Sentry/Don't Leave Me.ogg"
+dest_files=["res://.godot/imported/Don't Leave Me.ogg-5a4d7960f199eea663d216feef877576.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

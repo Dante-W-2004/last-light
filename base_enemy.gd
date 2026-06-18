@@ -39,6 +39,7 @@ func find_player():
 
 	if players.size() > 0:
 		player = players[0]
+		
 
 func idle_state():pass
 
@@ -49,3 +50,5 @@ func attack_state():pass
 func attack_player():pass
 
 func cooldown():pass
+
+func dead_state():pass

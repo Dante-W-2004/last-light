@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Last Light"
-run/main_scene="uid://c8ri1x4n55hp6"
+run/main_scene="uid://bmmro783k16pe"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0.4872275, 0.3283672, 1)
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bsxnyt8qbh7bc"
 
 [autoload]
 
@@ -24,8 +28,8 @@ GlobalScore="*uid://om0dc2vksm3f"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://do2l0yux4x0vo"
+path="res://.godot/imported/I'm Lost.ogg-1558f9e7b622be4046053b2a4bd98d5e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Enemies/Sentry/I'm Lost.ogg"
+dest_files=["res://.godot/imported/I'm Lost.ogg-1558f9e7b622be4046053b2a4bd98d5e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
