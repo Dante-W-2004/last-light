@@ -1,9 +1,6 @@
 extends Area2D
 
-@onready var point_light_2d: PointLight2D = %PointLight2D
-
-func _process(delta: float) -> void:
-	
+func _ready() -> void:
 	var overlap = get_overlapping_bodies()
 	for body in overlap:
 		if body.is_in_group("Trees"):
