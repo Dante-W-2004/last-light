@@ -29,7 +29,7 @@ var can_attack: bool = true
 
 # Sets health and finds the player when the enemy spawns
 func _ready():
-	audio_manager.play_spawn_sound()
+	#audio_manager.play_spawn_sound()
 	health = max_health
 	find_player()
 	
