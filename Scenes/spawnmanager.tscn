@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="spawnmanager" type="Node2D" unique_id=931316099]
+[node name="spawn_manager" type="Node2D" unique_id=931316099]
 script = ExtResource("1_gq3vo")
 
 [node name="spawn_timer" type="Timer" parent="." unique_id=1586958691]
