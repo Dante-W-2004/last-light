@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ccl2850dawfic"]
 
-[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/base_item.gd" id="1_d4k3y"]
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_d4k3y"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="2_3lsb8"]
-[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/base_item_data.gd" id="2_y2sq2"]
+[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/Base Classes/base_item_data.gd" id="2_y2sq2"]
 [ext_resource type="Script" uid="uid://y55uhnuxlri1" path="res://Composites/Attributes/fuel_attribute.gd" id="2_ypt6c"]
 
 [sub_resource type="Resource" id="Resource_7ppww"]
@@ -10,9 +10,11 @@ script = ExtResource("2_y2sq2")
 item_name = "Log"
 item_description = "A solid bit of fuel for a fire."
 item_weight = 2.0
+item_category = 1
 metadata/_custom_type_script = "uid://dp2v1pn33u218"
 
 [node name="ItemLog" type="Node2D" unique_id=1230829490]
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_d4k3y")
 item_data = SubResource("Resource_7ppww")
 metadata/_custom_type_script = "uid://cpqcushef3v2o"
