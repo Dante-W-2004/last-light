@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://brswsxjjws1w2"]
 
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="1_dq4my"]
-[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/base_item.gd" id="1_y8ldx"]
-[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/base_item_data.gd" id="2_1h6cq"]
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_y8ldx"]
+[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/Base Classes/base_item_data.gd" id="2_1h6cq"]
 [ext_resource type="Script" uid="uid://bg0gpqmv5qaps" path="res://Composites/Attributes/health_attribute.gd" id="4_w06bm"]
 [ext_resource type="Script" uid="uid://d0anl33qcib4i" path="res://Composites/Attributes/hunger_attribute.gd" id="5_t7whu"]
 
@@ -12,9 +12,12 @@ item_name = "Apple"
 item_description = "It's a fucking apple.
 Unless...?"
 item_weight = 0.5
+item_category = 0
+allow_use = true
 metadata/_custom_type_script = "uid://dp2v1pn33u218"
 
 [node name="ItemApple" type="Node2D" unique_id=141034067]
+scale = Vector2(0.075, 0.075)
 script = ExtResource("1_y8ldx")
 item_data = SubResource("Resource_w06bm")
 metadata/_custom_type_script = "uid://cpqcushef3v2o"
