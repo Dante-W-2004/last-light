@@ -18,7 +18,7 @@ navigation_polygon = SubResource("NavigationPolygon_rxg2q")
 position = Vector2(198, -167)
 
 [node name="Sentry" parent="." unique_id=687428681 instance=ExtResource("3_kln2b")]
-position = Vector2(-240, -260)
+position = Vector2(-138, -105)
 
 [node name="Player" parent="." unique_id=1345769910 node_paths=PackedStringArray("components") instance=ExtResource("3_rgh2o")]
 position = Vector2(-87, 64)
