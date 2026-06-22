@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cshysg8rqucva" path="res://Sprites/Extraction Camfire-Sheet.png" id="4_h71cq"]
 [ext_resource type="PackedScene" uid="uid://ledagudwml00" path="res://Scenes/ExtractMenu.tscn" id="5_glem2"]
 [ext_resource type="AudioStream" uid="uid://cxw2a3at242f3" path="res://Audio/Campfire/Last_Light_FirePlace (1).mp3" id="8_g4oil"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="9_yop4o"]
 [ext_resource type="Texture2D" uid="uid://b8a686br2gw8t" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="10_8hthi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tsqt"]
@@ -182,6 +183,9 @@ _data = {
 &"RESET": SubResource("Animation_0i53e")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8hthi"]
+radius = 83.00603
+
 [node name="Campfire" type="StaticBody2D" unique_id=62097339 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_3u7do")
 animated_sprite = NodePath("AnimatedSprite2D")
@@ -220,11 +224,18 @@ volume_db = 1.825
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1777161487]
 color = Color(1, 0.4862745, 0.19607843, 1)
+shadow_enabled = true
 texture = ExtResource("10_8hthi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D" unique_id=1794691763]
 libraries/ = SubResource("AnimationLibrary_yop4o")
 autoplay = &"BURNCAMPFIRE"
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1110405805]
+script = ExtResource("9_yop4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=239756930]
+shape = SubResource("CircleShape2D_8hthi")
 
 [connection signal="canextract" from="." to="Extract" method="_on_campfire_canextract"]
 [connection signal="body_entered" from="TorchScare" to="Extract" method="_on_extract_zone_body_entered"]

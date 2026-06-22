@@ -1,6 +1,6 @@
 extends Area2D
 
-func _ready() -> void:
+func _physics_process(delta: float) -> void:
 	var overlap = get_overlapping_bodies()
 	for body in overlap:
 		if body.is_in_group("Trees"):
