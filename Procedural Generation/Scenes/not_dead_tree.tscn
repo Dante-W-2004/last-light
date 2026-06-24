@@ -4,7 +4,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_338bx"]
 
-[node name="NotDeadTree" type="StaticBody2D" unique_id=2030283247]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2id8h"]
+cull_mode = 2
+polygon = PackedVector2Array(-10.666667, 0, -10, 2.6666667, -9, 5, -7.3333335, 7.3333335, -5, 9, -2.6666667, 10, 0, 10.666667, 2.6666667, 10, 5, 9, 7.3333335, 7.3333335, 9, 5, 10, 2.6666667, 10.666667, 0, 10, -2.6666667, 9, -5, 7.3333335, -7.3333335, 5, -9, 2.6666667, -10, 0, -10.666667, -2.6666667, -10, -5, -9, -7.3333335, -7.3333335, -9, -5, -10, -2.6666667)
+
+[node name="NotDeadTree" type="StaticBody2D" unique_id=2030283247 groups=["Trees"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397376859]
 position = Vector2(1, -2)
@@ -12,3 +16,7 @@ texture = ExtResource("1_2cxq6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1161152469]
 shape = SubResource("CircleShape2D_338bx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=929778027]
+scale = Vector2(1.5, 1.5)
+occluder = SubResource("OccluderPolygon2D_2id8h")

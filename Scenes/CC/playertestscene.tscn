@@ -5,11 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="3_xmbm0"]
 [ext_resource type="PackedScene" uid="uid://crcx8cnc8rdcd" path="res://Scenes/spawner_test.tscn" id="4_0jdtf"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="5_3epj0"]
+[ext_resource type="PackedScene" uid="uid://brswsxjjws1w2" path="res://Items/ItemApple.tscn" id="6_v40o6"]
+[ext_resource type="PackedScene" uid="uid://i3xal36icyci" path="res://Items/ItemPoisonousApple.tscn" id="7_nbsw7"]
+[ext_resource type="PackedScene" uid="uid://ccl2850dawfic" path="res://Items/ItemLog.tscn" id="8_u6q6l"]
 
 [node name="Node2D" type="Node2D" unique_id=621896892]
 
 [node name="Player" parent="." unique_id=1345769910 instance=ExtResource("2_oo253")]
 position = Vector2(934, 520)
+speed = 200.0
 
 [node name="Campfire" parent="." unique_id=1064889945 instance=ExtResource("3_xmbm0")]
 position = Vector2(927, 344)
@@ -33,3 +37,15 @@ position = Vector2(1163, 448)
 position = Vector2(0.999979, -43.000004)
 scale = Vector2(0.27343714, 0.28906232)
 texture = ExtResource("5_3epj0")
+
+[node name="ItemApple" parent="." unique_id=141034067 instance=ExtResource("6_v40o6")]
+position = Vector2(513, 337)
+
+[node name="ItemEvilApple" parent="." unique_id=1610697479 instance=ExtResource("7_nbsw7")]
+position = Vector2(756, 527)
+
+[node name="ItemApple2" parent="." unique_id=815149434 instance=ExtResource("6_v40o6")]
+position = Vector2(691, 280)
+
+[node name="ItemLog" parent="." unique_id=1230829490 instance=ExtResource("8_u6q6l")]
+position = Vector2(483, 478)

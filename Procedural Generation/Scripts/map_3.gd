@@ -65,9 +65,6 @@ func generate_world():
 		for y in range(-height/2, height/2):
 			var noise_value :float = noise.get_noise_2d(x, y)
 			var treesnstuff_value :float = treesnstuff.get_noise_2d(x, y)
-
-			var mapSize = Vector2(x, y)
-			var mapCenter = Vector2(mapSize) / 2
 			var noise_value_2 = (noise_value + 1.0) / 2
 
 			if noise_value_2 >= 0.0:

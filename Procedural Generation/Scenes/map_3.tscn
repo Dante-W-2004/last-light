@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bt8hkxhoo4jcu" path="res://Procedural Generation/Scenes/not_dead_tree.tscn" id="5_bdluc"]
 [ext_resource type="Texture2D" uid="uid://b8a686br2gw8t" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="5_yf3xl"]
 [ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="6_yf3xl"]
-[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="7_d52bh"]
 
 [sub_resource type="Gradient" id="Gradient_hyata"]
 interpolation_mode = 1
@@ -104,8 +103,8 @@ _data = {
 &"RESET": SubResource("Animation_d52bh")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d52bh"]
-radius = 83.00603
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf3xl"]
+polygon = PackedVector2Array(-3, 6, 0, 2, 4, -3, 2, -7, 0, -8, -2, -8, -5, -3, -5, 2)
 
 [node name="Map3" type="Node2D" unique_id=1155159092]
 script = ExtResource("1_ilaih")
@@ -133,22 +132,28 @@ layer_4/z_index = -1
 position = Vector2(-171, -159)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1236785526]
-position = Vector2(7.9999995, 6.9999995)
+position = Vector2(5.9999995, 2.9999995)
 scale = Vector2(0.3, 0.3)
 color = Color(1, 0.60784316, 0.19607843, 1)
 energy = 0.7
+shadow_enabled = true
 texture = ExtResource("5_yf3xl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PointLight2D" unique_id=1263096456]
 libraries/ = SubResource("AnimationLibrary_hjr2r")
 autoplay = &"BURNTORCH"
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=218713967]
+modulate = Color(1, 1, 1, 0.78431374)
+self_modulate = Color(1, 1, 1, 0.78431374)
+occluder = SubResource("OccluderPolygon2D_yf3xl")
+
 [node name="TREES" type="Node2D" parent="." unique_id=821554785]
 unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=950966530]
 self_modulate = Color(0.5132329, 0.5132329, 0.5132329, 0.8862745)
-color = Color(0.585062, 0.585062, 0.5850621, 1)
+color = Color(0.6858353, 0.6858353, 0.68583506, 1)
 
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 position = Vector2(-10371, -305)
@@ -156,120 +161,30 @@ position = Vector2(-10371, -305)
 [node name="Campfire" parent="Campfires" unique_id=62097339 instance=ExtResource("6_yf3xl")]
 is_extractfire = true
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire" unique_id=614744150]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire/Area2D2" unique_id=286624299]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire2" parent="Campfires" unique_id=1813160817 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire2" unique_id=1671404810]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire2/Area2D2" unique_id=234999087]
-shape = SubResource("CircleShape2D_d52bh")
 
 [node name="Campfire3" parent="Campfires" unique_id=1197393007 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire3" unique_id=2040423656]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire3/Area2D2" unique_id=1139782285]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire4" parent="Campfires" unique_id=1629289165 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire4" unique_id=1695993222]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire4/Area2D2" unique_id=757709929]
-shape = SubResource("CircleShape2D_d52bh")
 
 [node name="Campfire5" parent="Campfires" unique_id=2102617678 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire5" unique_id=2116225078]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire5/Area2D2" unique_id=760522592]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire6" parent="Campfires" unique_id=518813786 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire6" unique_id=1405392371]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire6/Area2D2" unique_id=1429519209]
-shape = SubResource("CircleShape2D_d52bh")
 
 [node name="Campfire7" parent="Campfires" unique_id=140418770 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire7" unique_id=1536621521]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire7/Area2D2" unique_id=1291168694]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire8" parent="Campfires" unique_id=542201410 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire8" unique_id=1290822547]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire8/Area2D2" unique_id=1428008061]
-shape = SubResource("CircleShape2D_d52bh")
 
 [node name="Campfire9" parent="Campfires" unique_id=1942649072 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire9" unique_id=1237859246]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire9/Area2D2" unique_id=1035462774]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire10" parent="Campfires" unique_id=170512973 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire10" unique_id=1916881533]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire10/Area2D2" unique_id=1732850002]
-shape = SubResource("CircleShape2D_d52bh")
 
 [node name="Campfire11" parent="Campfires" unique_id=2081625413 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire11" unique_id=1909458186]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire11/Area2D2" unique_id=757144427]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire12" parent="Campfires" unique_id=457497390 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire12" unique_id=709922589]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire12/Area2D2" unique_id=1618205272]
-shape = SubResource("CircleShape2D_d52bh")
 
 [node name="Campfire13" parent="Campfires" unique_id=794882789 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire13" unique_id=1971432043]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire13/Area2D2" unique_id=475787440]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire14" parent="Campfires" unique_id=1556431984 instance=ExtResource("6_yf3xl")]
 
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire14" unique_id=1364051463]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire14/Area2D2" unique_id=1674687703]
-shape = SubResource("CircleShape2D_d52bh")
-
 [node name="Campfire15" parent="Campfires" unique_id=187648843 instance=ExtResource("6_yf3xl")]
-
-[node name="Area2D2" type="Area2D" parent="Campfires/Campfire15" unique_id=658369942]
-script = ExtResource("7_d52bh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfires/Campfire15/Area2D2" unique_id=1281822819]
-shape = SubResource("CircleShape2D_d52bh")
