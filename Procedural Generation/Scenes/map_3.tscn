@@ -140,8 +140,7 @@ layer_3/z_index = 2
 layer_4/name = "Trees_n_stuff"
 layer_4/z_index = -1
 
-[node name="Player" parent="." unique_id=1345769910 instance=ExtResource("3_am5t7")]
-position = Vector2(-171, -159)
+[node name="Player" parent="." unique_id=271383191 instance=ExtResource("3_am5t7")]
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1236785526]
 position = Vector2(5.9999995, 2.9999995)
@@ -165,7 +164,6 @@ unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=950966530]
 self_modulate = Color(0.5132329, 0.5132329, 0.5132329, 0.8862745)
-color = Color(0.76380855, 0.76380855, 0.7638085, 1)
 
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 unique_name_in_owner = true
@@ -575,224 +573,56 @@ position = Vector2(-6117, -793)
 
 [node name="ItemApple" parent="Items" unique_id=141034067 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple" unique_id=582465122]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple/Area2D2" unique_id=798996535]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog" parent="Items" unique_id=1230829490 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog" unique_id=1279215549]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog/Area2D2" unique_id=242175306]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple2" parent="Items" unique_id=715519697 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple2" unique_id=569376822]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple2/Area2D2" unique_id=915381229]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog2" parent="Items" unique_id=1399454834 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog2" unique_id=1795535469]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog2/Area2D2" unique_id=276849457]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple3" parent="Items" unique_id=263411451 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple3" unique_id=1527469262]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple3/Area2D2" unique_id=2125877863]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog3" parent="Items" unique_id=879833846 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog3" unique_id=129443452]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog3/Area2D2" unique_id=584994263]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple4" parent="Items" unique_id=1814798716 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple4" unique_id=611179730]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple4/Area2D2" unique_id=2058450719]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog4" parent="Items" unique_id=512624171 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog4" unique_id=756836260]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog4/Area2D2" unique_id=182845339]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple5" parent="Items" unique_id=841330177 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple5" unique_id=733252426]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple5/Area2D2" unique_id=250212345]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog5" parent="Items" unique_id=1821446796 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog5" unique_id=29960194]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog5/Area2D2" unique_id=585751220]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple6" parent="Items" unique_id=1443563463 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple6" unique_id=375942855]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple6/Area2D2" unique_id=800205090]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog6" parent="Items" unique_id=2044355952 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog6" unique_id=196286874]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog6/Area2D2" unique_id=1860455883]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemEvilApple6" parent="Items" unique_id=1029439195 instance=ExtResource("12_psv5t")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemEvilApple6" unique_id=259088085]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemEvilApple6/Area2D2" unique_id=72807489]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemApple7" parent="Items" unique_id=1706162038 instance=ExtResource("10_l56mf")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple7" unique_id=1710658470]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple7/Area2D2" unique_id=1450937430]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemLog7" parent="Items" unique_id=1850868924 instance=ExtResource("11_7k4av")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog7" unique_id=205378156]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog7/Area2D2" unique_id=1292381695]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemEvilApple7" parent="Items" unique_id=604780477 instance=ExtResource("12_psv5t")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemEvilApple7" unique_id=629843012]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemEvilApple7/Area2D2" unique_id=214917017]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple8" parent="Items" unique_id=1417601756 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple8" unique_id=48499137]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple8/Area2D2" unique_id=2142836307]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog8" parent="Items" unique_id=1078051812 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog8" unique_id=540179929]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog8/Area2D2" unique_id=1592700562]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemEvilApple8" parent="Items" unique_id=2055809517 instance=ExtResource("12_psv5t")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemEvilApple8" unique_id=2121905380]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemEvilApple8/Area2D2" unique_id=630468595]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemApple9" parent="Items" unique_id=1846577219 instance=ExtResource("10_l56mf")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple9" unique_id=561356805]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple9/Area2D2" unique_id=427305152]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemLog9" parent="Items" unique_id=92766308 instance=ExtResource("11_7k4av")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog9" unique_id=384691168]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog9/Area2D2" unique_id=1134137203]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemEvilApple9" parent="Items" unique_id=1124952159 instance=ExtResource("12_psv5t")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemEvilApple9" unique_id=1059886514]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemEvilApple9/Area2D2" unique_id=645228898]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemApple10" parent="Items" unique_id=247794919 instance=ExtResource("10_l56mf")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple10" unique_id=1982894491]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple10/Area2D2" unique_id=30277151]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemLog10" parent="Items" unique_id=1711447108 instance=ExtResource("11_7k4av")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog10" unique_id=2142845707]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog10/Area2D2" unique_id=209999206]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemEvilApple10" parent="Items" unique_id=384593951 instance=ExtResource("12_psv5t")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemEvilApple10" unique_id=1071664418]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemEvilApple10/Area2D2" unique_id=1800259371]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemApple11" parent="Items" unique_id=2133240909 instance=ExtResource("10_l56mf")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemApple11" unique_id=1353923689]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemApple11/Area2D2" unique_id=981861423]
-shape = SubResource("CircleShape2D_nnhor")
 
 [node name="ItemLog11" parent="Items" unique_id=1173955649 instance=ExtResource("11_7k4av")]
 
-[node name="Area2D2" type="Area2D" parent="Items/ItemLog11" unique_id=1465606878]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLog11/Area2D2" unique_id=1861792953]
-shape = SubResource("CircleShape2D_nnhor")
-
 [node name="ItemEvilApple11" parent="Items" unique_id=1529995652 instance=ExtResource("12_psv5t")]
-
-[node name="Area2D2" type="Area2D" parent="Items/ItemEvilApple11" unique_id=1954570017]
-script = ExtResource("8_hjr2r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemEvilApple11/Area2D2" unique_id=660450201]
-shape = SubResource("CircleShape2D_nnhor")

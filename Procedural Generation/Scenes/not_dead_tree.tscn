@@ -11,6 +11,7 @@ polygon = PackedVector2Array(-10.666667, 0, -10, 2.6666667, -9, 5, -7.3333335, 7
 [node name="NotDeadTree" type="StaticBody2D" unique_id=2030283247 groups=["Trees"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397376859]
+z_index = 1
 position = Vector2(1, -2)
 texture = ExtResource("1_2cxq6")
 
