@@ -113,7 +113,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtjj2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3qfg"]
 bg_color = Color(0.5269177, 0.8820838, 1, 1)
@@ -126,7 +126,7 @@ bg_color = Color(1, 0.34222248, 0.28608096, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45qwv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qla"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ji33o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
@@ -146,7 +146,7 @@ animation = &"swiping"
 autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1492282520]
-shape = SubResource("RectangleShape2D_vgqql")
+shape = SubResource("CircleShape2D_wtjj2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573844776]
 zoom = Vector2(3, 3)
@@ -239,7 +239,7 @@ debug_color = Color(0.60267687, 0.5389425, 0.18063581, 0.41960785)
 [node name="Hitbox" type="Area2D" parent="." unique_id=1811275730]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=753740012]
-shape = SubResource("RectangleShape2D_c0qla")
+shape = SubResource("CircleShape2D_ji33o")
 debug_color = Color(0.6623401, 0.11746546, 0.26079968, 0.41960785)
 
 [node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("16_pt4y4")]
