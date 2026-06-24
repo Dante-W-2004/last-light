@@ -153,7 +153,7 @@ unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=950966530]
 self_modulate = Color(0.5132329, 0.5132329, 0.5132329, 0.8862745)
-color = Color(0.60933065, 0.60933006, 0.60932964, 1)
+color = Color(0.6858353, 0.6858353, 0.68583506, 1)
 
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 position = Vector2(-10371, -305)
