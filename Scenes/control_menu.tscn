@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c4sk2sog4jfbm"]
+
+[ext_resource type="Script" uid="uid://bg3rslmkm8e7s" path="res://Scripts/control_menu.gd" id="1_av12d"]
+
+[node name="Control" type="Control" unique_id=867956657]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_av12d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1990196177]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -55.0
+offset_right = 67.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1703248052]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "TAB = INVENTORY
+E = PICKUP ITEMS
+P = EXTRACT
+LMB + SWING"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=921457289]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "MENU"
+
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

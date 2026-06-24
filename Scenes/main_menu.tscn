@@ -14,8 +14,8 @@ script = ExtResource("1_1ehe0")
 playScene = "res://Scenes/CC/playertestscene.tscn"
 
 [node name="TitlescreenLastLight" type="Sprite2D" parent="." unique_id=626886334]
-position = Vector2(641, 374)
-scale = Vector2(1.0746666, 1.0746666)
+position = Vector2(968, 559)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("1_28flt")
 
 [node name="Title" type="Label" parent="." unique_id=690842881]
@@ -23,8 +23,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -656.0
-offset_bottom = 110.0
+offset_left = -696.0
+offset_top = 152.0
+offset_right = -40.0
+offset_bottom = 262.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.8900917, 0.48161948, 0.10969923, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -51,4 +53,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "PLAY"
 
+[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=1268767428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "CONTROLS"
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]

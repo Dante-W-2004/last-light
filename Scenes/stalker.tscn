@@ -61,6 +61,7 @@ script = ExtResource("1_16nwl")
 audio_manager = NodePath("AudioStreamPlayer2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1585706497]
+rotation = 3.1415927
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_fgbl6")
 

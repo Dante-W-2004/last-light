@@ -1,21 +1,30 @@
 extends Node2D
 
+@onready var spawn_manager: Node2D = %spawn_manager
+
 const stalker: PackedScene = preload("res://Scenes/stalker.tscn")
+const sentry: PackedScene = preload("res://Scenes/sentry.tscn")
 
-@export var spawn_timer: float = 5.0
-@onready var anchor: Node2D = $anchor
+#@onready var anchor: Node2D = $anchor
 
+var scarecrow = sentry.instantiate()
+var wolf = stalker.instantiate()
 var can_spawn: bool = true
+#var maxEnemies = 6
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
 	if can_spawn:
 		spawn_wolf()
+		print("Wolf spawned")
+		spawn_sentry()
+		print("Sentry spawned")
+		can_spawn = false
 
 func spawn_wolf() -> void:
-	can_spawn = false
-	var wolf = stalker.instantiate()
-	get_tree().current_scene.add_child(wolf)
-	wolf.global_position = anchor.global_position
-	print("Wolf spawned")
-	await get_tree().create_timer(spawn_timer).timeout
-	can_spawn = true
+	spawn_manager.add_child(wolf)
+	print("Spawned wolf")
+	
+func spawn_sentry() -> void:
+	spawn_manager.add_child(scarecrow)
+	print("Spawned sentry")
+	

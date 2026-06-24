@@ -99,6 +99,7 @@ func spawn_enemy(enemy_scene: PackedScene):
 		"enemy": enemy,
 		"spawn_position": spawn_position
 	})
+	print(spawned_enemies)
 
 
 # Finds a random walkable position outside the camera-safe area.

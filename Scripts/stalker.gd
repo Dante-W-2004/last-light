@@ -57,7 +57,7 @@ func chase_state():
 	nav_agent.target_position = player.global_position
 
 	var next_position = nav_agent.get_next_path_position()
-	var direction = global_position.direction_to(next_position)
+	var direction = global_position.direction_to(next_position) # == (0,0)
 
 	velocity = direction * speed
 
