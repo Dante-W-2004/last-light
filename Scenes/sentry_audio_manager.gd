@@ -8,10 +8,3 @@ func _on_audio_area_body_entered(body: Node2D) -> void:
 		print("boe")
 		stream = area_sounds.pick_random()
 		play()
-
-
-func _on_audio_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("doei druif")
-		stream = area_sounds.pick_random()
-		play()
