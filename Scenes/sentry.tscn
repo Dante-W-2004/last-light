@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ppv2n8nbm4wc" path="res://sentry_new.gd" id="1_cte0o"]
 [ext_resource type="Texture2D" uid="uid://bit54hdtp3pv0" path="res://Sprites/Scarecrow-Sheet.png" id="1_o6ph4"]
+[ext_resource type="Texture2D" uid="uid://7k2p3p8l2o4j" path="res://Sprites/ScarecrowDeathSheet.png" id="2_0dkji"]
 [ext_resource type="Script" path="res://Scenes/sentry_audio_manager.gd" id="3_1h72c"]
 [ext_resource type="AudioStream" uid="uid://dnr6o7cbp0w62" path="res://Audio/Enemies/Sentry/Don't Leave Me.ogg" id="4_mcdt3"]
 [ext_resource type="AudioStream" uid="uid://bes338quvl4xw" path="res://Audio/Enemies/Sentry/Help Me.ogg" id="5_kcd6i"]
@@ -14,6 +15,58 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf4fg"]
 radius = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mbve"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxxoe"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g8hx"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xew85"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7nap"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csbuq"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnuhr"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivyq8"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyxjm"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyxwn"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wsbw"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vux2"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y4we"]
+atlas = ExtResource("2_0dkji")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cte0o"]
 atlas = ExtResource("1_o6ph4")
@@ -55,6 +108,50 @@ region = Rect2(256, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4mbve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxxoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g8hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xew85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7nap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csbuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnuhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivyq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyxjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyxwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wsbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vux2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y4we")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cte0o")
 }, {
 "duration": 1.0,
@@ -89,7 +186,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwx43"]
 radius = 9.044276
 
-[node name="Scarecrow" type="CharacterBody2D" unique_id=315874418]
+[node name="Scarecrow" type="CharacterBody2D" unique_id=315874418 groups=["enemy"]]
+z_index = -1
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_cte0o")
 speed = 0.0
 detect_range = 100.0
@@ -107,9 +207,12 @@ shape = SubResource("CircleShape2D_lf4fg")
 debug_color = Color(0.21936387, 0.63937914, 3.85046e-07, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=745109141]
-z_index = 1
+z_index = -1
 sprite_frames = SubResource("SpriteFrames_pwx43")
+animation = &"death"
 autoplay = "default"
+frame = 12
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630777642]
 position = Vector2(-1.2621775e-29, 1)
