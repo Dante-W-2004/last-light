@@ -9,6 +9,6 @@ extends Node2D
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if waitspawn.is_stopped() and body.is_in_group("player"):
 		var spawnstalker: Node2D = stalker.pick_random().instantiate()
-		self.add_child(spawnstalker)
-		collision_spawn_area.disabled = true
+		self.call_deferred("add_child", spawnstalker)
+		#collision_spawn_area.set_deferred("disabled", true) 
 		waitspawn.start()
