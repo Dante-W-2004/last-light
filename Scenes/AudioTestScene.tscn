@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bvg57ifd1i275"]
+
+[ext_resource type="PackedScene" uid="uid://cxub4opx5yetm" path="res://Scenes/sentry.tscn" id="1_8nmye"]
+[ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="2_ofhqc"]
+
+[node name="AudioTestScene" type="Node2D" unique_id=1578115013]
+
+[node name="Scarecrow" parent="." unique_id=315874418 instance=ExtResource("1_8nmye")]
+position = Vector2(445, 186)
+
+[node name="Player" parent="." unique_id=1345769910 instance=ExtResource("2_ofhqc")]
+position = Vector2(552, 877)
