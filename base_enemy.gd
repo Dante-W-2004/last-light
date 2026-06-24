@@ -39,7 +39,8 @@ func find_player():
 
 	if players.size() > 0:
 		player = players[0]
-		
+
+
 
 func idle_state():pass
 

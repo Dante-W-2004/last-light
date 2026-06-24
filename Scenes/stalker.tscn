@@ -56,7 +56,7 @@ radius = 150.0
 
 [node name="Stalker" type="CharacterBody2D" unique_id=1101845300 node_paths=PackedStringArray("audio_manager") groups=["enemy"]]
 collision_layer = 4
-collision_mask = 11
+collision_mask = 15
 script = ExtResource("1_16nwl")
 audio_manager = NodePath("AudioStreamPlayer2D")
 
@@ -64,6 +64,7 @@ audio_manager = NodePath("AudioStreamPlayer2D")
 rotation = 3.1415927
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_fgbl6")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647297118]
 position = Vector2(-2.8610224e-05, 2.8610224e-05)
