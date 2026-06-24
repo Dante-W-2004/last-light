@@ -53,4 +53,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "PLAY"
 
+[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=1268767428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "CONTROLS"
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
