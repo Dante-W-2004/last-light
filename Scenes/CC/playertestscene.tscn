@@ -14,16 +14,6 @@
 position = Vector2(934, 520)
 speed = 200.0
 
-[node name="Campfire" parent="." unique_id=1064889945 instance=ExtResource("3_xmbm0")]
-position = Vector2(927, 344)
-
-[node name="Campfire2" parent="." unique_id=62097339 instance=ExtResource("3_xmbm0")]
-position = Vector2(648, 479)
-is_extractfire = true
-
-[node name="Campfire3" parent="." unique_id=454317211 instance=ExtResource("3_xmbm0")]
-position = Vector2(1197, 677)
-
 [node name="SpawnerTest" parent="." unique_id=771116982 instance=ExtResource("4_0jdtf")]
 unique_name_in_owner = true
 position = Vector2(1163, 448)
@@ -44,3 +34,10 @@ position = Vector2(691, 280)
 
 [node name="ItemLog" parent="." unique_id=1230829490 instance=ExtResource("8_u6q6l")]
 position = Vector2(483, 478)
+
+[node name="Campfire" parent="." unique_id=62097339 instance=ExtResource("3_xmbm0")]
+position = Vector2(637, 467)
+
+[node name="Campfire2" parent="." unique_id=1351608269 instance=ExtResource("3_xmbm0")]
+position = Vector2(850, 358)
+is_extractfire = true

@@ -15,8 +15,8 @@ func _physics_process(delta: float) -> void:
 			print(body.name)
 			if body is Player and is_extract:
 				print("player found")
+				GlobalScore.is_on_menu = true
 				get_tree().change_scene_to_packed(extract_menu)
-				
 
 func _on_campfire_canextract() -> void:
 	is_extract = true
