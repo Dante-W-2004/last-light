@@ -5,4 +5,5 @@ class_name HungerOverTimeAttribute
 
 func modify(affected: Node) -> void:
 	var hunger_component: Hunger = find_component(affected, Hunger)
-	apply_over_time(hunger_component, hunger_component.modify_hunger, hunger_value)
+	if hunger_component:
+		apply_over_time(hunger_component, hunger_component.modify_hunger, hunger_value)

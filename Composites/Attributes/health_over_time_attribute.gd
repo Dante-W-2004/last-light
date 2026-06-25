@@ -5,5 +5,6 @@ class_name HealthOverTimeAttribute
 
 func modify(affected: Node) -> void:
 	var health_component: Health = find_component(affected, Health)
-	apply_over_time(health_component, health_component.modify_health, health_value)
+	if health_component:
+		apply_over_time(health_component, health_component.modify_health, health_value)
 	

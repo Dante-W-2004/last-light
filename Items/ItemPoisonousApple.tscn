@@ -11,6 +11,7 @@
 script = ExtResource("2_tb8cr")
 item_name = "Evil Apple"
 item_description = "It played a big role in the famous 1937 film."
+item_icon = ExtResource("3_tb8cr")
 item_weight = 0.5
 item_category = 0
 allow_use = true

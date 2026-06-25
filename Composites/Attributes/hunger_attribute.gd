@@ -5,4 +5,5 @@ class_name HungerAttribute
 
 func modify(affected: Node) -> void:
 	var hunger_component: Hunger = find_component(affected, Hunger)
-	hunger_component.modify_hunger(hunger_value)
+	if hunger_component:
+		hunger_component.modify_hunger(hunger_value)

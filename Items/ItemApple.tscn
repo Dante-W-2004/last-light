@@ -11,6 +11,7 @@ script = ExtResource("2_1h6cq")
 item_name = "Apple"
 item_description = "It's a fucking apple.
 Unless...?"
+item_icon = ExtResource("3_w06bm")
 item_weight = 0.5
 item_category = 0
 allow_use = true
