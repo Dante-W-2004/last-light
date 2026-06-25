@@ -116,13 +116,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtjj2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3qfg"]
-bg_color = Color(0.5269177, 0.8820838, 1, 1)
+bg_color = Color(0.3380032, 0.4341648, 0.48223662, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfoq3"]
-bg_color = Color(0.46035558, 0.30856434, 0.17943233, 1)
+bg_color = Color(0.3437956, 0.2430822, 0.21022165, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qwv"]
-bg_color = Color(1, 0.34222248, 0.28608096, 1)
+bg_color = Color(0.5603085, 0.24550188, 0.23222896, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45qwv"]
 
@@ -166,7 +166,7 @@ grow_vertical = 0
 
 [node name="Thirst" type="ProgressBar" parent="CanvasLayer/VBoxContainer" unique_id=937558855]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.9490196, 0.9490196, 1)
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/fill = SubResource("StyleBoxFlat_w3qfg")
 value = 100.0

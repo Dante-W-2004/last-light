@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3ydbxdgsxd1c" path="res://Sprites/Campfire-Sheet.png" id="2_0tsqt"]
 [ext_resource type="AudioStream" uid="uid://c00bys4tor3p" path="res://Audio/Campfire/CampfireAudio.mp3" id="2_441wj"]
 [ext_resource type="PackedScene" uid="uid://dnub1qp45ipoi" path="res://Scenes/torch_scare.tscn" id="3_0tsqt"]
-[ext_resource type="Script" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
+[ext_resource type="Script" uid="uid://tne83i2ygq2w" path="res://Scripts/CC/extract.gd" id="4_8rb6s"]
 [ext_resource type="Texture2D" uid="uid://cshysg8rqucva" path="res://Sprites/Extraction Camfire-Sheet.png" id="4_h71cq"]
 [ext_resource type="PackedScene" uid="uid://ledagudwml00" path="res://Scenes/ExtractMenu.tscn" id="5_glem2"]
 [ext_resource type="AudioStream" uid="uid://cxw2a3at242f3" path="res://Audio/Campfire/Last_Light_FirePlace (1).mp3" id="8_g4oil"]
@@ -205,8 +205,8 @@ sprite_frames = SubResource("SpriteFrames_g4oil")
 autoplay = "default"
 
 [node name="TorchScare" parent="." unique_id=1739372793 instance=ExtResource("3_0tsqt")]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 8
+collision_mask = 4
 is_monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TorchScare" unique_id=763469361]
