@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bit54hdtp3pv0" path="res://Sprites/Scarecrow-Sheet.png" id="1_o6ph4"]
 [ext_resource type="Texture2D" uid="uid://7k2p3p8l2o4j" path="res://Sprites/ScarecrowDeathSheet.png" id="2_1w4ae"]
 [ext_resource type="Script" uid="uid://b7o5a8k1o67pi" path="res://Scenes/sentry_audio_manager.gd" id="3_1h72c"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="8_mcdt3"]
+[ext_resource type="Texture2D" uid="uid://b8a686br2gw8t" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="9_kcd6i"]
 [ext_resource type="AudioStream" uid="uid://ba3505akynq72" path="res://Audio/Enemies/Sentry/Chuckle.mp3" id="9_pwx43"]
 [ext_resource type="AudioStream" uid="uid://cbuiwggav414a" path="res://Audio/Enemies/Sentry/Help Me(muffled).mp3" id="10_0dkji"]
 [ext_resource type="AudioStream" uid="uid://cwvvhlfomj54f" path="res://Audio/Enemies/Sentry/Laugh.mp3" id="11_4mbve"]
@@ -181,8 +183,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwx43"]
 radius = 9.044276
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcd6i"]
+radius = 55.145264
+
 [node name="Scarecrow" type="CharacterBody2D" unique_id=315874418 groups=["enemy"]]
-z_index = -1
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_cte0o")
@@ -218,6 +222,18 @@ max_distance = 1220.0
 bus = &"ScareCrow"
 script = ExtResource("3_1h72c")
 area_sounds = Array[AudioStream]([ExtResource("9_pwx43"), ExtResource("10_0dkji"), ExtResource("11_4mbve")])
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2121363403]
+script = ExtResource("8_mcdt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1121652266]
+shape = SubResource("CircleShape2D_kcd6i")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=143418325]
+scale = Vector2(0.7, 0.7)
+color = Color(0.6862745, 0, 0, 1)
+energy = 1.2
+texture = ExtResource("9_kcd6i")
 
 [connection signal="body_entered" from="AudioArea" to="SentryAudioPlayer" method="_on_audio_area_body_entered"]
 [connection signal="body_exited" from="AudioArea" to="SentryAudioPlayer" method="_on_audio_area_body_exited"]
