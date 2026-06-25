@@ -55,7 +55,6 @@ func update_tree() -> void:
 	for category in inventory_catagories:
 		category.set_collapsed_recursive(false) 
 		
-# Maybe not exactly correct but fucking whatever lmfao
 func update_item_card() -> void:
 	var item_data: BaseItemData = self.inventory_tree.get_selected().get_metadata(0)
 	item_card.update_item_card(item_data)
@@ -64,7 +63,6 @@ func update_item_card() -> void:
 func clear_item_card() -> void:
 	item_card.set_card_display(false)
 	inventory_tree.deselect_all()
-
 
 func _on_use_button_button_up() -> void:
 	var item_data: BaseItemData = self.inventory_tree.get_selected().get_metadata(0)
