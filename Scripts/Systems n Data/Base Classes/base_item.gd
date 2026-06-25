@@ -6,6 +6,10 @@ class_name BaseItem
 func _ready() -> void:
 	self.add_to_group("Item")
 	item_data.item_scene = load(scene_file_path)
+	
+	if item_data is BaseRandomItemData:
+		if not item_data.randomised: 
+			item_data.randomise_values()
 
 func pick_up(_inventory: InventoryManager) -> void:
 	var data: BaseItemData = item_data.duplicate(true)

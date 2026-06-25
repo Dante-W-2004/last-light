@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_d4k3y"]
 [ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/Base Classes/base_item_data.gd" id="2_y2sq2"]
-[ext_resource type="Script" path="res://Composites/Attributes/fuel_attribute.gd" id="2_ypt6c"]
+[ext_resource type="Script" uid="uid://y55uhnuxlri1" path="res://Composites/Attributes/fuel_attribute.gd" id="2_ypt6c"]
 [ext_resource type="Texture2D" uid="uid://cajfjdmuvy0n8" path="res://Sprites/Logs.png" id="3_y2sq2"]
 [ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="5_7ppww"]
 

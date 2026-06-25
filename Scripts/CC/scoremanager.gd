@@ -1,14 +1,15 @@
-extends Node
+extends BaseComponent
+class_name Score
 
-@export var scoreLabel: Label
+@export var score_label: Label
 
-
-func _process(delta: float) -> void:
-	scoreLabel.text = str(GlobalScore.score)
-	if GlobalScore.is_on_menu:
-		if GlobalScore.score > GlobalScore.high_score:
-			GlobalScore.high_score = GlobalScore.score
+func set_score(_new_score: float) -> void:
+	GlobalScore.score = _new_score
+	update_label()
 	
-
-func _on_button_pressed() -> void:
-	GlobalScore.score += 10
+func modify_score(_score: float) -> void:
+	GlobalScore.score += _score
+	update_label()
+	
+func update_label() -> void:
+	score_label.text = str(GlobalScore.score)

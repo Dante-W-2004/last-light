@@ -71,5 +71,14 @@ func rebuild_item(_item_data: BaseItemData) -> BaseItem:
 	item_instance.item_data = _item_data.duplicate()
 	return item_instance
 
+func convert_items_to_score() -> float:
+	var total_score: float = 0
+	
+	for item: BaseItemData in self.items:
+		var value: float = item.item_value * (item.item_rarity as int + 1)
+		total_score += value
+		
+	return total_score
+
 func toggle_element_display(element: Node) -> void:
 	element.visible = !element.visible
