@@ -8,42 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://i3xal36icyci" path="res://Items/ItemPoisonousApple.tscn" id="7_nbsw7"]
 [ext_resource type="PackedScene" uid="uid://ccl2850dawfic" path="res://Items/ItemLog.tscn" id="8_u6q6l"]
 [ext_resource type="PackedScene" uid="uid://dj8dhul7c8ttn" path="res://Items/ItemRingArtifact.tscn" id="8_v40o6"]
-[ext_resource type="Texture2D" uid="uid://cul1ww4uvf2t0" path="res://Sprites/Ring.png" id="9_u6q6l"]
-[ext_resource type="Script" uid="uid://cr86st0tpukjq" path="res://Scripts/Systems n Data/Base Classes/base_random_item_data.gd" id="10_36vcb"]
-
-[sub_resource type="Resource" id="Resource_u6q6l"]
-resource_local_to_scene = true
-script = ExtResource("10_36vcb")
-min_item_weight = 0.4
-max_item_weight = 1.2
-min_item_value = 200.0
-max_item_value = 400.0
-possible_rarities = Array[int]([0, 1, 2, 3, 4])
-item_name = "Soul Ring"
-item_description = "An ancient ring said to contain the souls of those who went before you."
-item_icon = ExtResource("9_u6q6l")
-item_category = 2
-metadata/_custom_type_script = "uid://cr86st0tpukjq"
-
-[sub_resource type="Resource" id="Resource_36vcb"]
-resource_local_to_scene = true
-script = ExtResource("10_36vcb")
-min_item_weight = 0.4
-max_item_weight = 1.2
-min_item_value = 200.0
-max_item_value = 400.0
-possible_rarities = Array[int]([0, 1, 2, 3, 4])
-item_name = "Soul Ring"
-item_description = "An ancient ring said to contain the souls of those who went before you."
-item_icon = ExtResource("9_u6q6l")
-item_category = 2
-metadata/_custom_type_script = "uid://cr86st0tpukjq"
 
 [node name="Node2D" type="Node2D" unique_id=621896892]
 
 [node name="Player" parent="." unique_id=1345769910 instance=ExtResource("2_oo253")]
 position = Vector2(934, 520)
 speed = 200.0
+
+[node name="Campfire" parent="." unique_id=1064889945 instance=ExtResource("3_xmbm0")]
+position = Vector2(927, 344)
+
+[node name="Campfire2" parent="." unique_id=62097339 instance=ExtResource("3_xmbm0")]
+position = Vector2(648, 479)
+is_extractfire = true
+
+[node name="Campfire3" parent="." unique_id=454317211 instance=ExtResource("3_xmbm0")]
+position = Vector2(1197, 677)
 
 [node name="SpawnerTest" parent="." unique_id=771116982 instance=ExtResource("4_0jdtf")]
 unique_name_in_owner = true
@@ -66,17 +46,5 @@ position = Vector2(691, 280)
 [node name="ItemLog" parent="." unique_id=1230829490 instance=ExtResource("8_u6q6l")]
 position = Vector2(483, 478)
 
-[node name="Campfire" parent="." unique_id=62097339 instance=ExtResource("3_xmbm0")]
-position = Vector2(637, 467)
-
-[node name="Campfire2" parent="." unique_id=1351608269 instance=ExtResource("3_xmbm0")]
-position = Vector2(850, 358)
-is_extractfire = true
-
 [node name="ItemRingArtifact" parent="." unique_id=1529888937 instance=ExtResource("8_v40o6")]
 position = Vector2(744, 467)
-item_data = SubResource("Resource_u6q6l")
-
-[node name="ItemRingArtifact2" parent="." unique_id=979358375 instance=ExtResource("8_v40o6")]
-position = Vector2(834, 602)
-item_data = SubResource("Resource_36vcb")

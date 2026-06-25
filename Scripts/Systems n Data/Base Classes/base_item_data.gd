@@ -1,3 +1,4 @@
+@tool
 extends Resource
 class_name BaseItemData
 
@@ -14,3 +15,9 @@ class_name BaseItemData
 @export var item_scene: PackedScene
 
 @export var allow_use: bool = false
+
+var exluded_variables: Array[String] = ["item_scene"]
+
+func _validate_property(property: Dictionary) -> void:
+	if self.exluded_variables.has(property.name):
+		property.usage = PROPERTY_USAGE_NO_EDITOR
