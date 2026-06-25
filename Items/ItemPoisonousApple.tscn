@@ -20,6 +20,7 @@ metadata/_custom_type_script = "uid://dp2v1pn33u218"
 radius = 83.00603
 
 [node name="ItemEvilApple" type="Node2D" unique_id=141034067]
+z_index = -1
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_3p4hv")
 item_data = SubResource("Resource_b7123")

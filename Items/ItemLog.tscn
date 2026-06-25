@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://dp2v1pn33u218"
 radius = 83.00603
 
 [node name="ItemLog" type="Node2D" unique_id=1230829490]
+z_index = -1
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d4k3y")
 item_data = SubResource("Resource_7ppww")

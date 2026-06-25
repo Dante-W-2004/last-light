@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bpa0skuivpl5e"]
 
 [ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="2_oo253"]
-[ext_resource type="PackedScene" uid="uid://bdw47h26shf05" path="res://Scenes/spawnmanager.tscn" id="3_0jdtf"]
 [ext_resource type="PackedScene" uid="uid://bhxvbhjabiyuq" path="res://Scenes/Campfire.tscn" id="3_xmbm0"]
 [ext_resource type="PackedScene" uid="uid://crcx8cnc8rdcd" path="res://Scenes/spawner_test.tscn" id="4_0jdtf"]
 [ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="5_3epj0"]
@@ -24,10 +23,6 @@ is_extractfire = true
 
 [node name="Campfire3" parent="." unique_id=454317211 instance=ExtResource("3_xmbm0")]
 position = Vector2(1197, 677)
-
-[node name="spawn_manager" parent="." unique_id=931316099 instance=ExtResource("3_0jdtf")]
-unique_name_in_owner = true
-position = Vector2(654, 395)
 
 [node name="SpawnerTest" parent="." unique_id=771116982 instance=ExtResource("4_0jdtf")]
 unique_name_in_owner = true
