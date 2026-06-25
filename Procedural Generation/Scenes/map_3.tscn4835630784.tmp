@@ -28,7 +28,7 @@ color_ramp = SubResource("Gradient_hyata")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_f76ke"]
 noise_type = 0
-frequency = 0.2
+frequency = 0.4
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d52bh"]
 noise = SubResource("FastNoiseLite_f76ke")
@@ -134,7 +134,6 @@ layer_4/name = "Trees_n_stuff"
 layer_4/z_index = -1
 
 [node name="Player" parent="." unique_id=271383191 instance=ExtResource("3_am5t7")]
-unique_name_in_owner = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1236785526]
 position = Vector2(5.9999995, 2.9999995)
@@ -158,7 +157,6 @@ unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=950966530]
 self_modulate = Color(0.5132329, 0.5132329, 0.5132329, 0.8862745)
-color = Color(0.76380855, 0.76380855, 0.7638085, 1)
 
 [node name="Campfires" type="Node2D" parent="." unique_id=712190775]
 unique_name_in_owner = true
@@ -236,28 +234,6 @@ unique_name_in_owner = true
 [node name="Scarecrow20" parent="Sentries" unique_id=595288347 instance=ExtResource("7_d52bh")]
 
 [node name="Scarecrow15" parent="Sentries" unique_id=915172486 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow21" parent="Sentries" unique_id=1163702801 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow22" parent="Sentries" unique_id=2111777404 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow23" parent="Sentries" unique_id=1110427801 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow24" parent="Sentries" unique_id=603362997 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow25" parent="Sentries" unique_id=831646049 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow26" parent="Sentries" unique_id=447136783 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow27" parent="Sentries" unique_id=44600579 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow28" parent="Sentries" unique_id=1589819317 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow29" parent="Sentries" unique_id=814309087 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow30" parent="Sentries" unique_id=1396710653 instance=ExtResource("7_d52bh")]
-
-[node name="Scarecrow31" parent="Sentries" unique_id=1048655111 instance=ExtResource("7_d52bh")]
 
 [node name="Spawner" type="Node2D" parent="." unique_id=769603782]
 unique_name_in_owner = true

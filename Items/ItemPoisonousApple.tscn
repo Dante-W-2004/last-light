@@ -17,6 +17,9 @@ item_category = 0
 allow_use = true
 metadata/_custom_type_script = "uid://dp2v1pn33u218"
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4w3b"]
+radius = 83.00603
+
 [node name="ItemEvilApple" type="Node2D" unique_id=141034067]
 z_index = -1
 scale = Vector2(0.5, 0.5)
@@ -44,3 +47,9 @@ tick_interval = 0.1
 total_ticks = 80
 tick_delay = 5.0
 metadata/_custom_type_script = "uid://cpl44578ueoov"
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=230153131]
+script = ExtResource("6_b7123")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2144069386]
+shape = SubResource("CircleShape2D_y4w3b")
