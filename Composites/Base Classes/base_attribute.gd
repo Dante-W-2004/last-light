@@ -10,6 +10,6 @@ func find_component(affected: Node, component_type: GDScript) -> Node:
 		if node.get_script() == component_type:
 			return node
 	return
-	
+
 func modify(affected: Node) -> void:
 	pass

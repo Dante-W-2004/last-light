@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_xn6m8"]
 [ext_resource type="Texture2D" uid="uid://durka20ih2806" path="res://Sprites/Canteen.png" id="2_5psqt"]
 
-[node name="BaseItem" type="Node2D" unique_id=1147423271]
+[node name="ItemCanteen" type="Node2D" unique_id=1147423271]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_xn6m8")
 metadata/_custom_type_script = "uid://cpqcushef3v2o"
