@@ -5,8 +5,8 @@ extends Control
 
 func _ready() -> void:
 	score_label.text = str(GlobalScore.score)
+	GlobalScore.update_high_score()
 	high_score_label.text = str(GlobalScore.high_score)
-	
 
 func _on_play_again_button_pressed() -> void:
 	GlobalScore.score=0

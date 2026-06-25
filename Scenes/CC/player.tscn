@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://d0rwf75h1f7gl" path="res://Scripts/CC/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ctt5qi7desr6j" path="res://Sprites/Player-Sheet.png" id="2_35vgy"]
 [ext_resource type="Texture2D" uid="uid://duiikpivqjnk8" path="res://Sprites/PlayerSwing-Sheet.png" id="3_35vgy"]
-[ext_resource type="Script" path="res://Scenes/CC/thirst.gd" id="3_45qwv"]
-[ext_resource type="Script" path="res://Scripts/CC/health.gd" id="3_i4tma"]
+[ext_resource type="Script" uid="uid://c5qdicccyy12b" path="res://Scenes/CC/thirst.gd" id="3_45qwv"]
+[ext_resource type="Script" uid="uid://bwmh27eg1mylw" path="res://Scripts/CC/health.gd" id="3_i4tma"]
 [ext_resource type="Script" uid="uid://c5l0ffq0ttgco" path="res://Scripts/Components/healthmanager.gd" id="3_vu5q1"]
-[ext_resource type="Script" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
+[ext_resource type="Script" uid="uid://luora55y7o1q" path="res://Scripts/CC/hunger.gd" id="3_w3qfg"]
 [ext_resource type="Script" uid="uid://iobkyunu6vh0" path="res://Scripts/Components/hungermanager.gd" id="5_24c5u"]
-[ext_resource type="Script" path="res://Scripts/CC/thirstmanager.gd" id="8_c0qla"]
+[ext_resource type="Script" uid="uid://bc7skdm2n4op" path="res://Scripts/CC/thirstmanager.gd" id="8_c0qla"]
 [ext_resource type="AudioStream" uid="uid://daa7lljkwl1hw" path="res://Audio/CC/Hunger/GrowlingStomach.mp3" id="9_c0qla"]
 [ext_resource type="Script" uid="uid://xs8ws2jbbsuw" path="res://Scenes/CC/Player_audio_manager.gd" id="9_d0gtu"]
 [ext_resource type="AudioStream" uid="uid://fammfmls7tvi" path="res://Audio/CC/Hunger/GrowlingStomach2.mp3" id="11_wvk4b"]
@@ -130,7 +130,7 @@ bg_color = Color(0.5603085, 0.24550188, 0.23222896, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4y4"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("audio_manager", "torch_area", "healthnode") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("audio_manager", "torch_area", "healthnode", "inventory", "score") groups=["player"]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_cvnsp")
@@ -139,6 +139,8 @@ audio_manager = NodePath("HungerPlayer")
 torch_area = NodePath("TorchScare")
 extract_scene = "res://Scenes/ExtractMenu.tscn"
 healthnode = NodePath("Health")
+inventory = NodePath("Inventory")
+score = NodePath("Score")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115760603]
 sprite_frames = SubResource("SpriteFrames_6t5aa")
@@ -225,9 +227,9 @@ script = ExtResource("8_c0qla")
 drain_rate = 0.45
 healthnode = NodePath("../Health")
 
-[node name="Score" type="Node" parent="." unique_id=38657602 node_paths=PackedStringArray("scoreLabel")]
+[node name="Score" type="Node" parent="." unique_id=38657602 node_paths=PackedStringArray("score_label")]
 script = ExtResource("19_7oqkw")
-scoreLabel = NodePath("../CanvasLayer/Score")
+score_label = NodePath("../CanvasLayer/Score")
 
 [node name="Light" type="Area2D" parent="." unique_id=1858431104 groups=["playerlight"]]
 
@@ -290,7 +292,6 @@ ambiance_player = NodePath("../AmbiancePlayer")
 
 [node name="Inventory" parent="." unique_id=644164475 instance=ExtResource("22_wtjj2")]
 
-[connection signal="pressed" from="CanvasLayer/ScoreButton" to="Score" method="_on_button_pressed"]
 [connection signal="broadcast_maxhealth" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_broadcast_maxhealth"]
 [connection signal="health_changed" from="Health" to="CanvasLayer/VBoxContainer/Health" method="_on_health_health_changed"]
 [connection signal="on_death" from="Health" to="." method="_on_health_on_death"]

@@ -8,6 +8,8 @@ class_name Player
 @export var torch_area: Area2D
 @export var extract_scene: String
 @export var healthnode: Health
+@export var inventory: InventoryManager
+@export var score: Score
 @onready var footsteps_play: bool = false
 
 var can_swing: bool = true
@@ -63,7 +65,7 @@ func _on_ambiance_timer_timeout() -> void:
 		audio_manager.play_ambiance_sound()
 
 func _on_health_on_death() -> void:
-	GlobalScore.score = 0
+	score.set_score(0)
 	get_tree().change_scene_to_file(extract_scene)
 	
 func take_damage(attack_damage) -> void:
