@@ -31,7 +31,7 @@ theme_override_font_sizes/font_size = 80
 text = "TAB = INVENTORY
 E = PICKUP ITEMS
 P = EXTRACT
-LMB + SWING"
+LMB = SWING"
 
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=921457289]
 layout_mode = 2

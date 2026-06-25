@@ -6,6 +6,8 @@ class_name StalkerNew
 
 # NavigationAgent2D handles pathfinding toward the player.
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 # Runs every physics frame.
 # The Stalker can wait, chase, attack, or die.
@@ -95,4 +97,8 @@ func attack_player():
 
 # Removes the Stalker from the game when dead.
 func dead_state():
+	animated_sprite.play("death")
+	set_physics_process(false)
+	collision_shape.disabled = true
+	await get_tree().create_timer(.5).timeout
 	queue_free()
