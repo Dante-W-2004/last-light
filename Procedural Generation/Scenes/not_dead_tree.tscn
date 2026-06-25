@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://bt8hkxhoo4jcu"]
 
 [ext_resource type="Texture2D" uid="uid://6whwf4tylbam" path="res://Procedural Generation/Sprites/Not Dead Tree.png" id="1_2cxq6"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="2_gq3qq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_338bx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2id8h"]
 cull_mode = 2
 polygon = PackedVector2Array(-10.666667, 0, -10, 2.6666667, -9, 5, -7.3333335, 7.3333335, -5, 9, -2.6666667, 10, 0, 10.666667, 2.6666667, 10, 5, 9, 7.3333335, 7.3333335, 9, 5, 10, 2.6666667, 10.666667, 0, 10, -2.6666667, 9, -5, 7.3333335, -7.3333335, 5, -9, 2.6666667, -10, 0, -10.666667, -2.6666667, -10, -5, -9, -7.3333335, -7.3333335, -9, -5, -10, -2.6666667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq3qq"]
+size = Vector2(52.5, 5)
 
 [node name="NotDeadTree" type="StaticBody2D" unique_id=2030283247 groups=["Trees"]]
 
@@ -21,3 +25,24 @@ shape = SubResource("CircleShape2D_338bx")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=929778027]
 scale = Vector2(1.5, 1.5)
 occluder = SubResource("OccluderPolygon2D_2id8h")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1606568909]
+script = ExtResource("2_gq3qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1276638235]
+position = Vector2(-0.5, 24.5)
+shape = SubResource("RectangleShape2D_gq3qq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2" unique_id=50089845]
+position = Vector2(-24, 1)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_gq3qq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D2" unique_id=1128048500]
+position = Vector2(23, 1)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_gq3qq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D2" unique_id=297434698]
+position = Vector2(-0.25, -23)
+shape = SubResource("RectangleShape2D_gq3qq")

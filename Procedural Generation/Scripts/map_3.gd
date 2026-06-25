@@ -6,6 +6,7 @@ extends Node2D
 @onready var sentries: Node2D = %Sentries
 @onready var spawner: Node2D = %Spawner
 @onready var items: Node2D = %Items
+@onready var player: Player = %Player
 
 @export var noise_height_text : NoiseTexture2D
 @export var noise_treesnstuff_text : NoiseTexture2D
@@ -52,7 +53,7 @@ var treesnstuff_tiles_arr = []
 var terrain_treesnstuff_int = 4
 
 func _ready():
-	RandomWorld = RandomNumberGenerator.new
+	RandomWorld = RandomNumberGenerator.new()
 	var WorldNumber = randi_range(-1000000, 1000000)
 	
 	randomize()
@@ -68,7 +69,8 @@ func generate_world():
 	for x in range(-width/2, width/2):
 		for y in range(-height/2, height/2):
 			var noise_value :float = noise.get_noise_2d(x, y)
-			var treesnstuff_value :float = treesnstuff.get_noise_2d(x, y)
+			var treesnstuff_value :float = RandomWorld.randf() #treesnstuff.get_noise_2d(x, y)
+			var treesnstuff_Noise :float = treesnstuff.get_noise_2d(x, y)
 			var noise_value_2 = (noise_value + 1.0) / 2
 
 			if noise_value_2 >= 0.0:
@@ -84,9 +86,9 @@ func generate_world():
 				elif noise_value_2 >= 0.7:
 					tall_tiles_arr.append(Vector2i(x,y))
 					
-				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.5 and treesnstuff_value < 0.7:
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_Noise > 0.5 and treesnstuff_Noise < 0.7:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
-					for i in range(1):
+					for i in range(2):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
 						var RandomCoord: Vector2i = TreesPlease.pick_random()
 						var CoordPosition: Vector2 = tile_map.map_to_local(RandomCoord)
@@ -101,20 +103,22 @@ func generate_world():
 						var placeholderCampfire = [$Campfires/Campfire, $Campfires/Campfire2, $Campfires/Campfire3, $Campfires/Campfire4, $Campfires/Campfire5, $Campfires/Campfire6, $Campfires/Campfire7, $Campfires/Campfire8, $Campfires/Campfire9, $Campfires/Campfire10, $Campfires/Campfire11, $Campfires/Campfire12, $Campfires/Campfire13, $Campfires/Campfire14, $Campfires/Campfire15]
 						var AddCampfire: Node2D = placeholderCampfire.pick_random()
 						AddCampfire.global_position = CoordPosition
+						player.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
 						placeholderCampfire.erase(AddCampfire)
-				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.3 and treesnstuff_value < 0.5:
+						
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_Noise > 0.3 and treesnstuff_Noise < 0.5:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
 					for i in range(1):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
 						var RandomCoord: Vector2i = TreesPlease.pick_random()
 						var CoordPosition: Vector2 = tile_map.map_to_local(RandomCoord)
-						var SpawningSentriesArray = [$Sentries/Scarecrow, $Sentries/Scarecrow2, $Sentries/Scarecrow3, $Sentries/Scarecrow4, $Sentries/Scarecrow5, $Sentries/Scarecrow6, $Sentries/Scarecrow7, $Sentries/Scarecrow8, $Sentries/Scarecrow9, $Sentries/Scarecrow10, $Sentries/Scarecrow11, $Sentries/Scarecrow12, $Sentries/Scarecrow13, $Sentries/Scarecrow14, $Sentries/Scarecrow15, $Sentries/Scarecrow16, $Sentries/Scarecrow17, $Sentries/Scarecrow18, $Sentries/Scarecrow19, $Sentries/Scarecrow20]
+						var SpawningSentriesArray = [$Sentries/Scarecrow, $Sentries/Scarecrow2, $Sentries/Scarecrow3, $Sentries/Scarecrow4, $Sentries/Scarecrow5, $Sentries/Scarecrow6, $Sentries/Scarecrow7, $Sentries/Scarecrow8, $Sentries/Scarecrow9, $Sentries/Scarecrow10, $Sentries/Scarecrow11, $Sentries/Scarecrow12, $Sentries/Scarecrow13, $Sentries/Scarecrow14, $Sentries/Scarecrow16, $Sentries/Scarecrow17, $Sentries/Scarecrow18, $Sentries/Scarecrow19, $Sentries/Scarecrow20, $Sentries/Scarecrow15, $Sentries/Scarecrow21, $Sentries/Scarecrow22, $Sentries/Scarecrow23, $Sentries/Scarecrow24, $Sentries/Scarecrow25, $Sentries/Scarecrow26, $Sentries/Scarecrow27, $Sentries/Scarecrow28, $Sentries/Scarecrow29, $Sentries/Scarecrow30, $Sentries/Scarecrow31]
 						var AddSentries: Node2D = SpawningSentriesArray.pick_random()
 						AddSentries.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
 						SpawningSentriesArray.erase(AddSentries)
-				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.0 and treesnstuff_value < 0.3:
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_Noise > 0.0 and treesnstuff_Noise < 0.3:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
 					for i in range(1):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
@@ -125,7 +129,7 @@ func generate_world():
 						AddSpawner.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
 						SpawnerSpawner.erase(AddSpawner)
-				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_value > 0.0 and treesnstuff_value < 0.3:
+				if noise_value_2 > 0.3 and noise_value_2 < 0.7 and treesnstuff_Noise > 0.0 and treesnstuff_Noise < 0.3:
 					tile_map.set_cell(trees_n_stuff_layer, Vector2(x,y), source_id, treesnstuff_atlas)
 					for i in range(1):
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
