@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ehe0")
-playScene = "res://Scenes/CC/playertestscene.tscn"
+playScene = "res://Procedural Generation/Scenes/map_3.tscn"
 
 [node name="TitlescreenLastLight" type="Sprite2D" parent="." unique_id=626886334]
 position = Vector2(968, 559)
