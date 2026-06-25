@@ -132,7 +132,7 @@ bg_color = Color(0.5603085, 0.24550188, 0.23222896, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1345769910 node_paths=PackedStringArray("audio_manager", "torch_area", "healthnode") groups=["player"]]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_cvnsp")
 speed = 150.0
 audio_manager = NodePath("HungerPlayer")
