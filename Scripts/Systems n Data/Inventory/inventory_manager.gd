@@ -30,7 +30,7 @@ func item_pick_up() -> void:
 	var closest_distance: float = 2*pick_up_range
 	
 	for item: BaseItem in items:
-		var item_distance: float = player.position.distance_to(item.position)
+		var item_distance: float = player.global_position.distance_to(item.global_position)
 		if item_distance <= pick_up_range and item_distance < closest_distance:
 			closest_item = item
 			closest_distance = item_distance

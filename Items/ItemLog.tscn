@@ -10,6 +10,7 @@
 script = ExtResource("2_y2sq2")
 item_name = "Log"
 item_description = "A solid bit of fuel for a fire."
+item_icon = ExtResource("3_y2sq2")
 item_weight = 2.0
 item_category = 1
 metadata/_custom_type_script = "uid://dp2v1pn33u218"
