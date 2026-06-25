@@ -5,4 +5,5 @@ class_name HealthAttribute
 
 func modify(affected: Node) -> void:
 	var health_component: Health = find_component(affected, Health)
-	health_component.modify_health(health_value)
+	if health_component:
+		health_component.modify_health(health_value)
