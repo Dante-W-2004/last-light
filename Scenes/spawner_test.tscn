@@ -26,7 +26,7 @@ shape = SubResource("CircleShape2D_rmbda")
 
 [node name="WAITSPAWN" type="Timer" parent="Area2D" unique_id=46550028]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1186627312]

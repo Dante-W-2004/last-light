@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://brswsxjjws1w2" path="res://Items/ItemApple.tscn" id="10_l56mf"]
 [ext_resource type="PackedScene" uid="uid://ccl2850dawfic" path="res://Items/ItemLog.tscn" id="11_7k4av"]
 [ext_resource type="PackedScene" uid="uid://i3xal36icyci" path="res://Items/ItemPoisonousApple.tscn" id="12_psv5t"]
+[ext_resource type="PackedScene" uid="uid://cu0oar5brtj7h" path="res://Items/ItemCanteen.tscn" id="12_uwpms"]
+[ext_resource type="PackedScene" uid="uid://dj8dhul7c8ttn" path="res://Items/ItemRingArtifact.tscn" id="13_ylxav"]
+[ext_resource type="Texture2D" uid="uid://cul1ww4uvf2t0" path="res://Sprites/Ring.png" id="14_lmhm6"]
+[ext_resource type="Script" path="res://Scripts/Systems n Data/Base Classes/base_random_item_data.gd" id="15_4iaot"]
 
 [sub_resource type="Gradient" id="Gradient_hyata"]
 interpolation_mode = 1
@@ -110,6 +114,215 @@ _data = {
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf3xl"]
 polygon = PackedVector2Array(-3, 6, 0, 2, 4, -3, 2, -7, 0, -8, -2, -8, -5, -3, -5, 2)
+
+[sub_resource type="Resource" id="Resource_uwpms"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_ylxav"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_lmhm6"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_4iaot"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_tssp6"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_m1m80"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_6t3jo"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_vcmmv"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_3qpor"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_gdn4h"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_74o4e"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_k64au"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_n311a"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_plpmy"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="Resource" id="Resource_57nuy"]
+resource_local_to_scene = true
+script = ExtResource("15_4iaot")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("14_lmhm6")
+item_category = 2
 
 [node name="Map3" type="Node2D" unique_id=1155159092]
 script = ExtResource("1_ilaih")
@@ -312,6 +525,40 @@ unique_name_in_owner = true
 
 [node name="SpawnerTest25" parent="Spawner" unique_id=1982132451 instance=ExtResource("9_nnhor")]
 
+[node name="SpawnerTest26" parent="Spawner" unique_id=952201043 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest27" parent="Spawner" unique_id=895789424 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest28" parent="Spawner" unique_id=2104375878 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest29" parent="Spawner" unique_id=2021036936 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest30" parent="Spawner" unique_id=2067380121 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest31" parent="Spawner" unique_id=165169243 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest32" parent="Spawner" unique_id=71746990 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest33" parent="Spawner" unique_id=1519666504 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest34" parent="Spawner" unique_id=52601247 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest35" parent="Spawner" unique_id=795362205 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest36" parent="Spawner" unique_id=1853367371 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest37" parent="Spawner" unique_id=518455414 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest38" parent="Spawner" unique_id=1254958463 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest39" parent="Spawner" unique_id=43505721 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest40" parent="Spawner" unique_id=316088840 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest41" parent="Spawner" unique_id=390035986 instance=ExtResource("9_nnhor")]
+
+[node name="SpawnerTest42" parent="Spawner" unique_id=932125205 instance=ExtResource("9_nnhor")]
+
 [node name="Items" type="Node2D" parent="." unique_id=1179858586]
 unique_name_in_owner = true
 
@@ -367,6 +614,91 @@ unique_name_in_owner = true
 
 [node name="ItemApple11" parent="Items" unique_id=2133240909 instance=ExtResource("10_l56mf")]
 
+[node name="ItemApple12" parent="Items" unique_id=300371869 instance=ExtResource("10_l56mf")]
+
+[node name="ItemApple13" parent="Items" unique_id=152849455 instance=ExtResource("10_l56mf")]
+
+[node name="ItemApple14" parent="Items" unique_id=629650963 instance=ExtResource("10_l56mf")]
+
+[node name="ItemApple15" parent="Items" unique_id=349632992 instance=ExtResource("10_l56mf")]
+
+[node name="ItemApple17" parent="Items" unique_id=662065845 instance=ExtResource("10_l56mf")]
+
 [node name="ItemLog11" parent="Items" unique_id=1173955649 instance=ExtResource("11_7k4av")]
 
 [node name="ItemEvilApple11" parent="Items" unique_id=1529995652 instance=ExtResource("12_psv5t")]
+
+[node name="ItemCanteen" parent="Items" unique_id=1147423271 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact" parent="Items" unique_id=1529888937 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_uwpms")
+
+[node name="ItemCanteen2" parent="Items" unique_id=477087210 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact2" parent="Items" unique_id=412190496 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_ylxav")
+
+[node name="ItemCanteen3" parent="Items" unique_id=215365305 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact3" parent="Items" unique_id=76231281 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_lmhm6")
+
+[node name="ItemCanteen4" parent="Items" unique_id=1858377153 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact4" parent="Items" unique_id=695298980 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_4iaot")
+
+[node name="ItemCanteen5" parent="Items" unique_id=185532599 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact5" parent="Items" unique_id=1276530229 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_tssp6")
+
+[node name="ItemCanteen6" parent="Items" unique_id=754544483 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact6" parent="Items" unique_id=1385367734 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_m1m80")
+
+[node name="ItemCanteen7" parent="Items" unique_id=618782346 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact7" parent="Items" unique_id=298641047 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_6t3jo")
+
+[node name="ItemCanteen8" parent="Items" unique_id=1436100126 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact8" parent="Items" unique_id=307345693 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_vcmmv")
+
+[node name="ItemCanteen9" parent="Items" unique_id=2103794456 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact9" parent="Items" unique_id=299943091 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_3qpor")
+
+[node name="ItemCanteen10" parent="Items" unique_id=1574528617 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact10" parent="Items" unique_id=858206609 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_gdn4h")
+
+[node name="ItemCanteen11" parent="Items" unique_id=408515126 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact11" parent="Items" unique_id=842060278 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_74o4e")
+
+[node name="ItemCanteen12" parent="Items" unique_id=1809393971 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact12" parent="Items" unique_id=1466521977 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_k64au")
+
+[node name="ItemCanteen13" parent="Items" unique_id=1213199815 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact13" parent="Items" unique_id=438362670 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_n311a")
+
+[node name="ItemCanteen14" parent="Items" unique_id=1916344202 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact14" parent="Items" unique_id=27917141 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_plpmy")
+
+[node name="ItemCanteen15" parent="Items" unique_id=1010152397 instance=ExtResource("12_uwpms")]
+
+[node name="ItemRingArtifact15" parent="Items" unique_id=682148129 instance=ExtResource("13_ylxav")]
+item_data = SubResource("Resource_57nuy")
