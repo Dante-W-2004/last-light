@@ -23,6 +23,7 @@ metadata/_custom_type_script = "uid://cr86st0tpukjq"
 radius = 83.00603
 
 [node name="ItemRingArtifact" type="Node2D" unique_id=1529888937]
+z_index = -1
 script = ExtResource("1_4hxrd")
 item_data = SubResource("Resource_ospan")
 metadata/_custom_type_script = "uid://cpqcushef3v2o"

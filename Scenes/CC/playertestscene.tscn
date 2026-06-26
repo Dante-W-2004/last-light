@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dj8dhul7c8ttn" path="res://Items/ItemRingArtifact.tscn" id="8_v40o6"]
 [ext_resource type="Texture2D" uid="uid://cul1ww4uvf2t0" path="res://Sprites/Ring.png" id="9_u6q6l"]
 [ext_resource type="Script" uid="uid://cr86st0tpukjq" path="res://Scripts/Systems n Data/Base Classes/base_random_item_data.gd" id="10_36vcb"]
+[ext_resource type="PackedScene" uid="uid://cu0oar5brtj7h" path="res://Items/ItemCanteen.tscn" id="11_36vcb"]
 
-[sub_resource type="Resource" id="Resource_u6q6l"]
+[sub_resource type="Resource" id="Resource_36vcb"]
 resource_local_to_scene = true
 script = ExtResource("10_36vcb")
 min_item_weight = 0.4
@@ -25,7 +26,7 @@ item_icon = ExtResource("9_u6q6l")
 item_category = 2
 metadata/_custom_type_script = "uid://cr86st0tpukjq"
 
-[sub_resource type="Resource" id="Resource_36vcb"]
+[sub_resource type="Resource" id="Resource_3rmg3"]
 resource_local_to_scene = true
 script = ExtResource("10_36vcb")
 min_item_weight = 0.4
@@ -75,8 +76,11 @@ is_extractfire = true
 
 [node name="ItemRingArtifact" parent="." unique_id=1529888937 instance=ExtResource("8_v40o6")]
 position = Vector2(744, 467)
-item_data = SubResource("Resource_u6q6l")
+item_data = SubResource("Resource_36vcb")
 
 [node name="ItemRingArtifact2" parent="." unique_id=979358375 instance=ExtResource("8_v40o6")]
 position = Vector2(834, 602)
-item_data = SubResource("Resource_36vcb")
+item_data = SubResource("Resource_3rmg3")
+
+[node name="ItemCanteen" parent="." unique_id=1147423271 instance=ExtResource("11_36vcb")]
+position = Vector2(586, 590)

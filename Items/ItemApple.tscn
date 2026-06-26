@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cdwm7qbgmofqc" path="res://Sprites/Apol.png" id="3_w06bm"]
 [ext_resource type="Script" uid="uid://bg0gpqmv5qaps" path="res://Composites/Attributes/health_attribute.gd" id="4_w06bm"]
 [ext_resource type="Script" uid="uid://d0anl33qcib4i" path="res://Composites/Attributes/hunger_attribute.gd" id="5_t7whu"]
+[ext_resource type="Script" uid="uid://827cpv8ojpgy" path="res://Composites/Attributes/thirst_attribute.gd" id="6_nd67n"]
 [ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="6_t7whu"]
 
 [sub_resource type="Resource" id="Resource_w06bm"]
@@ -37,6 +38,11 @@ health_value = 10.0
 [node name="HungerAttribute" type="Node" parent="." unique_id=144821367]
 script = ExtResource("5_t7whu")
 hunger_value = 20.0
+
+[node name="ThirstAttribute" type="Node" parent="." unique_id=815556371]
+script = ExtResource("6_nd67n")
+thirst_value = 2.0
+metadata/_custom_type_script = "uid://827cpv8ojpgy"
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1972199217]
 script = ExtResource("6_t7whu")
