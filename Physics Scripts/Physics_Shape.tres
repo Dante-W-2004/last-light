@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PhysicsShape" format=3 uid="uid://khyc6bd5ep7"]
+
+[ext_resource type="Script" uid="uid://cbvqdb0cixqvo" path="res://Base Classes/Physics_Shape.gd" id="1_tfkwt"]
+
+[resource]
+script = ExtResource("1_tfkwt")
+shape_type = 0
+radius = 2.0

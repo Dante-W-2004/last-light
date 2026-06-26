@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://klkiodnvsnw8"]
+
+[ext_resource type="Script" uid="uid://cjacu1bu25n81" path="res://stalker_new.gd" id="1_16nwl"]
+[ext_resource type="Texture2D" uid="uid://cxsum4sifotjo" path="res://Sprites/Wolf-Sheet.png" id="2_16nwl"]
+[ext_resource type="Texture2D" uid="uid://c8ellrarfetiu" path="res://Sprites/WolfDeathSheet.png" id="2_et8fq"]
+[ext_resource type="AudioStream" uid="uid://ceubwp3suwbcu" path="res://Audio/Enemies/Stalker/Howls/Howl6.mp3" id="3_7lcwv"]
+[ext_resource type="Script" uid="uid://dck0pn6t7dfit" path="res://Scenes/Stalker_Audio_Manager.gd" id="4_gx3k3"]
+[ext_resource type="AudioStream" uid="uid://bnkdvjjr5tyml" path="res://Audio/Enemies/Stalker/Howls/Howl2.mp3" id="5_nturs"]
+[ext_resource type="AudioStream" uid="uid://c5wvlnx6ocjej" path="res://Audio/Enemies/Stalker/Howls/Howl3.mp3" id="6_5mmam"]
+[ext_resource type="AudioStream" uid="uid://pr63btwyi5mc" path="res://Audio/Enemies/Stalker/Howls/Howl4.mp3" id="7_16nwl"]
+[ext_resource type="AudioStream" uid="uid://cre5gxw4v5c0e" path="res://Audio/Enemies/Stalker/Howls/Howl5.mp3" id="8_et8fq"]
+[ext_resource type="AudioStream" uid="uid://gvhbb6de43hn" path="res://Audio/Enemies/Stalker/Howls/Howl1.mp3" id="9_mp32v"]
+[ext_resource type="AudioStream" uid="uid://8qdmt2eu8jms" path="res://Audio/Ambiance/Branch1.mp3" id="10_5mmam"]
+[ext_resource type="AudioStream" uid="uid://chyd3j72t6o3g" path="res://Audio/Ambiance/Growl.mp3" id="11_16nwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgbl6"]
+atlas = ExtResource("2_et8fq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkpvm"]
+atlas = ExtResource("2_et8fq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0owp"]
+atlas = ExtResource("2_et8fq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbi7t"]
+atlas = ExtResource("2_et8fq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et8fq"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp32v"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmr3k"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1275i"]
+atlas = ExtResource("2_16nwl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgbl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgbl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkpvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0owp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbi7t")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et8fq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp32v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmr3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1275i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umuvm"]
+size = Vector2(32, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16nwl"]
+radius = 150.0
+
+[node name="Stalker" type="CharacterBody2D" unique_id=1101845300 node_paths=PackedStringArray("audio_manager") groups=["enemy"]]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_16nwl")
+max_health = null
+speed = null
+detect_range = null
+lose_range = null
+attack_range = null
+attack_damage = null
+attack_cooldown = null
+audio_manager = NodePath("AudioStreamPlayer2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1585706497]
+rotation = 3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_fgbl6")
+animation = &"death"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647297118]
+position = Vector2(-2.8610224e-05, 2.8610224e-05)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_umuvm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=560629437]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=286063062]
+autoplay = true
+max_distance = 1500.0
+bus = &"WolfSounds"
+script = ExtResource("4_gx3k3")
+spawn_sounds = Array[AudioStream]([ExtResource("3_7lcwv"), ExtResource("5_nturs"), ExtResource("6_5mmam"), ExtResource("7_16nwl"), ExtResource("8_et8fq"), ExtResource("9_mp32v")])
+chase_state_sounds = Array[AudioStream]([ExtResource("10_5mmam"), ExtResource("11_16nwl")])
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1640916503]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1297843822]
+shape = SubResource("CircleShape2D_16nwl")
+debug_color = Color(0.3016068, 0.60406345, 0.4935825, 0.41960785)

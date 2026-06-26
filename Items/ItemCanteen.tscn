@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cu0oar5brtj7h"]
+
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_xn6m8"]
+[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/Base Classes/base_item_data.gd" id="2_1gb12"]
+[ext_resource type="Texture2D" uid="uid://durka20ih2806" path="res://Sprites/Canteen.png" id="2_5psqt"]
+[ext_resource type="Script" uid="uid://bg0gpqmv5qaps" path="res://Composites/Attributes/health_attribute.gd" id="3_47jfg"]
+[ext_resource type="Script" uid="uid://827cpv8ojpgy" path="res://Composites/Attributes/thirst_attribute.gd" id="4_4q6tu"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="5_ndb3p"]
+
+[sub_resource type="Resource" id="Resource_4pbwx"]
+script = ExtResource("2_1gb12")
+item_name = "Canteen"
+item_description = "Mmm, water. Very tasty!"
+item_icon = ExtResource("2_5psqt")
+item_weight = 0.8
+item_category = 0
+allow_use = true
+metadata/_custom_type_script = "uid://dp2v1pn33u218"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ixya"]
+radius = 83.00603
+
+[node name="ItemCanteen" type="Node2D" unique_id=1147423271]
+z_index = -1
+scale = Vector2(0.65, 0.65)
+script = ExtResource("1_xn6m8")
+item_data = SubResource("Resource_4pbwx")
+metadata/_custom_type_script = "uid://cpqcushef3v2o"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616025807]
+texture = ExtResource("2_5psqt")
+
+[node name="HealthAttribute" type="Node" parent="." unique_id=1040180727]
+script = ExtResource("3_47jfg")
+health_value = 5.0
+metadata/_custom_type_script = "uid://bg0gpqmv5qaps"
+
+[node name="ThirstAttribute" type="Node" parent="." unique_id=927068936]
+script = ExtResource("4_4q6tu")
+thirst_value = 30.0
+metadata/_custom_type_script = "uid://827cpv8ojpgy"
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1901151146]
+script = ExtResource("5_ndb3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1435703675]
+shape = SubResource("CircleShape2D_8ixya")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bmmro783k16pe"]
+
+[ext_resource type="PackedScene" uid="uid://klkiodnvsnw8" path="res://Scenes/stalker.tscn" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://cxub4opx5yetm" path="res://Scenes/sentry.tscn" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="3_rgh2o"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rxg2q"]
+vertices = PackedVector2Array(328.97656, -534.0078, 328.0078, 394, -450.9922, 394, -450.0078, -534.97656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-460, -545, 339, -544, 338, 404, -461, 404)])
+
+[node name="Node2D" type="Node2D" unique_id=717562141]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2014228968]
+navigation_polygon = SubResource("NavigationPolygon_rxg2q")
+
+[node name="Stalker" parent="." unique_id=1101845300 instance=ExtResource("2_kln2b")]
+position = Vector2(198, -167)
+
+[node name="Sentry" parent="." unique_id=687428681 instance=ExtResource("3_kln2b")]
+position = Vector2(-138, -105)
+
+[node name="Player" parent="." unique_id=1345769910 node_paths=PackedStringArray("components") instance=ExtResource("3_rgh2o")]
+position = Vector2(-87, 64)
+components = {
+"health": NodePath("Health")
+}

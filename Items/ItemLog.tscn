@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ccl2850dawfic"]
+
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_d4k3y"]
+[ext_resource type="Script" uid="uid://dp2v1pn33u218" path="res://Scripts/Systems n Data/Base Classes/base_item_data.gd" id="2_y2sq2"]
+[ext_resource type="Script" uid="uid://y55uhnuxlri1" path="res://Composites/Attributes/fuel_attribute.gd" id="2_ypt6c"]
+[ext_resource type="Texture2D" uid="uid://cajfjdmuvy0n8" path="res://Sprites/Logs.png" id="3_y2sq2"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="5_7ppww"]
+
+[sub_resource type="Resource" id="Resource_7ppww"]
+script = ExtResource("2_y2sq2")
+item_name = "Log"
+item_description = "A solid bit of fuel for a fire."
+item_icon = ExtResource("3_y2sq2")
+item_weight = 2.0
+item_category = 1
+metadata/_custom_type_script = "uid://dp2v1pn33u218"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35kui"]
+radius = 83.00603
+
+[node name="ItemLog" type="Node2D" unique_id=1230829490]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_d4k3y")
+item_data = SubResource("Resource_7ppww")
+metadata/_custom_type_script = "uid://cpqcushef3v2o"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=594199057]
+texture = ExtResource("3_y2sq2")
+
+[node name="IsFuel" type="Node" parent="." unique_id=1856625121]
+script = ExtResource("2_ypt6c")
+fuel_value = 30.0
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1398990505]
+script = ExtResource("5_7ppww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1838470300]
+shape = SubResource("CircleShape2D_35kui")

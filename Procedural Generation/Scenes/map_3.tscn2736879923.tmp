@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dd1qtx6wlc3ey"]
+
+[ext_resource type="Script" uid="uid://du1iimu0iumiv" path="res://Procedural Generation/Scripts/map_3.gd" id="1_ilaih"]
+[ext_resource type="TileSet" uid="uid://cili4vutq8qfp" path="res://Procedural Generation/Scripts/Map.tres" id="2_hyata"]
+[ext_resource type="PackedScene" uid="uid://djvxt4u7gpwqq" path="res://Scenes/CC/player.tscn" id="3_am5t7"]
+
+[sub_resource type="Gradient" id="Gradient_hyata"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.31384614, 0.53846157, 0.75384617, 1)
+colors = PackedColorArray(0, 0, 0.5764706, 1, 0.10490634, 0.3136963, 0.6930661, 1, 0.18431373, 0.47843137, 0.06666667, 1, 0.22745098, 0.27058825, 0.06666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_am5t7"]
+seed = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f76ke"]
+noise = SubResource("FastNoiseLite_am5t7")
+color_ramp = SubResource("Gradient_hyata")
+
+[node name="Map3" type="Node2D" unique_id=1155159092]
+script = ExtResource("1_ilaih")
+noise_height_text = SubResource("NoiseTexture2D_f76ke")
+
+[node name="Player" parent="." unique_id=1345769910 instance=ExtResource("3_am5t7")]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1749240410]
+tile_set = ExtResource("2_hyata")
+format = 2
+layer_0/name = "water"
+layer_0/z_index = -1
+layer_1/name = "grass"
+layer_1/z_index = -1
+layer_2/name = "sand"
+layer_2/z_index = -1
+layer_3/name = "tall"
+layer_4/name = "Trees_n_stuff"

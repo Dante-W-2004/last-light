@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://b53kg7lcu0ohu"]
+
+[ext_resource type="Script" uid="uid://cempvyoaxpd4p" path="res://Scripts/Systems n Data/Inventory/inventory_manager.gd" id="1_uugkl"]
+[ext_resource type="Theme" uid="uid://df3rxod8amprc" path="res://Scenes/Systems n Data/Styles/inventory_theme.tres" id="1_vb6yv"]
+[ext_resource type="Script" uid="uid://p6d2efqg32nh" path="res://Scripts/Systems n Data/Inventory/inventory_tree_manager.gd" id="2_wcsib"]
+[ext_resource type="Texture2D" uid="uid://hfjch0mp0oon" path="res://icon.svg" id="3_yl11w"]
+[ext_resource type="Script" uid="uid://d3mb2uo3eccck" path="res://Scripts/Systems n Data/Inventory/item_card.gd" id="4_vb6yv"]
+
+[sub_resource type="SystemFont" id="SystemFont_0g8wg"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vb6yv"]
+font = SubResource("SystemFont_0g8wg")
+font_size = 40
+
+[sub_resource type="SystemFont" id="SystemFont_vb6yv"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_sliwh"]
+font = SubResource("SystemFont_vb6yv")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_7r0jy"]
+font_size = 40
+
+[node name="Inventory" type="Control" unique_id=644164475 node_paths=PackedStringArray("canvas")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uugkl")
+canvas = NodePath("InventoryCanvas")
+max_weight = 20.0
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="." unique_id=1302706596]
+
+[node name="BG" type="ColorRect" parent="InventoryCanvas" unique_id=1852153349]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1764706, 0.1764706, 0.1764706, 0.7058824)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryCanvas" unique_id=761321272]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vb6yv")
+alignment = 1
+
+[node name="InventoryTreeManager" type="Control" parent="InventoryCanvas/HBoxContainer" unique_id=453795780 node_paths=PackedStringArray("inventory_manager", "item_card", "inventory_tree")]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_wcsib")
+inventory_manager = NodePath("../../..")
+item_card = NodePath("../ItemCard")
+inventory_tree = NodePath("Tree")
+metadata/_custom_type_script = "uid://p6d2efqg32nh"
+
+[node name="Tree" type="Tree" parent="InventoryCanvas/HBoxContainer/InventoryTreeManager" unique_id=2096062933]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058000002
+anchor_top = 0.051000003
+anchor_right = 1.0
+anchor_bottom = 0.94900006
+offset_left = -0.11200333
+offset_top = 0.4279976
+offset_bottom = -0.42803955
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vb6yv")
+allow_reselect = true
+hide_folding = true
+enable_drag_unfolding = false
+hide_root = true
+scroll_horizontal_enabled = false
+
+[node name="ItemCard" type="Control" parent="InventoryCanvas/HBoxContainer" unique_id=1546087764 node_paths=PackedStringArray("item_icon", "item_name", "item_description", "item_weight_value", "item_value_value", "item_rarity_value")]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_vb6yv")
+item_icon = NodePath("ItemIcon")
+item_name = NodePath("ItemName")
+item_description = NodePath("ItemDescription")
+item_weight_value = NodePath("WeightLabel/WeightLabelValue")
+item_value_value = NodePath("ValueLabel/ValueLabelVale")
+item_rarity_value = NodePath("RarityLabel/RarityLabelValue")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=1905674173]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058000002
+anchor_top = 0.051000003
+anchor_right = 0.40600002
+anchor_bottom = 0.36
+offset_left = 0.0040245056
+offset_top = 0.4279976
+offset_right = 0.028015137
+offset_bottom = 0.07998657
+texture = ExtResource("3_yl11w")
+
+[node name="ItemName" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=1094365313]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43400002
+anchor_top = 0.055000003
+anchor_right = 0.92600006
+anchor_bottom = 0.171
+offset_left = 0.023986816
+offset_top = -0.4600029
+offset_right = -0.06402588
+offset_bottom = -0.21200562
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Default Item Name but I made it very long"
+label_settings = SubResource("LabelSettings_vb6yv")
+autowrap_mode = 2
+text_overrun_behavior = 1
+uppercase = true
+
+[node name="ItemDescription" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=1667466790]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43400002
+anchor_top = 0.18400002
+anchor_right = 0.92600006
+anchor_bottom = 0.363
+offset_left = 0.023986816
+offset_top = 0.15197754
+offset_right = -0.06402588
+offset_bottom = 0.16400146
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "An item description of a decent length with little issue I hope.
+Also should work with mutli-line descriptions."
+label_settings = SubResource("LabelSettings_sliwh")
+autowrap_mode = 2
+text_overrun_behavior = 2
+
+[node name="UseButton" type="Button" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=496012274]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058000002
+anchor_top = 0.794
+anchor_right = 0.47100002
+anchor_bottom = 0.94900006
+offset_left = -0.11200333
+offset_top = 0.23199463
+offset_right = 0.055999756
+offset_bottom = -0.42803955
+grow_vertical = 0
+theme = ExtResource("1_vb6yv")
+text = "USE"
+
+[node name="DropButton" type="Button" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=2091874077]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52900004
+anchor_top = 0.80200005
+anchor_right = 0.94200003
+anchor_bottom = 0.94900006
+offset_left = -0.056030273
+offset_top = -7.5440674
+offset_right = 0.11199951
+offset_bottom = -0.42803955
+grow_vertical = 0
+theme = ExtResource("1_vb6yv")
+text = "DROP"
+
+[node name="WeightLabel" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=459616143]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058000002
+anchor_top = 0.41200003
+anchor_right = 0.40500003
+anchor_bottom = 0.483
+offset_left = -0.11200333
+offset_top = -0.46401978
+offset_right = 0.07998657
+offset_bottom = -0.47601318
+text = "Weight: "
+label_settings = SubResource("LabelSettings_7r0jy")
+vertical_alignment = 1
+
+[node name="WeightLabelValue" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard/WeightLabel" unique_id=69051940]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_right = 300.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_7r0jy")
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=582082938]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058000002
+anchor_top = 0.48400003
+anchor_right = 0.40500003
+anchor_bottom = 0.555
+offset_left = -0.11200333
+offset_top = -0.44802856
+offset_right = 0.07998657
+offset_bottom = -0.46002197
+text = "Value:"
+label_settings = SubResource("LabelSettings_7r0jy")
+vertical_alignment = 1
+
+[node name="ValueLabelVale" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard/ValueLabel" unique_id=330066393]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 2.0
+anchor_bottom = 1.0
+text = "0"
+label_settings = SubResource("LabelSettings_7r0jy")
+vertical_alignment = 1
+
+[node name="RarityLabel" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard" unique_id=1961534376]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058000002
+anchor_top = 0.555
+anchor_right = 0.40500003
+anchor_bottom = 0.62700003
+offset_left = -0.11200333
+offset_top = 0.539978
+offset_right = 0.07998657
+offset_bottom = -0.44403076
+text = "Rarity:"
+label_settings = SubResource("LabelSettings_7r0jy")
+vertical_alignment = 1
+
+[node name="RarityLabelValue" type="Label" parent="InventoryCanvas/HBoxContainer/ItemCard/RarityLabel" unique_id=239221102]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 2.0
+anchor_bottom = 1.0
+text = "COMMON"
+label_settings = SubResource("LabelSettings_7r0jy")
+vertical_alignment = 1
+
+[connection signal="button_up" from="InventoryCanvas/HBoxContainer/ItemCard/UseButton" to="InventoryCanvas/HBoxContainer/InventoryTreeManager" method="_on_use_button_button_up"]
+[connection signal="button_up" from="InventoryCanvas/HBoxContainer/ItemCard/DropButton" to="InventoryCanvas/HBoxContainer/InventoryTreeManager" method="_on_drop_button_button_up"]

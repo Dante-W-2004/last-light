@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c6q7x3cr2c1ad"]
+
+[ext_resource type="Script" uid="uid://dkvosjntqwpob" path="res://spawner_test.gd" id="1_q3lb3"]
+[ext_resource type="PackedScene" uid="uid://klkiodnvsnw8" path="res://Scenes/stalker.tscn" id="2_bfc0v"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="3_bfc0v"]
+[ext_resource type="Texture2D" uid="uid://b8a686br2gw8t" path="res://Procedural Generation/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="4_bdh62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmbda"]
+radius = 288.0434
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdh62"]
+radius = 83.00603
+
+[node name="SpawnerTest" type="Node2D" unique_id=771116982]
+script = ExtResource("1_q3lb3")
+stalker = Array[PackedScene]([ExtResource("2_bfc0v")])
+
+[node name="Area2D" type="Area2D" parent="." unique_id=568662609]
+unique_name_in_owner = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionSpawnArea" type="CollisionShape2D" parent="Area2D" unique_id=764862026]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_rmbda")
+
+[node name="WAITSPAWN" type="Timer" parent="Area2D" unique_id=46550028]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1186627312]
+script = ExtResource("3_bfc0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=886681759]
+shape = SubResource("CircleShape2D_bdh62")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1174888030]
+visible = false
+scale = Vector2(1.2, 1.2)
+color = Color(0.6862745, 0, 0, 1)
+texture = ExtResource("4_bdh62")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

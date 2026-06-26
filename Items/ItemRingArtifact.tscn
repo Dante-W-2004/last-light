@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dj8dhul7c8ttn"]
+
+[ext_resource type="Script" uid="uid://cpqcushef3v2o" path="res://Scripts/Systems n Data/Base Classes/base_item.gd" id="1_4hxrd"]
+[ext_resource type="Texture2D" uid="uid://cul1ww4uvf2t0" path="res://Sprites/Ring.png" id="2_6h8r8"]
+[ext_resource type="Script" uid="uid://cr86st0tpukjq" path="res://Scripts/Systems n Data/Base Classes/base_random_item_data.gd" id="3_03cof"]
+[ext_resource type="Script" uid="uid://n621mflcoe73" path="res://Procedural Generation/Scripts/OvelapCamp.gd" id="4_03cof"]
+
+[sub_resource type="Resource" id="Resource_ospan"]
+resource_local_to_scene = true
+script = ExtResource("3_03cof")
+min_item_weight = 0.4
+max_item_weight = 1.2
+min_item_value = 200.0
+max_item_value = 400.0
+possible_rarities = Array[int]([0, 1, 2, 3, 4])
+item_name = "Soul Ring"
+item_description = "An ancient ring said to contain the souls of those who went before you."
+item_icon = ExtResource("2_6h8r8")
+item_category = 2
+metadata/_custom_type_script = "uid://cr86st0tpukjq"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ospan"]
+radius = 83.00603
+
+[node name="ItemRingArtifact" type="Node2D" unique_id=1529888937]
+z_index = -1
+script = ExtResource("1_4hxrd")
+item_data = SubResource("Resource_ospan")
+metadata/_custom_type_script = "uid://cpqcushef3v2o"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1992588178]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6h8r8")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1979411903]
+script = ExtResource("4_03cof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2023777279]
+shape = SubResource("CircleShape2D_ospan")
