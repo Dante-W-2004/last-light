@@ -12,7 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_60r3h")
 score_label = NodePath("VBoxContainer/Score")
 high_score_label = NodePath("VBoxContainer2/HighScore")
-level_scene = "res://Scenes/CC/playertestscene.tscn"
+level_scene = "res://Procedural Generation/Scenes/map_3.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1762369861]
 layout_mode = 1
