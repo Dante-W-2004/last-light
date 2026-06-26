@@ -124,7 +124,7 @@ func generate_world():
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
 						var RandomCoord: Vector2i = TreesPlease.pick_random()
 						var CoordPosition: Vector2 = tile_map.map_to_local(RandomCoord)
-						var SpawnerSpawner = [$Spawner/SpawnerTest, $Spawner/SpawnerTest2, $Spawner/SpawnerTest3, $Spawner/SpawnerTest4, $Spawner/SpawnerTest5, $Spawner/SpawnerTest6, $Spawner/SpawnerTest7, $Spawner/SpawnerTest8, $Spawner/SpawnerTest9, $Spawner/SpawnerTest10, $Spawner/SpawnerTest11, $Spawner/SpawnerTest12, $Spawner/SpawnerTest13, $Spawner/SpawnerTest14, $Spawner/SpawnerTest15, $Spawner/SpawnerTest16, $Spawner/SpawnerTest17, $Spawner/SpawnerTest18, $Spawner/SpawnerTest19, $Spawner/SpawnerTest20, $Spawner/SpawnerTest21, $Spawner/SpawnerTest22, $Spawner/SpawnerTest23, $Spawner/SpawnerTest24, $Spawner/SpawnerTest25]
+						var SpawnerSpawner = [$Spawner/SpawnerTest, $Spawner/SpawnerTest2, $Spawner/SpawnerTest3, $Spawner/SpawnerTest4, $Spawner/SpawnerTest5, $Spawner/SpawnerTest6, $Spawner/SpawnerTest7, $Spawner/SpawnerTest8, $Spawner/SpawnerTest9, $Spawner/SpawnerTest10, $Spawner/SpawnerTest11, $Spawner/SpawnerTest12, $Spawner/SpawnerTest13, $Spawner/SpawnerTest14, $Spawner/SpawnerTest15, $Spawner/SpawnerTest16, $Spawner/SpawnerTest17, $Spawner/SpawnerTest18, $Spawner/SpawnerTest19, $Spawner/SpawnerTest20, $Spawner/SpawnerTest21, $Spawner/SpawnerTest22, $Spawner/SpawnerTest23, $Spawner/SpawnerTest24, $Spawner/SpawnerTest25, $Spawner/SpawnerTest26, $Spawner/SpawnerTest27, $Spawner/SpawnerTest28, $Spawner/SpawnerTest29, $Spawner/SpawnerTest30, $Spawner/SpawnerTest31, $Spawner/SpawnerTest32, $Spawner/SpawnerTest33, $Spawner/SpawnerTest34, $Spawner/SpawnerTest35, $Spawner/SpawnerTest36, $Spawner/SpawnerTest37, $Spawner/SpawnerTest38, $Spawner/SpawnerTest39, $Spawner/SpawnerTest40, $Spawner/SpawnerTest41, $Spawner/SpawnerTest42]
 						var AddSpawner: Node2D = SpawnerSpawner.pick_random()
 						AddSpawner.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
@@ -135,12 +135,12 @@ func generate_world():
 						var TreesPlease: Array[Vector2i] = tile_map.get_used_cells(trees_n_stuff_layer)
 						var RandomCoord: Vector2i = TreesPlease.pick_random()
 						var CoordPosition: Vector2 = tile_map.map_to_local(RandomCoord)
-						var ITEMSSPAWN = [$Items/ItemApple, $Items/ItemLog, $Items/ItemApple2, $Items/ItemLog2, $Items/ItemApple3, $Items/ItemLog3, $Items/ItemApple4, $Items/ItemLog4, $Items/ItemApple5, $Items/ItemLog5, $Items/ItemApple6, $Items/ItemLog6, $Items/ItemEvilApple6, $Items/ItemApple7, $Items/ItemLog7, $Items/ItemEvilApple7, $Items/ItemApple8, $Items/ItemLog8, $Items/ItemEvilApple8, $Items/ItemApple9, $Items/ItemLog9, $Items/ItemEvilApple9, $Items/ItemApple10, $Items/ItemLog10, $Items/ItemEvilApple10, $Items/ItemApple11, $Items/ItemLog11, $Items/ItemEvilApple11]
+						var ITEMSSPAWN = [$Items/ItemApple, $Items/ItemLog, $Items/ItemApple2, $Items/ItemLog2, $Items/ItemApple3, $Items/ItemLog3, $Items/ItemApple4, $Items/ItemLog4, $Items/ItemApple5, $Items/ItemLog5, $Items/ItemApple6, $Items/ItemLog6, $Items/ItemEvilApple6, $Items/ItemApple7, $Items/ItemLog7, $Items/ItemEvilApple7, $Items/ItemApple8, $Items/ItemLog8, $Items/ItemEvilApple8, $Items/ItemApple9, $Items/ItemLog9, $Items/ItemEvilApple9, $Items/ItemApple10, $Items/ItemLog10, $Items/ItemEvilApple10, $Items/ItemApple11, $Items/ItemApple12, $Items/ItemApple13, $Items/ItemApple14, $Items/ItemApple15, $Items/ItemApple17, $Items/ItemLog11, $Items/ItemEvilApple11, $Items/ItemCanteen, $Items/ItemRingArtifact, $Items/ItemCanteen2, $Items/ItemRingArtifact2, $Items/ItemCanteen3, $Items/ItemRingArtifact3, $Items/ItemCanteen4, $Items/ItemRingArtifact4, $Items/ItemCanteen5, $Items/ItemRingArtifact5, $Items/ItemCanteen6, $Items/ItemRingArtifact6, $Items/ItemCanteen7, $Items/ItemRingArtifact7, $Items/ItemCanteen8, $Items/ItemRingArtifact8, $Items/ItemCanteen9, $Items/ItemRingArtifact9, $Items/ItemCanteen10, $Items/ItemRingArtifact10, $Items/ItemCanteen11, $Items/ItemRingArtifact11, $Items/ItemCanteen12, $Items/ItemRingArtifact12, $Items/ItemCanteen13, $Items/ItemRingArtifact13, $Items/ItemCanteen14, $Items/ItemRingArtifact14, $Items/ItemCanteen15, $Items/ItemRingArtifact15]
 						var AddItem: Node2D = ITEMSSPAWN.pick_random()
 						AddItem.global_position = CoordPosition
 						TreesPlease.erase(RandomCoord)
 						ITEMSSPAWN.erase(AddItem)
-			
+				
 	tile_map.set_cells_terrain_connect(grass_layer, grass_tiles_arr, 0, terrain_grass_int, false)
 	tile_map.set_cells_terrain_connect(tall_layer, tall_tiles_arr, 0, terrain_tall_int, false)
 	tile_map.set_cells_terrain_connect(water_layer, water_tiles_arr, 0, terrain_water_int, false)
