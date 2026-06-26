@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_4pbwx"]
 script = ExtResource("2_1gb12")
 item_name = "Canteen"
-item_description = "Mmm, water."
+item_description = "Mmm, water. Very tasty!"
 item_icon = ExtResource("2_5psqt")
 item_weight = 0.8
 item_category = 0
